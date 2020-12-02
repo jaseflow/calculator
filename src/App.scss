@@ -262,7 +262,7 @@ strong {
   height: 100%;
   background: $offWhite;
   z-index: 50;
-  transition: transform 375ms ease;
+  transition: transform 375ms ease-out;
 }
 
 .Slides--open {
@@ -326,6 +326,11 @@ strong {
     box-shadow: 0 5px 10px rgba(0,0,0,0.25);
   }
 
+  .Nav,
+  .Slides {
+    height: 100% !important;
+  }
+
   .Nav__header {
     flex: none;
     padding-bottom: 4rem;
@@ -359,6 +364,6 @@ strong {
   }
 
   .show-desktop {
-    display: initial !important;
+    display: block !important;
   }
 }
