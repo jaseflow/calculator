@@ -155,7 +155,7 @@ function App() {
                 </div>
               </section>
             </Route>
-            <Route>
+            <Route path="/step/future">
               <section className="Slides__slide">
                 <div className="container">
                   <h1>Where you want to be</h1>
@@ -170,6 +170,14 @@ function App() {
                       <button class="btn btn--secondary">Add a retirement goals <i className="far fa-plus"></i></button>
                     </Route>
                   </Switch>
+                </div>
+              </section>
+            </Route>
+            <Route path="/step/results">
+              <section className="Slides__slide">
+                <div className="container">
+                  <h1>Results</h1>
+                  <p>Elit amet vel fuga sint doloremque? Laborum quo ea itaque aliquam animi? Dignissimos fuga quas modi repellat sit? Odit incidunt sunt autem eos possimus Esse illo nisi culpa tenetur temporibus</p>
                 </div>
               </section>
             </Route>
