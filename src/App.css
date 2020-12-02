@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  line-height: 1.5;
+  color: #111;
+  font-size: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  margin-bottom: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+strong {
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+}
+
+.Nav {
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.Nav__header {
+  padding: 1rem;
+  background: linear-gradient(135deg, #00945A 57.39%, #7FC241 106.02%);
+  flex: 1;
+}
+
+.Nav__title {
+  font-size: 42px;
+  margin-bottom: 1rem;
+}
+
+.Nav__subheader {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 400;
+}
+
+.Nav__blurb {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  padding-top: 2rem;
+}
+
+.Nav__steps {
+  list-style: none;
+  counter-reset: steps;
+}
+
+.Nav__content {
+  position: relative;
+  z-index: 10;
+  margin-top: -0.5rem;
+}
+
+.Nav__steps li {
+  counter-increment: steps;
+  border-top: 1px solid #ddd;
+}
+
+.Nav__steps li:first-child {
+  border-top: 0;
+}
+
+.Nav__link {
+  display: block;
+  padding: 1rem 0;
+  color: #111;
+  text-decoration: none;
+  padding-left: calc(30px + 1rem);
+  position: relative;
+  opacity: 0.5;
+}
+
+.Nav__link strong,
+.Nav__link small {
+  display: block;
+}
+
+.Nav__link:before {
+  content: counter(steps);
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  background: #222;
+  font-size: 18px;
+  position: absolute;
+  font-weight: 700;
+  left: 0;
+  top: 1.5rem;
+}
+
+.Nav__arrow {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+}
+
+.Nav__link--active:before {
+  background: #00945A;
+}
+
+.Nav__link--active {
+  opacity: 1;
+}
+
+.Nav__link--active .Nav__arrow {
+  color: #00945A;
+}
+
+.Nav__footer {
+  background: #fff;
+  padding: 1rem;
+  position: relative;
+}
+
+.Nav__footer:before {
+  width: 100%;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -25px;
+  width: 110%;
+  margin-left: -5%;
+}
+
+.Slides {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  z-index: 50;
+}
+
+.Slides__footer {
+  background: #fff;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.25);
+  padding: 1rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Slides__slide {
+  padding: 1rem;
 }
