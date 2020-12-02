@@ -237,7 +237,7 @@ strong {
   background: $offWhite;
   z-index: 50;
   transition: transform 375ms ease;
-  padding-bottom: calc(50px + $spacing);
+  padding-bottom: calc(50px + 1rem);
 }
 
 .Slides--open {
