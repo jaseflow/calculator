@@ -6,6 +6,7 @@ import './App.scss';
 import {
   Switch,
   useLocation,
+  useHistory,
   Link,
   Route
 } from 'react-router-dom';
@@ -42,7 +43,8 @@ const steps = [
 ]
 
 function App() {
-  const location = useLocation()
+  let location = useLocation()
+  let history = useHistory()
 
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
@@ -105,6 +107,13 @@ function App() {
   })
 
   useEffect(() => {
+    setWindowHeight(window.innerHeight)
+  },[])
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      history.push(steps[0].sections[0])
+    }
     setWindowHeight(window.innerHeight)
   },[])
 
