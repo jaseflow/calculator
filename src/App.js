@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Logo from './Logo.svg';
 import './App.scss';
@@ -45,6 +45,7 @@ function App() {
   const location = useLocation()
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
+  const [windowHeight, setWindowHeight] = useState(null)
 
   function handleSave() {
     steps[stepIndex].completed = true
@@ -59,7 +60,7 @@ function App() {
       'Nav__link--completed': step.completed
     })
     return (
-      <li>
+      <li key={`step-${i}`}>
         {step.completed || stepIndex === i ?
           <Link to={steps[i].sections[0]} onClick={() => setStepIndex(i)} className={linkClasses}>
             <strong>{step.name}</strong>
@@ -81,9 +82,13 @@ function App() {
     )
   })
 
+  useEffect(() => {
+    setWindowHeight(window.innerHeight)
+  },[])
+
   return (
     <div className="App">
-      <nav className="Nav">
+      <nav className="Nav" style={{ height: windowHeight }}>
         <header className="Nav__header">
           <img src={Logo} alt="" />
           <div className="Nav__blurb">
@@ -107,8 +112,8 @@ function App() {
           </div>
         </footer>
       </nav>
-      <main className={`Slides ${location.pathname.includes('/step') ? 'Slides--open' : ''}`}>
-        <div className="Slides__wrap">
+      <main className={`Slides ${location.pathname.includes('/step') ? 'Slides--open' : ''}`} style={{ height: windowHeight }}>
+        <div className="Slides__wrap" style={{ height: windowHeight }}>
           <Switch>
             <Route path="/step/current">
               <section className="Slides__slide">
@@ -135,6 +140,11 @@ function App() {
                           <div className="form__group">
                             <label className="form__label" htmlFor="">My current super balance is</label>
                             <input type="text" value="58" className="form__input" />
+                          </div>
+                          <div className="form__group">
+                            <label className="form__label" htmlFor="">Extra contributions</label>
+                            <input type="text" value="58" className="form__input form__input--suffixed" />
+                            <span className="form__suffix">per month</span>
                           </div>
                           <div className="form__group">
                             <label className="form__label" htmlFor="">Extra contributions</label>

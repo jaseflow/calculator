@@ -238,11 +238,14 @@ strong {
   background: $offWhite;
   z-index: 50;
   transition: transform 375ms ease;
-  padding-bottom: calc(50px + 1rem);
 }
 
 .Slides--open {
   transform: translateX(-100%);
+}
+
+.Slides__wrap {
+  overflow-y: auto;
 }
 
 .Slides__footer {
@@ -268,6 +271,7 @@ strong {
 
 .Slides__slide {
   padding: 1rem;
+  padding-bottom: calc(50px + 1rem);
 }
 
 .Slides__back {
