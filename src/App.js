@@ -88,18 +88,32 @@ function App() {
       <li key={`step-${i}`}>
         {step.completed || stepIndex === i ?
           <Link to={steps[i].sections[0]} onClick={() => setStepIndex(i)} className={linkClasses}>
-            <strong>{step.name}</strong>
-            <small>{step.helperText}</small>
             {step.completed ? 
-              <i className="far fa-check Nav__icon Nav__icon--tick"></i>
+              <div className="Nav__counter Nav__counter--checked">
+                <i className="far fa-check"></i>
+              </div>
               :
-              <i className="far fa-chevron-right Nav__icon"></i>
+              <div className="Nav__counter">{i + 1}</div>
             }
+            <div>
+              <strong>{step.name}</strong>
+              <small>{step.helperText}</small>
+            </div>
+            <i className="far fa-chevron-right Nav__icon"></i>
           </Link>
           :
           <div className={linkClasses}>
-            <strong>{step.name}</strong>
-            <small>{step.helperText}</small>
+            {step.completed ? 
+              <div className="Nav__counter Nav__counter--checked">
+                <i className="far fa-check"></i>
+              </div>
+              :
+              <div className="Nav__counter">{i + 1}</div>
+            }
+            <div>
+              <strong>{step.name}</strong>
+              <small>{step.helperText}</small>
+            </div>
             <i className="far fa-chevron-right Nav__icon"></i>
           </div>
         }
@@ -122,7 +136,7 @@ function App() {
     <div className="App">
       <nav className="Nav" style={{ height: windowHeight }}>
         <header className="Nav__header">
-          <img src={Logo} alt="" class="Nav__logo" />
+          <img src={Logo} alt="" className="Nav__logo" />
           <div className="Nav__blurb">
             <h1 className="Nav__title">Got a gap?</h1>
             <p>To effectively plan for life after work,

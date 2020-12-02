@@ -167,11 +167,11 @@ strong {
 }
 
 .Nav__link {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 1rem 0;
   color: #111;
   text-decoration: none;
-  padding-left: calc(30px + 1rem);
   position: relative;
   opacity: 0.5;
   user-select: none;
@@ -182,8 +182,7 @@ strong {
   display: block;
 }
 
-.Nav__link:before {
-  content: counter(steps);
+.Nav__counter {
   display: block;
   width: 30px;
   height: 30px;
@@ -193,10 +192,8 @@ strong {
   color: #fff;
   background: #222;
   font-size: 18px;
-  position: absolute;
   font-weight: 700;
-  left: 0;
-  top: 1.5rem;
+  margin-right: 1rem;
 }
 
 .Nav__icon {
@@ -220,13 +217,13 @@ strong {
   }
 }
 
-.Nav__icon--tick {
+.Nav__counter--checked {
   opacity: 0;
   animation: showTick 375ms 375ms ease forwards;
 }
 
-.Nav__link--active:before,
-.Nav__link--completed:before {
+.Nav__link--active .Nav__counter,
+.Nav__link--completed .Nav__counter {
   background: $darkGreen;
 }
 
