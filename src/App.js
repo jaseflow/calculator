@@ -6,7 +6,6 @@ import './App.scss';
 import {
   Switch,
   useLocation,
-  useHistory,
   Link,
   Route
 } from 'react-router-dom';
@@ -44,7 +43,6 @@ const steps = [
 
 function App() {
   const location = useLocation()
-  const history = useHistory()
 
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
@@ -54,6 +52,27 @@ function App() {
     steps[stepIndex].completed = true
     setStepIndex(stepIndex + 1)
     setSectionIndex(0)
+  }
+
+  let nextButton
+
+  if ((stepIndex + 1) === steps.length) {
+    nextButton = <Link to='/completed' className="btn">Complete</Link>
+  } else {
+    if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
+      nextButton = (
+        <div>
+          <div className="show-desktop">
+            <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
+          </div>
+          <div className="show-mobile">
+            <Link onClick={handleSave} to="/" className="btn">Save</Link>
+          </div>
+        </div>
+      )
+    } else {
+      nextButton = <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
+    }
   }
 
   const navLinks = steps.map((step, i) => {
@@ -202,18 +221,7 @@ function App() {
                 <i className="far fa-chevron-left"></i>
               </Link>
             }
-            { (sectionIndex + 1) >= steps[stepIndex].sections.length ? 
-              <div>
-                <div className="show-desktop">
-                  <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
-                </div>
-                <div className="show-mobile">
-                  <Link onClick={handleSave} to="/" className="btn">Save</Link>
-                </div>
-              </div>
-              :
-              <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
-            }
+            {nextButton}
           </div>
         </footer>
       </main>
