@@ -145,7 +145,7 @@ function App() {
               to create the future you want.
             </p>
             <p>
-              <i style={{ marginRight : '0.5rem' }} className="far fa-stopwatch"></i>
+              <i style={{ marginRight : '0.5rem' }} className="far fa-stopwatch Nav__clock"></i>
               <strong>Takes approximately 15 minutes</strong>
             </p>
           </div>
