@@ -6,7 +6,9 @@ function AboutYou() {
   return (
     <div>
       <h2>About you</h2>
-      <p>You will notice we have prefilled information we lready know about you.</p>
+      <div className="Alert">
+        <p class="flat">You will notice we have prefilled information we already know about you.</p>
+      </div>
       <div className="form">
         <div className="form__row">
           <div className="form__group">
@@ -25,19 +27,20 @@ function AboutYou() {
             <label className="form__label" htmlFor="">My current super balance is</label>
             <input type="text" value="$500,000" className="form__input" />
           </div>
-          <div className="form__group">
+          <div className="form__group flat">
             <label className="form__label" htmlFor="">Extra contributions</label>
             <input type="text" value="$300" className="form__input form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
         </div>
       </div>
-      <label className="form__label form__label--checkbox" htmlFor="includePartner" onChange={() => setIncludePartner(!includePartner)}>
+      <label className="form__label form__label--checkbox flat" htmlFor="includePartner" onChange={() => setIncludePartner(!includePartner)}>
         <input type="checkbox" id="includePartner" className="form__checkbox" />
         Include my partner
       </label>
       { includePartner ?
         <div className="form">
+          <hr />
           <div className="form__row">
             <div className="form__group">
               <label className="form__label" htmlFor="">Their age</label>
