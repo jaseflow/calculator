@@ -206,7 +206,7 @@ strong {
   }
   50% {
     opacity: 1;
-    transform: scale(1.25);
+    transform: scale(1.5);
   }
   100% {
     opacity: 1;
@@ -262,7 +262,7 @@ strong {
   height: 100%;
   background: $offWhite;
   z-index: 50;
-  transition: transform 375ms ease-out;
+  transition: transform 200ms ease-out;
 }
 
 .Slides--open {
