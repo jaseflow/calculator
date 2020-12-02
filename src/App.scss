@@ -40,6 +40,10 @@ strong {
   width: 100%;
 }
 
+.show-desktop {
+  display: none !important;
+}
+
 .btn {
   display: inline-block;
   background: $darkGreen;
@@ -62,6 +66,7 @@ strong {
 
 .btn--secondary {
   background: #fff;
+  line-height: 36px;
   border: 2px solid $offBlack;
   color: $offBlack;
 }
@@ -192,6 +197,26 @@ strong {
   position: absolute;
   right: 1rem;
   top: 2rem;
+}
+
+@keyframes showTick {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.Nav__icon--tick {
+  opacity: 0;
+  animation: showTick 375ms 375ms ease forwards;
 }
 
 .Nav__link--active:before,
@@ -327,5 +352,13 @@ strong {
 
   .Slides--open {
     transform: translateX(0);
+  }
+
+  .show-mobile {
+    display: none !important;
+  }
+
+  .show-desktop {
+    display: initial !important;
   }
 }

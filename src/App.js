@@ -6,6 +6,7 @@ import './App.scss';
 import {
   Switch,
   useLocation,
+  useHistory,
   Link,
   Route
 } from 'react-router-dom';
@@ -43,6 +44,8 @@ const steps = [
 
 function App() {
   const location = useLocation()
+  const history = useHistory()
+
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
@@ -66,7 +69,7 @@ function App() {
             <strong>{step.name}</strong>
             <small>{step.helperText}</small>
             {step.completed ? 
-              <i className="far fa-check Nav__icon"></i>
+              <i className="far fa-check Nav__icon Nav__icon--tick"></i>
               :
               <i className="far fa-chevron-right Nav__icon"></i>
             }
@@ -146,18 +149,13 @@ function App() {
                             <input type="text" value="58" className="form__input form__input--suffixed" />
                             <span className="form__suffix">per month</span>
                           </div>
-                          <div className="form__group">
-                            <label className="form__label" htmlFor="">Extra contributions</label>
-                            <input type="text" value="58" className="form__input form__input--suffixed" />
-                            <span className="form__suffix">per month</span>
-                          </div>
                         </div>
                       </div>
                     </Route>
                     <Route path="/step/current/other-income">
                       <h2>Other income</h2>
                       <p>If you have any other sources of income plesae add them below.</p>
-                      <button class="btn btn--secondary">
+                      <button className="btn btn--secondary">
                         Add another income source <i className="far fa-plus"></i>
                       </button>
                     </Route>
@@ -177,7 +175,7 @@ function App() {
                     <Route path="/step/future/retirement-goals">
                       <h2>Your retirement goals</h2>
                       <p>Add some retirement goals to help calculate how much you will need.</p>
-                      <button class="btn btn--secondary">Add a retirement goals <i className="far fa-plus"></i></button>
+                      <button className="btn btn--secondary">Add a retirement goals <i className="far fa-plus"></i></button>
                     </Route>
                   </Switch>
                 </div>
@@ -205,7 +203,10 @@ function App() {
               </Link>
             }
             { (sectionIndex + 1) >= steps[stepIndex].sections.length ? 
-              <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
+              <div>
+                <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn show-desktop">Save D</Link>
+                <Link onClick={handleSave} to="/" className="btn show-mobile">Save M</Link>
+              </div>
               :
               <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
             }
