@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import Logo from './Logo.svg';
 import './App.scss';
 
-import {
-  Switch,
+import AboutYou from './slides/AboutYou'
+
+import { Switch,
   useLocation,
   useHistory,
   Link,
@@ -121,7 +122,7 @@ function App() {
     <div className="App">
       <nav className="Nav" style={{ height: windowHeight }}>
         <header className="Nav__header">
-          <img src={Logo} alt="" />
+          <img src={Logo} alt="" class="Nav__logo" />
           <div className="Nav__blurb">
             <h1 className="Nav__title">Got a gap?</h1>
             <p>To effectively plan for life after work,
@@ -152,33 +153,7 @@ function App() {
                   <h1>Where you're at</h1>
                   <Switch>
                     <Route path="/step/current/about-you">
-                      <h2>About you</h2>
-                      <p>You will notice we have prefilled information we lready know about you.</p>
-                      <div className="form">
-                        <div className="form__row">
-                          <div className="form__group">
-                            <label className="form__label" htmlFor="">Age</label>
-                            <input type="text" value="58" className="form__input form__input--suffixed" />
-                            <span className="form__suffix">years old</span>
-                          </div>
-                          <div className="form__group">
-                            <label className="form__label" htmlFor="">My salary before tax is</label>
-                            <input type="text" value="$150,000" className="form__input form__input--suffixed" />
-                            <span className="form__suffix">per year</span>
-                          </div>
-                        </div>
-                        <div className="form__row">
-                          <div className="form__group">
-                            <label className="form__label" htmlFor="">My current super balance is</label>
-                            <input type="text" value="$500,000" className="form__input" />
-                          </div>
-                          <div className="form__group">
-                            <label className="form__label" htmlFor="">Extra contributions</label>
-                            <input type="text" value="$300" className="form__input form__input--suffixed" />
-                            <span className="form__suffix">per month</span>
-                          </div>
-                        </div>
-                      </div>
+                      <AboutYou />
                     </Route>
                     <Route path="/step/current/other-income">
                       <h2>Other income</h2>

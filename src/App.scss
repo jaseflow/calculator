@@ -114,8 +114,16 @@ strong {
 
 .Nav__header {
   padding: 1rem;
-  background: linear-gradient(135deg, $darkGreen 57.39%, $brandGreen 106.02%);
+  background: $darkGreen;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+
+.Nav__logo {
+  width: 100px;
 }
 
 .Nav__title {
@@ -132,8 +140,6 @@ strong {
 
 .Nav__blurb {
   color: #fff;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-  padding-top: 1rem;
 }
 
 .Nav__blurb p + p {
