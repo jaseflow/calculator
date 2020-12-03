@@ -52,7 +52,7 @@ function IdealRetirement(props) {
           <small className="Plan__description">{p.description}</small>
         </div>
         { p.id != 'custom' &&
-          <i className="fal fa-info-circle Plan__info" onClick={props.onInfoClick}></i>
+        <i className="fal fa-info-circle Plan__info" onClick={() => props.onInfoClick(p.id)}></i>
         }
       </label>
     )

@@ -198,7 +198,7 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <IdealRetirement onInfoClick={() => handleModalOpen('info')} />
+                      <IdealRetirement onInfoClick={(d) => handleModalOpen(d)} />
                     </Route>
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals onAddingGoal={() => handleModalOpen('goals')} />
