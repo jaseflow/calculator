@@ -51,7 +51,9 @@ function IdealRetirement() {
           <strong className="Plan__name">{p.name}</strong>
           <small className="Plan__description">{p.description}</small>
         </div>
-        <i className="fal fa-info-circle Plan__info" onClick={() => setModalOpen(true)}></i>
+        { p.id != 'custom' &&
+          <i className="fal fa-info-circle Plan__info" onClick={() => setModalOpen(true)}></i>
+        }
       </label>
     )
   })
@@ -76,6 +78,17 @@ function IdealRetirement() {
       </div>
       <div>
         {planOptions}
+        {plan === 'custom' &&
+          <div className="IdealRetirement__custom">
+            <div className="form">
+              <div className="form__group">
+                <label className="form__label" htmlFor="">Custom retirement income</label>
+                <input type="text" value="$500,000" className="form__input form__input--suffixed" />
+                <span className="form__suffix">per year</span>
+              </div>
+            </div>
+          </div>
+        }
       </div>
       <div className={`Modal ${modalOpen ? 'Modal--open' : ''}`}>
         <div className="Modal__card">

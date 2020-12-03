@@ -505,6 +505,7 @@ hr {
   opacity: 0;
   transform: translateY(100%);
   transition: all 375ms ease;
+  overflow: hidden;
 }
 
 .Modal--open .Modal__card {
@@ -540,6 +541,10 @@ hr {
   padding: 0 1rem;
   box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
   background: #fff;
+}
+
+.IdealRetirement__custom {
+  padding-top: 0.5rem;
 }
 
 @media(min-width: 768px) {
