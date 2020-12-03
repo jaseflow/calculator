@@ -32,11 +32,10 @@ const plans = [
   }
 ]
 
-function IdealRetirement() {
+function IdealRetirement(props) {
 
   const [ age, setAge ] = useState(66)
   const [ plan, setPlan ] = useState('simple')
-  const [ modalOpen, setModalOpen ] = useState(false)
 
   const labels = {
     50: '50',
@@ -53,7 +52,7 @@ function IdealRetirement() {
           <small className="Plan__description">{p.description}</small>
         </div>
         { p.id != 'custom' &&
-          <i className="fal fa-info-circle Plan__info" onClick={() => setModalOpen(true)}></i>
+          <i className="fal fa-info-circle Plan__info" onClick={props.onInfoClick}></i>
         }
       </label>
     )
@@ -90,32 +89,6 @@ function IdealRetirement() {
             </div>
           </div>
         }
-      </div>
-      <div className={`Modal ${modalOpen ? 'Modal--open' : ''}`}>
-        <div className="Modal__card">
-          <div className="Modal__scroll">
-            <div className="Modal__hero"></div>
-            <div className="Modal__content">
-              <h2 class="flat">Comfortable retirement</h2>
-              <p>$43,687 pa</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <h3>Available lifestyle</h3>
-              <ul>
-                <li>A reasonable car</li>
-                <li>Occasional international travel</li>
-                <li>Private health</li>
-              </ul>
-            </div>
-          </div>
-          <footer class="Modal__footer">
-            <button class="btn btn--secondary" onClick={() => setModalOpen(false)}>Okay, got it</button>
-          </footer>
-        </div>
       </div>
     </div>
   )

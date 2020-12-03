@@ -53,6 +53,7 @@ function App() {
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
+  const [ modalOpen, setModalOpen ] = useState(false)
 
   function handleSave() {
     steps[stepIndex].completed = true
@@ -191,7 +192,7 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <IdealRetirement />
+                      <IdealRetirement onInfoClick={() => setModalOpen(true)} />
                     </Route>
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals />
@@ -228,6 +229,32 @@ function App() {
           </div>
         </footer>
       </main>
+      <div className={`Modal ${modalOpen ? 'Modal--open' : ''}`}>
+        <div className="Modal__card">
+          <div className="Modal__scroll">
+            <div className="Modal__hero"></div>
+            <div className="Modal__content">
+              <h2 class="flat">Comfortable retirement</h2>
+              <p>$43,687 pa</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
+              <h3>Available lifestyle</h3>
+              <ul>
+                <li>A reasonable car</li>
+                <li>Occasional international travel</li>
+                <li>Private health</li>
+              </ul>
+            </div>
+          </div>
+          <footer class="Modal__footer">
+            <button class="btn btn--secondary" onClick={() => setModalOpen(false)}>Okay, got it</button>
+          </footer>
+        </div>
+      </div>
     </div>
   );
 }

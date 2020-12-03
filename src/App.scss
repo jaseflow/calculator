@@ -459,7 +459,7 @@ hr {
   border-radius: $radius;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -522,6 +522,7 @@ hr {
   z-index: 500;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -539,6 +540,7 @@ hr {
   transform: translateY(100%);
   transition: all 375ms ease;
   overflow: hidden;
+  max-width: 480px;
 }
 
 .Modal--open .Modal__card {
@@ -633,4 +635,13 @@ hr {
   .show-desktop {
     display: block !important;
   }
+
+  .Modal {
+    align-items: center;
+  }
+  
+  .Modal__card {
+    max-height: 600px;
+  }
+
 }
