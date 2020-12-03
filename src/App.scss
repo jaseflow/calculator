@@ -484,12 +484,11 @@ hr {
   height: 15px;
   background: $darkGreen;
   border-radius: 50%;
-  opacity: 0;
-  transition: opacity 375ms ease;
+  display: none;
 }
 
 .Plan__circle--selected:before {
-  opacity: 1;
+  display: block;
 }
 
 .Plan__content {
