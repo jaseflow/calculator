@@ -4,6 +4,7 @@ import Logo from './Logo.svg';
 import './App.scss';
 
 import AboutYou from './slides/AboutYou'
+import OtherIncome from './slides/OtherIncome'
 
 import { Switch,
   useLocation,
@@ -173,11 +174,7 @@ function App() {
                       <AboutYou />
                     </Route>
                     <Route path="/step/current/other-income">
-                      <h2>Other income</h2>
-                      <p>If you have any other sources of income plesae add them below.</p>
-                      <button className="btn btn--secondary">
-                        Add another income source <i className="far fa-plus"></i>
-                      </button>
+                      <OtherIncome />
                     </Route>
                   </Switch>
                 </div>
