@@ -37,8 +37,16 @@ h2 {
   font-size: 22px;
 }
 
+h3 {
+  font-size: 16px;
+}
+
 strong {
   font-weight: 600;
+}
+
+ul {
+  margin-left: 1em;
 }
 
 hr {
@@ -443,6 +451,94 @@ hr {
 
 .OtherIncome__action {
   margin-bottom: 1rem;
+}
+
+.Plan {
+  background: #fff;
+  border-radius: $radius;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.Plan__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  line-height: 1.2;
+  padding-left: 1rem;
+}
+
+.Plan__info {
+  font-size: 24px;
+}
+
+.Plan__name {
+  font-size: 16px;
+}
+
+.Modal {
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+.Modal--open {
+  transform: translateX(-100%);
+}
+
+.Modal__card {
+  background: #fff;
+  border-radius: $radius;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 375ms ease;
+}
+
+.Modal--open .Modal__card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Modal__scroll {
+  height: 100%;
+  position: absolute;
+  overflow-y: auto;
+}
+
+.Modal__hero {
+  background: $gray;
+  height: 150px;
+}
+
+.Modal__content {
+  padding: 1rem;
+  padding-bottom: calc(60px + 1rem);
+}
+
+.Modal__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+  padding: 0 1rem;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+  background: #fff;
 }
 
 @media(min-width: 768px) {
