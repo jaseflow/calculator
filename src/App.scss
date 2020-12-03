@@ -463,6 +463,35 @@ hr {
   margin-bottom: 0.5rem;
 }
 
+.Plan__input {
+  display: none;
+}
+
+.Plan__circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Plan__circle:before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: $darkGreen;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 375ms ease;
+}
+
+.Plan__circle--selected:before {
+  opacity: 1;
+}
+
 .Plan__content {
   display: flex;
   flex-direction: column;
@@ -472,7 +501,12 @@ hr {
 }
 
 .Plan__info {
-  font-size: 24px;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  line-height: 44px;
+  margin-right: -10px;
 }
 
 .Plan__name {

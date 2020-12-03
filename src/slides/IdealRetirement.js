@@ -46,7 +46,8 @@ function IdealRetirement() {
   const planOptions = plans.map((p) => {
     return (
       <label htmlFor={p.id} class="Plan">
-        <input type="radio" id={p.id} value={p.id} checked={plan === p.id} onChange={() => setPlan(p.id)} />
+        <input type="radio" class="Plan__input" id={p.id} value={p.id} checked={plan === p.id} onChange={() => setPlan(p.id)} />
+        <div className={`Plan__circle ${p.id === plan ? 'Plan__circle--selected' : ''}`}></div>
         <div className="Plan__content">
           <strong className="Plan__name">{p.name}</strong>
           <small className="Plan__description">{p.description}</small>
