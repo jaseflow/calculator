@@ -1,4 +1,4 @@
-import React, { useState  } from 'react';
+import React from 'react';
 
 import ModalGoals from './ModalGoals'
 import ModalIncome from './ModalIncome'

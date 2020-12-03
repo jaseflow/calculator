@@ -5,6 +5,7 @@ $offBlack: #323D47;
 $black: #0E0E0E;
 $gray: #BBBBBB;
 $blueGray: #F1F6FF;
+$blue: #0087ff;
 $radius: 5px;
 $spacing: 1rem;
 $halfSpacing: 0.5rem;
@@ -526,6 +527,7 @@ hr {
   text-align: center;
   line-height: 44px;
   margin-right: -10px;
+  color: $blue;
 }
 
 .Plan__name {
@@ -533,7 +535,7 @@ hr {
 }
 
 .Modal {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
   left: 100%;
@@ -550,6 +552,17 @@ hr {
   transform: translateX(-100%);
 }
 
+@keyframes showCard {
+  from {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
 .Modal__card {
   background: #fff;
   border-radius: $radius;
@@ -557,9 +570,9 @@ hr {
   opacity: 0;
   width: 100%;
   transform: translateY(100%);
-  transition: all 375ms ease;
   overflow: hidden;
   max-width: 480px;
+  animation: showCard 375ms ease forwards;
 }
 
 .Modal__card--scrollable {
@@ -569,6 +582,7 @@ hr {
 .Modal--open .Modal__card {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 1s;
 }
 
 .Modal__scroll {
