@@ -75,22 +75,22 @@ function AboutYou() {
             </div>
             <div className="form__group">
               <label className="form__label" htmlFor="">Age</label>
-              <input type="text" value="58" className="form__input" />
+              <input type="text" value="" className="form__input" />
             </div>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-            <input type="text" value="$150,000" className="form__input form__input--suffixed" />
+            <input type="text" value="" className="form__input form__input--suffixed" />
             <span className="form__suffix">per year</span>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Current super balance</label>
-            <input type="text" value="$500,000" className="form__input" />
+            <input type="text" value="" className="form__input" />
           </div>
           <h2>Your partner's contributions</h2>
           <div className="form__group">
             <label className="form__label" htmlFor="">Employer contributions</label>
-            <input type="text" value="$300" className="form__input form__input--suffixed" />
+            <input type="text" value="" className="form__input form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
           <label className="form__label" htmlFor="">Does your partner make voluntary contributions?</label>
@@ -108,11 +108,11 @@ function AboutYou() {
             <div>
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-                <input type="text" value="$500,000" className="form__input" />
+                <input type="text" value="" className="form__input" />
               </div>
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (after tax)</label>
-                <input type="text" value="$500,000" className="form__input" />
+                <input type="text" value="" className="form__input" />
               </div>
             </div>
           : null }
