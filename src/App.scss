@@ -119,6 +119,26 @@ hr {
   background: #fff;
 }
 
+.btn--tertiary {
+  background: #fff;
+  border: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: $offBlack;
+  font-size: 100%;
+  padding: 0 1.5rem;
+}
+
+.btn--tertiary i {
+  font-size: 20px;
+  margin-right: 1rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
 .form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -534,13 +554,16 @@ hr {
   background: #fff;
   border-radius: $radius;
   position: relative;
-  height: 100%;
-  width: 100%;
   opacity: 0;
+  width: 100%;
   transform: translateY(100%);
   transition: all 375ms ease;
   overflow: hidden;
   max-width: 480px;
+}
+
+.Modal__card--scrollable {
+  height: 100%;
 }
 
 .Modal--open .Modal__card {
@@ -550,6 +573,7 @@ hr {
 
 .Modal__scroll {
   height: 100%;
+  width: 100%;
   position: absolute;
   overflow-y: auto;
 }
@@ -562,6 +586,20 @@ hr {
 .Modal__content {
   padding: 1rem;
   padding-bottom: calc(60px + 1rem);
+}
+
+.Modal__content--tight {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.Modal__list {
+  margin-left: 0;
+  width: 100%;
+}
+
+.Modal__list li {
+  margin-bottom: 1px;
 }
 
 .Modal__footer {

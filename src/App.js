@@ -8,6 +8,8 @@ import OtherIncome from './slides/OtherIncome'
 import IdealRetirement from './slides/IdealRetirement'
 import RetirementGoals from './slides/RetirementGoals'
 
+import Modal from './components/Modal'
+
 import { Switch,
   useLocation,
   useHistory,
@@ -54,12 +56,29 @@ function App() {
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
   const [ modalOpen, setModalOpen ] = useState(false)
+  const [ activeModal, setActiveModal ] = useState('')
 
   function handleSave() {
     steps[stepIndex].completed = true
     setStepIndex(stepIndex + 1)
     setSectionIndex(0)
   }
+
+  function handleModalOpen(modal) {
+    setModalOpen('true')
+    setActiveModal(modal)
+  }
+
+  useEffect(() => {
+    setWindowHeight(window.innerHeight)
+  },[])
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      history.push(steps[0].sections[0])
+    }
+    setWindowHeight(window.innerHeight)
+  },[])
 
   let nextButton
 
@@ -125,17 +144,6 @@ function App() {
     )
   })
 
-  useEffect(() => {
-    setWindowHeight(window.innerHeight)
-  },[])
-
-  useEffect(() => {
-    if (window.innerWidth > 768) {
-      history.push(steps[0].sections[0])
-    }
-    setWindowHeight(window.innerHeight)
-  },[])
-
   return (
     <div className="App">
       <nav className="Nav" style={{ height: windowHeight }}>
@@ -169,7 +177,6 @@ function App() {
               <section className="Slides__slide">
                 <div className="container">
                   <h1 className="Slides__title">
-                    <i className="Nav__counter Nav__counter--active">1</i>
                     Where you're at
                   </h1>
                   <Switch>
@@ -177,7 +184,7 @@ function App() {
                       <AboutYou />
                     </Route>
                     <Route path="/step/current/other-income">
-                      <OtherIncome />
+                      <OtherIncome onAddingIncome={() => handleModalOpen('income')} />
                     </Route>
                   </Switch>
                 </div>
@@ -187,15 +194,14 @@ function App() {
               <section className="Slides__slide">
                 <div className="container">
                   <h1 className="Slides__title">
-                    <i className="Nav__counter Nav__counter--active">2</i>
                     Where you want to be
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <IdealRetirement onInfoClick={() => setModalOpen(true)} />
+                      <IdealRetirement onInfoClick={() => handleModalOpen('info')} />
                     </Route>
                     <Route path="/step/future/retirement-goals">
-                      <RetirementGoals />
+                      <RetirementGoals onAddingGoal={() => handleModalOpen('goals')} />
                     </Route>
                   </Switch>
                 </div>
@@ -205,7 +211,6 @@ function App() {
               <section className="Slides__slide">
                 <div className="container">
                   <h1>
-                    <i className="Nav__counter Nav__counter--active">2</i>
                     Results
                   </h1>
                   <p>Elit amet vel fuga sint doloremque? Laborum quo ea itaque aliquam animi? Dignissimos fuga quas modi repellat sit? Odit incidunt sunt autem eos possimus Esse illo nisi culpa tenetur temporibus</p>
@@ -225,36 +230,13 @@ function App() {
                 <i className="far fa-chevron-left"></i>
               </Link>
             }
-            {nextButton}
+            <div>
+              {nextButton}
+            </div>
           </div>
         </footer>
       </main>
-      <div className={`Modal ${modalOpen ? 'Modal--open' : ''}`}>
-        <div className="Modal__card">
-          <div className="Modal__scroll">
-            <div className="Modal__hero"></div>
-            <div className="Modal__content">
-              <h2 class="flat">Comfortable retirement</h2>
-              <p>$43,687 pa</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <p>A comfortable retirement lifestyle enables an older, healthy retiree to have a good standard of living through the purchase of such things as:</p>
-              <h3>Available lifestyle</h3>
-              <ul>
-                <li>A reasonable car</li>
-                <li>Occasional international travel</li>
-                <li>Private health</li>
-              </ul>
-            </div>
-          </div>
-          <footer class="Modal__footer">
-            <button class="btn btn--secondary" onClick={() => setModalOpen(false)}>Okay, got it</button>
-          </footer>
-        </div>
-      </div>
+      <Modal active={activeModal} open={modalOpen} onDismiss={() => setModalOpen(false)} />
     </div>
   );
 }

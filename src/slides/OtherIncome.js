@@ -1,19 +1,11 @@
 import React, { useState  } from 'react';
 
-function OtherIncome() {
+function OtherIncome(props) {
   const [ incomeSources, setIncomeSources  ] = useState([])
 
   function handleRemove(i) {
     const newSources = incomeSources.filter((item, index) => index !== i)
     setIncomeSources(newSources)
-  }
-
-  function handleAdd() {
-    const source = {
-      type: undefined,
-      value: undefined
-    }
-    setIncomeSources(incomeSources => [...incomeSources, source])
   }
 
   const sources = incomeSources.map((s, i) => {
@@ -45,7 +37,7 @@ function OtherIncome() {
       <h2>Other income</h2>
       <p>If you have any other sources of income plesae add them below.</p>
       <div className="OtherIncome__action">
-        <button className="btn btn--secondary" onClick={handleAdd}>
+        <button className="btn btn--secondary" onClick={props.onAddingIncome}>
           Add another income source <i className="far fa-plus"></i>
         </button>
       </div>

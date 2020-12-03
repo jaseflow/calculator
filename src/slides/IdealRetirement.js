@@ -60,7 +60,6 @@ function IdealRetirement(props) {
 
   return (
     <div>
-      <h2>Your ideal retirement</h2>
       <p>Your current combined income is $200,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
       <div className="form__slider">
         <label htmlFor="" class="form__label form__label--range">
@@ -77,6 +76,7 @@ function IdealRetirement(props) {
         />
       </div>
       <div>
+        <h2>Your ideal retirement</h2>
         {planOptions}
         {plan === 'custom' &&
           <div className="IdealRetirement__custom">
