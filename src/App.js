@@ -164,7 +164,10 @@ function App() {
             <Route path="/step/current">
               <section className="Slides__slide">
                 <div className="container">
-                  <h1>Where you're at</h1>
+                  <h1 className="Slides__title">
+                    <i className="Nav__counter Nav__counter--active">1</i>
+                    Where you're at
+                  </h1>
                   <Switch>
                     <Route path="/step/current/about-you">
                       <AboutYou />
@@ -183,7 +186,10 @@ function App() {
             <Route path="/step/future">
               <section className="Slides__slide">
                 <div className="container">
-                  <h1>Where you want to be</h1>
+                  <h1 className="Slides__title">
+                    <i className="Nav__counter Nav__counter--active">2</i>
+                    Where you want to be
+                  </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
                       <h2>Your ideal retirement</h2>
@@ -201,7 +207,10 @@ function App() {
             <Route path="/step/results">
               <section className="Slides__slide">
                 <div className="container">
-                  <h1>Results</h1>
+                  <h1>
+                    <i className="Nav__counter Nav__counter--active">2</i>
+                    Results
+                  </h1>
                   <p>Elit amet vel fuga sint doloremque? Laborum quo ea itaque aliquam animi? Dignissimos fuga quas modi repellat sit? Odit incidunt sunt autem eos possimus Esse illo nisi culpa tenetur temporibus</p>
                 </div>
               </section>
