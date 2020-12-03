@@ -246,6 +246,20 @@ hr {
   box-shadow: 0 1px 1px rgba(0,0,0,0.25);
 }
 
+.App__header {
+  height: 80px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  z-index: 100;
+  padding: 0 1rem;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
 .Nav {
   height: 100vh;
   display: flex;
@@ -262,10 +276,12 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
   padding-bottom: 3rem;
 }
 
-.Nav__logo {
+.Nav__logo,
+.App__logo {
   width: 100px;
 }
 
@@ -287,6 +303,7 @@ hr {
 
 .Nav__blurb {
   color: #fff;
+  max-width: 360px;
 }
 
 .Nav__blurb p + p {
@@ -636,11 +653,16 @@ hr {
 
 @media(min-width: 768px) {
 
+  .App__header {
+    display: flex;
+    align-items: center;
+  }
+
   .Nav {
-    width: 360px;
+    width: calc(100vw - 66%);
     position: fixed;
     left: 0;
-    top: 0;
+    top: 80px;
     height: 100%;
     z-index: 100;
     justify-content: flex-start;
@@ -649,7 +671,7 @@ hr {
 
   .Nav,
   .Slides {
-    height: 100% !important;
+    height: calc(100% - 80px) !important;
   }
 
   .Nav__header {
@@ -657,14 +679,36 @@ hr {
     padding-bottom: 4rem;
   }
 
+  .Nav__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .Nav__content {
+    width: 360px;
+  }
+
+  .Nav__logo {
+    display: none;
+  }
+
+  .Nav__title {
+    font-size: 54px;
+  }
+
   .Slides {
     position: relative;
     height: auto;
-    padding-left: calc(360px + 2rem);
+    padding-left: calc(100vw - 66%);
     width: auto;
     height: auto;
     left: auto;
     min-height: 100vh;
+    padding-top: 100px;
+  }
+
+  .Slides__wrap {
+    padding: 0 2rem;
   }
 
   .Slides__footer {

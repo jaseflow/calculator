@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Logo from './Logo.svg';
+import LogoDark from './logo--dark.svg';
 import './App.scss';
 
 import AboutYou from './slides/AboutYou'
@@ -146,6 +147,9 @@ function App() {
 
   return (
     <div className="App">
+      <header className="App__header">
+        <img src={LogoDark} alt="" className="App__logo" />
+      </header>
       <nav className="Nav" style={{ height: windowHeight }}>
         <header className="Nav__header">
           <img src={Logo} alt="" className="Nav__logo" />
