@@ -48,6 +48,25 @@ hr {
   margin: 1rem 0;
 }
 
+.rangeslider-horizontal {
+  border-radius: 0 !important;
+  background: $gray !important;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+  background: $brandGreen !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.rangeslider-horizontal .rangeslider__handle {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2) !important;
+}
+
+.rangeslider-horizontal .rangeslider__handle::after {
+  display: none !important;
+}
+
 .flat {
   margin-bottom: 0 !important;
 }
@@ -107,10 +126,13 @@ hr {
   display: block;
   font-weight: 600;
   margin-bottom: $halfSpacing;
+  font-size: 14px;
 }
 
-.form__label--spaced {
+.form__label--range {
+  font-size: 18px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
