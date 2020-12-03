@@ -169,6 +169,11 @@ hr {
   height: 44px;
   text-align: center;
   line-height: 44px;
+  z-index: 10;
+}
+
+.card :last-child {
+  margin-bottom: 0;
 }
 
 .Alert {

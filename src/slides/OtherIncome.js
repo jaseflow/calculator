@@ -3,15 +3,25 @@ import React, { useState  } from 'react';
 function OtherIncome() {
   const [ incomeSources, setIncomeSources  ] = useState([])
 
-  const handleRemove = (e) => {
-    const id = e.target.getAttribute('id')
-    setIncomeSources(incomeSources.filter(item => item.id !== id))
+  function handleRemove(i) {
+    console.log(incomeSources[i])
+    setIncomeSources(incomeSources.splice(i, 1))
+  }
+
+  function handleAdd() {
+    const source = {
+      type: undefined,
+      value: undefined
+    }
+    setIncomeSources(incomeSources => [...incomeSources, source])
   }
 
   const sources = incomeSources.map((s, i) => {
     return (
       <div className="card">
-        <i className="far fa-times card__close" onClick={handleRemove}></i>
+        <div onClick={() => handleRemove(i)}>
+          <i className="far fa-times card__close"></i>
+        </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Income source</label>
           <select id="" name="" class="form__input form__input--select">
@@ -30,15 +40,6 @@ function OtherIncome() {
     )
   })
 
-  function handleAdd() {
-    const source = {
-      type: undefined,
-      value: undefined,
-      id: incomeSources.length + 1
-    }
-    setIncomeSources(incomeSources => [...incomeSources, source])
-  }
-
   return (
     <div>
       <h2>Other income</h2>
@@ -48,7 +49,12 @@ function OtherIncome() {
           Add another income source <i className="far fa-plus"></i>
         </button>
       </div>
-      {sources}
+      { sources.length > 0 &&
+        <div>
+          <h2>Income sources</h2>
+          {sources}
+        </div>
+      }
     </div>
   )
 }
