@@ -4,8 +4,8 @@ function OtherIncome() {
   const [ incomeSources, setIncomeSources  ] = useState([])
 
   function handleRemove(i) {
-    console.log(incomeSources[i])
-    setIncomeSources(incomeSources.splice(i, 1))
+    const newSources = incomeSources.filter((item, index) => index !== i)
+    setIncomeSources(newSources)
   }
 
   function handleAdd() {

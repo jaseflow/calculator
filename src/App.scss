@@ -107,7 +107,11 @@ hr {
   display: block;
   font-weight: 600;
   margin-bottom: $halfSpacing;
-  font-size: 14px;
+}
+
+.form__label--spaced {
+  display: flex;
+  justify-content: space-between;
 }
 
 .form__label--checkbox,
@@ -119,6 +123,10 @@ hr {
 
 .form__checkbox {
   margin-right: 0.5rem;
+}
+
+.form__slider {
+  margin-bottom: 3rem;
 }
 
 .form__options {

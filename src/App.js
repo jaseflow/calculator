@@ -5,6 +5,8 @@ import './App.scss';
 
 import AboutYou from './slides/AboutYou'
 import OtherIncome from './slides/OtherIncome'
+import IdealRetirement from './slides/IdealRetirement'
+import RetirementGoals from './slides/RetirementGoals'
 
 import { Switch,
   useLocation,
@@ -189,13 +191,10 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <h2>Your ideal retirement</h2>
-                      <p>Your current combined income is $200,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+                      <IdealRetirement />
                     </Route>
                     <Route path="/step/future/retirement-goals">
-                      <h2>Your retirement goals</h2>
-                      <p>Add some retirement goals to help calculate how much you will need.</p>
-                      <button className="btn btn--secondary">Add a retirement goals <i className="far fa-plus"></i></button>
+                      <RetirementGoals />
                     </Route>
                   </Switch>
                 </div>

@@ -1,8 +1,12 @@
-import React, { useState  } from 'react';
+import React, { useState, useRef  } from 'react';
 
 function AboutYou() {
   const [ includePartner, setIncludePartner  ] = useState(false)
   const [ includePartnerVoluntary, setIncludePartnerVoluntary  ] = useState('no')
+
+  function handlePartnerInclude() {
+    setIncludePartner(!includePartner)
+  }
 
   return (
     <div>
@@ -57,8 +61,8 @@ function AboutYou() {
           </div>
         </div>
       </div>
-      <label className="form__label form__label--checkbox flat" htmlFor="includePartner" onChange={() => setIncludePartner(!includePartner)}>
-        <input type="checkbox" id="includePartner" className="form__checkbox" />
+      <label className="form__label form__label--checkbox flat" htmlFor="includePartner">
+        <input type="checkbox" id="includePartner" className="form__checkbox" onChange={handlePartnerInclude} />
         Include my partner
       </label>
       { includePartner ?
