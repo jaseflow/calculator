@@ -438,10 +438,6 @@ hr {
   transform: translateX(-100%);
 }
 
-.Slides__wrap {
-  overflow-y: auto;
-}
-
 .Slides__footer {
   background: #fff;
   box-shadow: 0 -5px 10px rgba(0,0,0,0.25);
@@ -650,6 +646,12 @@ hr {
   padding-top: 0.5rem;
 }
 
+@media(max-width: 767px) {
+  .Slides__wrap {
+    overflow-y: auto;
+  }
+}
+
 @media(min-width: 768px) {
 
   .App__header {
@@ -712,12 +714,15 @@ hr {
   }
 
   .Slides__footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    bottom: auto;
+    left: auto;
     width: 100%;
-    padding-left: calc(360px + 2rem);
-    box-shadow: 0 -1px 2px rgba(0,0,0,0.2);
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    background: none;
+    box-shadow: none;
   }
 
   .Slides--open {
