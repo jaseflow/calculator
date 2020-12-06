@@ -161,7 +161,7 @@ function App() {
   },[])
 
   useEffect(() => {
-    if (location.pathname === '/calculator' || location.pathname === '/') {
+    if (location.pathname === '/calculator/' || location.pathname === '/') {
       setFooterVisible(false)
     } else if (location.path !== '/' && !footerVisible) {
       setFooterVisible(true)
