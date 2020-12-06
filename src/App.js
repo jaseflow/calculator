@@ -103,6 +103,7 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value)
+  const [contributions, setContributions] = useState(150)
 
   function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
@@ -248,13 +249,10 @@ function App() {
           <img src={Logo} alt="" className="Nav__logo" />
           <div className="Nav__blurb">
             <h1 className="Nav__title">Got a gap?</h1>
-            <p>
+            <p>To effectively plan for life after work,
+              you should understand how much you need and if you have a gap.
               This tool will help you identify and make the required adjustments
               to effectively plan for life after work.
-            </p>
-            <p>
-              <i style={{ marginRight : '0.5rem' }} className="far fa-stopwatch Nav__clock"></i>
-              <strong>Takes approximately 15 minutes</strong>
             </p>
           </div>
         </header>
@@ -280,10 +278,12 @@ function App() {
                       <AboutYou 
                         age={age}
                         includePartner={includePartner}
+                        contributions={contributions}
                         superBalance={superBalance}
                         salary={salary}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
                         onSetAge={(val) => setAge(val)}
+                        onSetContributions={(val) => setContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}
                         onSetSalary={(val) => setSalary(val)}
                       />
@@ -331,7 +331,9 @@ function App() {
                 <div className="container">
                   <Results
                     reqIncome={reqIncome}
-                    onSetIncome={(val) => setReqIncome(val)}
+                    contributions={contributions}
+                    onSetReqIncome={(val) => setReqIncome(val)}
+                    onSetContributions={(val) => setContributions(val)}
                   />
                 </div>
               </section>

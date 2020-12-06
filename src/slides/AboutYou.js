@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import CurrencyInput from 'react-currency-input';
+
 function AboutYou(props) {
   const [ includePartnerVoluntary, setIncludePartnerVoluntary  ] = useState('no')
 
@@ -27,11 +29,23 @@ function AboutYou(props) {
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Current super balance</label>
-          <input type="text" value={props.superBalance} className="form__input form__input--prefilled" onChange={(val) => props.onSetSuper(val)} />
+          <CurrencyInput
+            className="form__input form__input--prefilled"
+            value={props.superBalance} 
+            prefix="$"
+            precision="0"
+            onChange={(e, m, f) => props.onSetSuper(m)}
+          />
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-          <input type="text" value={props.salary} className="form__input form__input--prefilled" onChange={(val) => props.onSetSalary(val)} />
+          <CurrencyInput
+            className="form__input form__input--prefilled"
+            value={props.salary} 
+            prefix="$"
+            precision="0"
+            onChange={(e, m, f) => props.onSetSalary(m)}
+          />
         </div>
         <h2>Contributions</h2>
         <div className="form__row">
@@ -48,7 +62,13 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <input type="text" value="$150" className="form__input form__input--prefilled form__input--suffixed" />
+            <CurrencyInput
+              className="form__input form__input--suffixed form__input--prefilled"
+              value={props.contributions} 
+              prefix="$"
+              precision="0"
+              onChange={(e, m, f) => props.onSetContributions(m)}
+            />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">
