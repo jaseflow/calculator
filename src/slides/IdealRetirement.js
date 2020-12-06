@@ -5,11 +5,6 @@ import 'react-rangeslider/lib/index.css'
 
 function IdealRetirement(props) {
 
-  const labels = {
-    50: '50',
-    80: '80'
-  }
-
   const planOptions = props.plans.map((p) => {
     return (
       <label htmlFor={p.id} class="Plan">
@@ -29,15 +24,14 @@ function IdealRetirement(props) {
   return (
     <div>
       <p>Your current combined income is $200,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
-      <div className="form__slider form__slider--labels">
+      <div className="form__slider">
         <label htmlFor="" class="form__label form__label--range">
-          Retirement age
+          How old will you be when you retire?
           <strong>{props.retirementAge}</strong>
         </label>
         <Slider
           min={50}
           max={80}
-          labels={labels}
           tooltip={false}
           value={props.retirementAge}
           onChange={(val) => props.onSetRetirementAge(val)}
