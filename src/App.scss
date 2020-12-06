@@ -30,12 +30,12 @@ p {
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 44px;
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 h3 {
@@ -166,10 +166,13 @@ hr {
 }
 
 .form__label--range {
-  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.form__label--range strong {
+  font-size: 18px;
 }
 
 .form__label--checkbox,
@@ -209,6 +212,10 @@ hr {
   width: 100%;
   font-size: 100%;
   appearance: none;
+}
+
+.form__input--prefilled {
+  border-color: $darkGreen;
 }
 
 .form__suffix {
@@ -480,6 +487,9 @@ hr {
   display: flex;
   align-items: center;
   font-size: 30px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $gray;
+  margin-bottom: 1rem;
 }
 
 .Slides__title .Nav__counter {
@@ -658,6 +668,11 @@ hr {
   padding-top: 0.5rem;
 }
 
+.Projected {
+  color: #fff;
+  text-align: center;
+}
+
 @media(max-width: 767px) {
   .Slides__wrap {
     overflow-y: auto;
@@ -671,26 +686,35 @@ hr {
   margin-bottom: 2rem;
 }
 
-.Chip {
+.Lotto {
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-left: -50%;
+  padding-left: 2rem;
+}
+
+.Lotto__ball {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.Lotto__ball:first-child {
+  margin-left: 0;
 }
 
 @keyframes showIncomeCard {
   0% {
     opacity: 0;
-    transform: translateY(2rem) scale(0.95);
+    transform: translateY(2rem);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 

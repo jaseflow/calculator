@@ -95,18 +95,34 @@ function App() {
   const [includePartner, setIncludePartner] = useState(false)
   const [footerVisible, setFooterVisible] = useState(false)
   const [activeModal, setActiveModal] = useState('')
-  const [activePlan, setActivePlan] = useState('simple')
+  const [activePlan, setActivePlan] = useState(plans[0])
   const [age, setAge] = useState(58)
   const [retAge, setRetAge] = useState(66)
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
   const [incomeSources, setIncomeSources] = useState([])
+  const [reqIncome, setReqIncome] = useState(activePlan.value)
+
+  function findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
   function handleOptionClick(val) {
     let sources = incomeSources
     sources.push(val)
     setIncomeSources(sources)
     setModalOpen(false)
+  }
+
+  function handleActivePlan(val) {
+    const planIndex = findWithAttr(plans, 'id', val);
+    console.log(planIndex)
+    setActivePlan(plans[planIndex])
   }
 
   function handleSourceRemove(i) {
@@ -279,10 +295,10 @@ function App() {
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
                       <IdealRetirement
-                        onSetPlan={(val) => setActivePlan(val)}
+                        onSetPlan={(val) => handleActivePlan(val)}
                         onSetRetirementAge={(val) => setRetAge(val)}
                         retirementAge={retAge}
-                        activePlan={activePlan}
+                        activePlan={activePlan.id}
                         plans={plans}
                         onInfoClick={(d) => handleModalOpen(d)}
                       />
@@ -298,7 +314,8 @@ function App() {
               <section className="Slides__slide">
                 <div className="container">
                   <Results
-                    income={activePlan.value}
+                    reqIncome={reqIncome}
+                    onSetIncome={(val) => setReqIncome(val)}
                   />
                 </div>
               </section>

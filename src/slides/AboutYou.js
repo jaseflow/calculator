@@ -5,53 +5,53 @@ function AboutYou(props) {
 
   return (
     <div>
+      <h2>About you</h2>
       <div className="Alert">
         <p className="flat">You will notice we have prefilled information we already know about you.</p>
       </div>
-      <h2>About you</h2>
       <div className="form">
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <select id="" name="" className="form__input form__input--select">
+            <select id="" name="" className="form__input form__input--prefilled form__input--select">
               <option value="">Male</option>
               <option value="">Female</option>
             </select>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value={props.age} className="form__input" onChange={(val) => props.onSetAge(val)} />
+            <input type="text" value={props.age} className="form__input form__input--prefilled" onChange={(val) => props.onSetAge(val)} />
           </div>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Current super balance</label>
-          <input type="text" value={props.superBalance} className="form__input" onChange={(val) => props.onSetSuper(val)} />
+          <input type="text" value={props.superBalance} className="form__input form__input--prefilled" onChange={(val) => props.onSetSuper(val)} />
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-          <input type="text" value={props.salary} className="form__input" onChange={(val) => props.onSetSalary(val)} />
+          <input type="text" value={props.salary} className="form__input form__input--prefilled" onChange={(val) => props.onSetSalary(val)} />
         </div>
         <h2>Contributions</h2>
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Employer contributions</label>
-            <input type="text" value="12%" className="form__input" />
+            <input type="text" value="12%" className="form__input form__input--prefilled" />
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Standard</label>
-            <input type="text" value="6%" className="form__input form__input--suffixed" />
+            <input type="text" value="6%" className="form__input form__input--prefilled form__input--suffixed" />
             <span className="form__suffix">before tax</span>
           </div>
         </div>
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <input type="text" value="$150" className="form__input form__input--suffixed" />
+            <input type="text" value="$150" className="form__input form__input--prefilled form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (after tax)</label>
-            <input type="text" value="$0" className="form__input form__input--suffixed" />
+            <input type="text" value="$0" className="form__input form__input--prefilled form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
         </div>
