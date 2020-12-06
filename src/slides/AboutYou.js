@@ -32,6 +32,7 @@ function AboutYou(props) {
           <CurrencyInput
             className="form__input form__input--prefilled"
             value={props.superBalance} 
+            autoFocus={false}
             prefix="$"
             precision="0"
             onChange={(e, m, f) => props.onSetSuper(m)}
@@ -44,6 +45,7 @@ function AboutYou(props) {
             value={props.salary} 
             prefix="$"
             precision="0"
+            autoFocus={false}
             onChange={(e, m, f) => props.onSetSalary(m)}
           />
         </div>
@@ -62,7 +64,14 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <input type="text" value="$150" className="form__input form__input--prefilled form__input--suffixed" />
+            <CurrencyInput
+              className="form__input form__input--suffixed form__input--prefilled"
+              value={props.contributions} 
+              autoFocus={false}
+              prefix="$"
+              precision="0"
+              onChange={(e, m, f) => props.onSetContributions(m)}
+            />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">
