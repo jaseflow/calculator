@@ -50,7 +50,7 @@ function Results(props) {
         block: 'center',
         inline: 'center'
       });
-    }, 500)
+    }, 1000)
   },[])
 
   const optionsList = goalOptions.map((o) => {
