@@ -29,25 +29,19 @@ function AboutYou(props) {
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Current super balance</label>
-          <CurrencyInput
+          <input
+            type="text"
+            value={props.super}
             className="form__input form__input--prefilled"
-            value={props.superBalance} 
-            autoFocus={false}
-            prefix="$"
-            precision="0"
-            onChange={(e, m, f) => props.onSetSuper(m)}
-          />
+            onChange={(val) => props.onSetSuper(val)} />
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-          <CurrencyInput
+          <input
+            type="text"
+            value={props.salary}
             className="form__input form__input--prefilled"
-            value={props.salary} 
-            prefix="$"
-            precision="0"
-            autoFocus={false}
-            onChange={(e, m, f) => props.onSetSalary(m)}
-          />
+            onChange={(val) => props.onSetSalary(val)} />
         </div>
         <h2>Contributions</h2>
         <div className="form__row">
@@ -64,14 +58,11 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <CurrencyInput
-              className="form__input form__input--suffixed form__input--prefilled"
-              value={props.contributions} 
-              autoFocus={false}
-              prefix="$"
-              precision="0"
-              onChange={(e, m, f) => props.onSetContributions(m)}
-            />
+            <input
+              type="text"
+              value={props.salary}
+              className="form__input form__input--prefilled form__input--suffixed"
+              onChange={(val) => props.onSetContributions(val)} />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">
