@@ -10,11 +10,13 @@ function Results(props) {
   const selectedBadge = useRef(null)
 
   useEffect(() => {
-    selectedBadge.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'center'
-    });
+    setTimeout(() => {
+      selectedBadge.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center'
+      });
+    }, 375)
   },[])
 
   return (
