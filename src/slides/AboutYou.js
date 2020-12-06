@@ -67,7 +67,6 @@ function AboutYou(props) {
               value={props.contributions} 
               prefix="$"
               precision="0"
-              onChange={(e, m, f) => props.onSetContributions(m)}
             />
             <span className="form__suffix">per month</span>
           </div>

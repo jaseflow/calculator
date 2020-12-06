@@ -5,6 +5,40 @@ import 'react-rangeslider/lib/index.css'
 
 import NumberFormat from 'react-number-format'
 
+const goalOptions = [
+  {
+    id: 'holiday',
+    text: 'Holiday',
+    icon: 'plane-departure'
+  },
+  {
+    id: 'inheritance',
+    text: 'Inheritance',
+    icon: 'sack-dollar'
+  },
+  {
+    id: 'medical',
+    text: 'Medical expense',
+    icon: 'users-medical'
+  },
+  {
+    id: 'car',
+    text: 'New car',
+    icon: 'car'
+  },
+  {
+    id: 'house',
+    text: "Kid's house deposit",
+    icon: 'house'
+  },
+  {
+    id: 'gift',
+    text: 'Gift',
+    icon: 'gift'
+  }
+]
+
+
 function Results(props) {
 
   const selectedBadge = useRef(null)
@@ -16,8 +50,48 @@ function Results(props) {
         block: 'center',
         inline: 'center'
       });
-    }, 375)
+    }, 500)
   },[])
+
+  const optionsList = goalOptions.map((o) => {
+    return (
+      <option value={o.id} key={`selectoption-${o.id}`}>
+        {o.text}
+      </option>
+    )
+  })
+
+  const goals = props.goals.map((s, i) => {
+    return (
+      <div className="GoalCard card">
+        <i className="far fa-times card__close" onClick={() => props.onGoalRemove(i)}></i>
+        <div className="form__group">
+          <label className="form__label" htmlFor="">Income source</label>
+          <div className="form__select">
+            <select id="" name="" className="form__input form__input--select">
+              {optionsList}
+              <option value="">Other</option>
+            </select>
+          </div>
+        </div>
+        <div className="form__group">
+          <label className="form__label" htmlFor="">Cost</label>
+          <input type="text" value=""i placeholder="Enter value" className="form__input" />
+        </div>
+        <div className="form__group">
+          <label className="form__label" htmlFor="">How often</label>
+          <div className="form__select">
+            <select id="" name="" className="form__input form__input--select">
+              <option value="">Once</option>
+              <option value="">Annually</option>
+              <option value="">Every two years</option>
+              <option value="">Every five years</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    )
+  })
 
   return (
     <div className="Results">
@@ -137,17 +211,21 @@ function Results(props) {
           </label>
           <Slider
             min={0}
-            max={2000}
+            max={500}
             tooltip={false}
             value={props.contributions}
             onChange={(val) => props.onSetContributions(val)}
           />
         </div>
-        <div className="form__group">
-          <label className="form__label" htmlFor="">
-            Investment strategy (working)
-          </label>
-        </div>
+        { props.goals.length > 0 &&
+          <div>
+            <div className="Results__goals-title">
+              <h2>Goals you added</h2>
+              <span onClick={() => props.onOpenGoals()}></span>
+            </div>
+            {goals}
+          </div>
+        }
       </div>
     </div>
   )

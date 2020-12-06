@@ -152,7 +152,7 @@ function App() {
   }
 
   function handleModalOpen(modal) {
-    setModalOpen('true')
+    setModalOpen(true)
     setActiveModal(modal)
   }
 
@@ -331,7 +331,9 @@ function App() {
                 <div className="container">
                   <Results
                     reqIncome={reqIncome}
+                    goals={goals}
                     contributions={contributions}
+                    onOpenGoals={() => handleModalOpen('goals')}
                     onSetReqIncome={(val) => setReqIncome(val)}
                     onSetContributions={(val) => setContributions(val)}
                   />

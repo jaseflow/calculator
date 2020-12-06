@@ -716,6 +716,17 @@ hr {
   margin-bottom: 2rem;
 }
 
+.Results__goal-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Results__goal-link {
+  color: $brandGreen;
+  font-weight: 700;
+}
+
 @keyframes showIncomeCard {
   0% {
     opacity: 0;
