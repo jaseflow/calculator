@@ -62,12 +62,7 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <CurrencyInput
-              className="form__input form__input--suffixed form__input--prefilled"
-              value={props.contributions} 
-              prefix="$"
-              precision="0"
-            />
+            <input type="text" value="$150" className="form__input form__input--prefilled form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">
