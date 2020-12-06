@@ -244,6 +244,8 @@ hr {
   right: 1rem;
   bottom: 1rem;
   user-select: none;
+  pointer-events: none;
+  font-size: 13px;
 }
 
 .card {
