@@ -52,20 +52,18 @@ function OtherIncome(props) {
   return (
     <div>
       <h2>Other income</h2>
-      <p>If you have any other sources of income please add them below.</p>
+      { sources.length === 0 ?
+        <p>If you have any other sources of income please add them below.</p>
+        :
+        <div className="sources">
+          {sources}
+        </div>
+      }
       <div className="OtherIncome__action">
         <button className="btn btn--secondary" onClick={props.onAddingIncome}>
           Add another income source <i className="far fa-plus"></i>
         </button>
       </div>
-      { sources.length > 0 &&
-        <div>
-          <h3>{sources.length} other source{sources.length > 1 && <i>s</i>}</h3>
-          <div className="sources">
-            {sources}
-          </div>
-        </div>
-      }
     </div>
   )
 }

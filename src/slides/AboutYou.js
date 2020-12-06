@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CurrencyInput from 'react-currency-input';
+import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {
   const [ includePartnerVoluntary, setIncludePartnerVoluntary  ] = useState('no')
@@ -29,11 +29,13 @@ function AboutYou(props) {
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Current super balance</label>
-          <input
-            type="text"
-            value={props.super}
+          <CurrencyInput
+            prefix="$"
             className="form__input form__input--prefilled"
-            onChange={(val) => props.onSetSuper(val)} />
+            allowDecimals={false}
+            defaultValue={props.superBalance}
+            onChange={(val) => props.onSetSuper(val)}
+          />
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>

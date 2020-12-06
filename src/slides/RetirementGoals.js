@@ -78,18 +78,17 @@ function RetirementGoals(props) {
   return (
     <div>
       <h2>Your retirement goals</h2>
-      <p>Add some retirement goals to help calculate how much you will need.</p>
+      { sources.length === 0
+        ?
+        <p>Add some retirement goals to help calculate how much you will need.</p>
+        :
+        <div className="sources">
+          {sources}
+        </div>
+      }
       <div className="RetirementGoals__action">
         <button className="btn btn--secondary" onClick={props.onAddingGoal}>Add a retirement goals <i className="far fa-plus"></i></button>
       </div>
-      { sources.length > 0 &&
-        <div>
-          <h3>{sources.length} other source{sources.length > 1 && <i>s</i>}</h3>
-          <div className="sources">
-            {sources}
-          </div>
-        </div>
-      }
     </div>
   )
 }

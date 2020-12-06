@@ -435,6 +435,10 @@ hr {
   background: $darkGreen;
 }
 
+.Nav__link--completed .Nav__counter {
+  background: $offBlack;
+}
+
 .Nav__link--active,
 .Nav__link--completed {
   opacity: 1;
@@ -535,7 +539,7 @@ hr {
 
 .OtherIncome__action,
 .RetirementGoals__action {
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .Plan {
