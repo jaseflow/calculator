@@ -13,10 +13,12 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <select id="" name="" className="form__input form__input--prefilled form__input--select">
-              <option value="">Male</option>
-              <option value="">Female</option>
-            </select>
+            <div className="form__select">
+              <select id="" name="" className="form__input form__input--prefilled form__input--select">
+                <option value="">Male</option>
+                <option value="">Female</option>
+              </select>
+            </div>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
@@ -67,10 +69,12 @@ function AboutYou(props) {
           <div className="form__row">
             <div className="form__group">
               <label className="form__label" htmlFor="">Gender</label>
-              <select id="" name="" className="form__input form__input--select">
-                <option value="">Male</option>
-                <option value="">Female</option>
-              </select>
+              <div className="form__select">
+                <select id="" name="" className="form__input form__input--select">
+                  <option value="">Male</option>
+                  <option value="">Female</option>
+                </select>
+              </div>
             </div>
             <div className="form__group">
               <label className="form__label" htmlFor="">Age</label>

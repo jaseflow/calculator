@@ -101,6 +101,7 @@ function App() {
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
   const [incomeSources, setIncomeSources] = useState([])
+  const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value)
 
   function findWithAttr(array, attr, value) {
@@ -112,22 +113,34 @@ function App() {
     return -1;
   }
 
-  function handleOptionClick(val) {
+  function handleIncomeClick(val) {
     let sources = incomeSources
     sources.push(val)
     setIncomeSources(sources)
     setModalOpen(false)
   }
 
+  function handleGoalClick(val) {
+    let newGoals = goals
+    newGoals.push(val)
+    setGoals(goals)
+    setModalOpen(false)
+  }
+
   function handleActivePlan(val) {
     const planIndex = findWithAttr(plans, 'id', val);
-    console.log(planIndex)
     setActivePlan(plans[planIndex])
   }
 
   function handleSourceRemove(i) {
     const newSources = incomeSources.filter((item, index) => index !== i)
     setIncomeSources(newSources)
+    setModalOpen(false)
+  }
+
+  function handleGoalRemove(i) {
+    const newGoals = goals.filter((item, index) => index !== i)
+    setGoals(newGoals)
     setModalOpen(false)
   }
 
@@ -304,7 +317,11 @@ function App() {
                       />
                     </Route>
                     <Route path="/step/future/retirement-goals">
-                      <RetirementGoals onAddingGoal={() => handleModalOpen('goals')} />
+                      <RetirementGoals
+                        goals={goals}
+                        onGoalRemove={(i) => handleGoalRemove(i)}
+                        onAddingGoal={() => handleModalOpen('goals')}
+                      />
                     </Route>
                   </Switch>
                 </div>
@@ -326,7 +343,7 @@ function App() {
       <footer className={`Slides__footer ${footerVisible ? 'Slides__footer--visible' : ''}`}>
         <div className="container">
           { sectionIndex < 1 ? 
-            <Link to="/" className={`Slides__back ${sectionIndex === 0 ? 'Slides__back--first' : ''}`}>
+            <Link to="/" className={`Slides__back ${stepIndex === 0 && sectionIndex === 0 ? 'Slides__back--first' : ''}`}>
               <i className="far fa-chevron-left"></i>
             </Link>
             :
@@ -339,7 +356,13 @@ function App() {
           </div>
         </div>
       </footer>
-      <Modal onOptionClick={(val) => handleOptionClick(val)} active={activeModal} open={modalOpen} onDismiss={() => setModalOpen(false)} />
+      <Modal
+        onIncomeClick={(val) => handleIncomeClick(val)}
+        onGoalClick={(val) => handleGoalClick(val)}
+        active={activeModal} 
+        open={modalOpen}
+        onDismiss={() => setModalOpen(false)}
+      />
     </div>
   );
 }

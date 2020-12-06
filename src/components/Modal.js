@@ -12,8 +12,8 @@ function Modal(props) {
     <div className={`Modal ${props.open ? 'Modal--open' : ''}`}>
       {
         {
-          'goals': <ModalGoals onDismiss={props.onDismiss} />,
-          'income': <ModalIncome onOptionClick={(val) => props.onOptionClick(val)} onDismiss={props.onDismiss} />,
+          'goals': <ModalGoals onOptionClick={(val) => props.onGoalClick(val)} onDismiss={props.onDismiss} />,
+          'income': <ModalIncome onOptionClick={(val) => props.onIncomeClick(val)} onDismiss={props.onDismiss} />,
           'simple': <ModalSimple onDismiss={props.onDismiss} />,
           'modest': <ModalModest onDismiss={props.onDismiss} />,
           'comfy': <ModalComfortable onDismiss={props.onDismiss} />,

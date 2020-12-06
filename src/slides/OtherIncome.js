@@ -31,19 +31,19 @@ function OtherIncome(props) {
   const sources = props.incomeSources.map((s, i) => {
     return (
       <div className="IncomeCard card">
-        <div onClick={() => props.onSourceRemove(i)}>
-          <i className="far fa-times card__close"></i>
-        </div>
+        <i className="far fa-times card__close" onClick={() => props.onSourceRemove(i)}></i>
         <div className="form__group">
           <label className="form__label" htmlFor="">Income source</label>
-          <select id="" name="" className="form__input form__input--select">
-            {optionsList}
-            <option value="">Other</option>
-          </select>
+          <div className="form__select">
+            <select id="" name="" className="form__input form__input--select">
+              {optionsList}
+              <option value="">Other</option>
+            </select>
+          </div>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Value today</label>
-          <input type="text" value="" placeholder="Enter value" className="form__input" />
+          <input type="text" value=""i placeholder="Enter value" className="form__input" />
         </div>
       </div>
     )
@@ -60,8 +60,10 @@ function OtherIncome(props) {
       </div>
       { sources.length > 0 &&
         <div>
-          <h2>{sources.length} other source{sources.length > 1 && <i>s</i>}</h2>
-          {sources}
+          <h3>{sources.length} other source{sources.length > 1 && <i>s</i>}</h3>
+          <div className="sources">
+            {sources}
+          </div>
         </div>
       }
     </div>
