@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
@@ -6,12 +6,27 @@ import 'react-rangeslider/lib/index.css'
 import NumberFormat from 'react-number-format'
 
 function Results(props) {
+
+  const selectedBadge = useRef(null)
+
+  useEffect(() => {
+    selectedBadge.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center'
+    });
+  },[])
+
   return (
     <div className="Results">
       <div className="Results__hero">
+        <div className="Projected">
+          <h2 className="Projected__title">Projected super balance</h2>
+          <p className="Projected__range">$1.3m - $1.6m</p>
+        </div>
         <div className="Badges">
           <div className="Badges__item">
-            <div className="Badge">
+            <div className="Badge Badge--warning">
               <span className="Badge__label">Retire age</span>
               <strong className="Badge__age">62</strong>
               <small className="Badge__small">72% chance of your money lasting*</small>
@@ -38,7 +53,7 @@ function Results(props) {
               <small className="Badge__small">72% chance of your money lasting*</small>
             </div>
           </div>
-          <div className="Badges__item">
+          <div className="Badges__item" ref={selectedBadge}>
             <div className="Badge">
               <span className="Badge__label">Retire age</span>
               <strong className="Badge__age">66</strong>

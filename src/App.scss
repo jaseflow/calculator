@@ -711,6 +711,7 @@ hr {
 .Results__hero {
   background: $darkGreen;
   padding: 2rem;
+  padding-bottom: 1rem;
   margin: -1rem;
   margin-bottom: 2rem;
 }
@@ -737,6 +738,7 @@ hr {
   overflow-x: auto;
   margin-left: -2rem;
   margin-right: -2rem;
+  padding-right: 2rem;
   padding-bottom: 1rem;
 }
 
@@ -775,6 +777,21 @@ hr {
 
 .Badge__small {
   font-size: 13px;
+}
+
+.Projected {
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.Projected__title {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.Projected__range {
+  font-size: 18px;
 }
 
 @media(min-width: 1024px) {
