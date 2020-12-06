@@ -129,10 +129,17 @@ hr {
   color: $offBlack;
   font-size: 100%;
   padding: 0 1.5rem;
+  border-radius: 0;
+}
+
+.btn--tertiary:hover {
+  background: $offWhite;
 }
 
 .btn--tertiary i {
   font-size: 20px;
+  width: 24px;
+  text-align: center;
   margin-right: 1rem;
 }
 
@@ -445,12 +452,17 @@ hr {
   display: flex;
   align-items: center;
   height: 50px;
+  z-index: 50;
   justify-content: space-between;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  top: 100%;
   left: 0;
   width: 100%;
-  padding-left: 0.5rem;
+  transition: transform 375ms ease;
+}
+
+.Slides__footer--visible {
+  transform: translateY(-100%);
 }
 
 .Slides__footer .container {
@@ -652,7 +664,43 @@ hr {
   }
 }
 
-@media(min-width: 768px) {
+.Results__hero {
+  background: $darkGreen;
+  padding: 2rem;
+  margin: -1rem;
+  margin-bottom: 2rem;
+}
+
+.Chip {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes showIncomeCard {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.IncomeCard {
+  opacity: 0;
+  transform: translateY(2rem) scale(0.9);
+  animation: showIncomeCard 357ms ease forwards;
+}
+
+@media(min-width: 1024px) {
 
   .App__header {
     display: flex;
@@ -705,8 +753,11 @@ hr {
     width: auto;
     height: auto;
     left: auto;
-    min-height: 100vh;
     padding-top: 100px;
+  }
+
+  .Slides__wrap {
+    height: auto !important;
   }
 
   .Slides__wrap {
@@ -714,15 +765,14 @@ hr {
   }
 
   .Slides__footer {
-    position: relative;
-    bottom: auto;
-    left: auto;
+    position: fixed;
     width: 100%;
     padding: 2rem;
     margin-top: 2rem;
     border-top: 1px solid #ddd;
     background: none;
     box-shadow: none;
+    padding-left: calc(100vw - 66%);
   }
 
   .Slides--open {

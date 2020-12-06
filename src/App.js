@@ -8,6 +8,7 @@ import AboutYou from './slides/AboutYou'
 import OtherIncome from './slides/OtherIncome'
 import IdealRetirement from './slides/IdealRetirement'
 import RetirementGoals from './slides/RetirementGoals'
+import Results from './slides/Results'
 
 import Modal from './components/Modal'
 
@@ -19,6 +20,40 @@ import { Switch,
 } from 'react-router-dom';
 
 const classNames = require('classnames')
+
+const plans = [
+  {
+    id: 'simple',
+    name: 'Simple',
+    description: 'Age pension',
+    value: 15000
+  },
+  {
+    id: 'modest',
+    name: 'Modest',
+    description: '$27,902 pa',
+    value: 27902
+  },
+  {
+    id: 'comfy',
+    name: 'Comfortable',
+    description: '$43,687 pa',
+    value: 43687
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    description: '$100,000 pa',
+    value: 100000
+  },
+  {
+    id: 'custom',
+    name: 'Custom',
+    description: 'Enter your own',
+    value: null
+  }
+]
+
 
 const steps = [
   {
@@ -56,8 +91,29 @@ function App() {
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
-  const [ modalOpen, setModalOpen ] = useState(false)
-  const [ activeModal, setActiveModal ] = useState('')
+  const [modalOpen, setModalOpen] = useState(false)
+  const [includePartner, setIncludePartner] = useState(false)
+  const [footerVisible, setFooterVisible] = useState(false)
+  const [activeModal, setActiveModal] = useState('')
+  const [activePlan, setActivePlan] = useState('simple')
+  const [age, setAge] = useState(58)
+  const [retAge, setRetAge] = useState(66)
+  const [superBalance, setSuperBalance] = useState(500000)
+  const [salary, setSalary] = useState(150000)
+  const [incomeSources, setIncomeSources] = useState([])
+
+  function handleOptionClick(val) {
+    let sources = incomeSources
+    sources.push(val)
+    setIncomeSources(sources)
+    setModalOpen(false)
+  }
+
+  function handleSourceRemove(i) {
+    const newSources = incomeSources.filter((item, index) => index !== i)
+    setIncomeSources(newSources)
+    setModalOpen(false)
+  }
 
   function handleSave() {
     steps[stepIndex].completed = true
@@ -75,11 +131,19 @@ function App() {
   },[])
 
   useEffect(() => {
+    if (location.pathname === '/') {
+      setFooterVisible(false)
+    } else if (location.path !== '/' && !footerVisible) {
+      setFooterVisible(true)
+    }
+  },[location, footerVisible])
+
+  useEffect(() => {
     if (window.innerWidth > 768) {
       history.push(steps[0].sections[0])
     }
     setWindowHeight(window.innerHeight)
-  },[])
+  },[history])
 
   let nextButton
 
@@ -185,10 +249,22 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/current/about-you">
-                      <AboutYou />
+                      <AboutYou 
+                        age={age}
+                        includePartner={includePartner}
+                        superBalance={superBalance}
+                        salary={salary}
+                        onPartnerInclude={() => setIncludePartner(!includePartner)}
+                        onSetAge={(val) => setAge(val)}
+                        onSetSuper={(val) => setSuperBalance(val)}
+                        onSetSalary={(val) => setSalary(val)}
+                      />
                     </Route>
                     <Route path="/step/current/other-income">
-                      <OtherIncome onAddingIncome={() => handleModalOpen('income')} />
+                      <OtherIncome
+                        incomeSources={incomeSources}
+                        onSourceRemove={(s) => handleSourceRemove(s)}
+                        onAddingIncome={() => handleModalOpen('income')} />
                     </Route>
                   </Switch>
                 </div>
@@ -202,7 +278,14 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <IdealRetirement onInfoClick={(d) => handleModalOpen(d)} />
+                      <IdealRetirement
+                        onSetPlan={(val) => setActivePlan(val)}
+                        onSetRetirementAge={(val) => setRetAge(val)}
+                        retirementAge={retAge}
+                        activePlan={activePlan}
+                        plans={plans}
+                        onInfoClick={(d) => handleModalOpen(d)}
+                      />
                     </Route>
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals onAddingGoal={() => handleModalOpen('goals')} />
@@ -214,33 +297,32 @@ function App() {
             <Route path="/step/results">
               <section className="Slides__slide">
                 <div className="container">
-                  <h1>
-                    Results
-                  </h1>
-                  <p>Elit amet vel fuga sint doloremque? Laborum quo ea itaque aliquam animi? Dignissimos fuga quas modi repellat sit? Odit incidunt sunt autem eos possimus Esse illo nisi culpa tenetur temporibus</p>
+                  <Results
+                    income={activePlan.value}
+                  />
                 </div>
               </section>
             </Route>
           </Switch>
         </div>
-        <footer className="Slides__footer">
-          <div className="container">
-            { sectionIndex < 1 ? 
-              <Link to="/" className="Slides__back">
-                <i className="far fa-chevron-left"></i>
-              </Link>
-              :
-              <Link onClick={() => setSectionIndex(sectionIndex - 1)} to={steps[stepIndex].sections[sectionIndex - 1]} className="Slides__back">
-                <i className="far fa-chevron-left"></i>
-              </Link>
-            }
-            <div>
-              {nextButton}
-            </div>
-          </div>
-        </footer>
       </main>
-      <Modal active={activeModal} open={modalOpen} onDismiss={() => setModalOpen(false)} />
+      <footer className={`Slides__footer ${footerVisible ? 'Slides__footer--visible' : ''}`}>
+        <div className="container">
+          { sectionIndex < 1 ? 
+            <Link to="/" className="Slides__back">
+              <i className="far fa-chevron-left"></i>
+            </Link>
+            :
+            <Link onClick={() => setSectionIndex(sectionIndex - 1)} to={steps[stepIndex].sections[sectionIndex - 1]} className="Slides__back">
+              <i className="far fa-chevron-left"></i>
+            </Link>
+          }
+          <div>
+            {nextButton}
+          </div>
+        </div>
+      </footer>
+      <Modal onOptionClick={(val) => handleOptionClick(val)} active={activeModal} open={modalOpen} onDismiss={() => setModalOpen(false)} />
     </div>
   );
 }

@@ -13,7 +13,7 @@ function Modal(props) {
       {
         {
           'goals': <ModalGoals onDismiss={props.onDismiss} />,
-          'income': <ModalIncome onDismiss={props.onDismiss} />,
+          'income': <ModalIncome onOptionClick={(val) => props.onOptionClick(val)} onDismiss={props.onDismiss} />,
           'simple': <ModalSimple onDismiss={props.onDismiss} />,
           'modest': <ModalModest onDismiss={props.onDismiss} />,
           'comfy': <ModalComfortable onDismiss={props.onDismiss} />,

@@ -1,26 +1,43 @@
 import React, { useState  } from 'react';
 
-function OtherIncome(props) {
-  const [ incomeSources, setIncomeSources  ] = useState([])
-
-  function handleRemove(i) {
-    const newSources = incomeSources.filter((item, index) => index !== i)
-    setIncomeSources(newSources)
+const options = [
+  {
+    id: 'shares',
+    text: 'Shares or managed funds',
+    icon: 'chart-line'
+  },
+  {
+    id: 'cash',
+    text: 'Cash',
+    icon: 'dollar'
+  },
+  {
+    id: 'investment',
+    text: 'Investment property',
+    icon: 'house'
   }
+]
 
-  const sources = incomeSources.map((s, i) => {
+function OtherIncome(props) {
+
+  const optionsList = options.map((o) => {
     return (
-      <div className="card">
-        <div onClick={() => handleRemove(i)}>
+      <option value={o.id} key={`selectoption-${o.id}`}>
+        {o.text}
+      </option>
+    )
+  })
+
+  const sources = props.incomeSources.map((s, i) => {
+    return (
+      <div className="IncomeCard card">
+        <div onClick={() => props.onSourceRemove(i)}>
           <i className="far fa-times card__close"></i>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Income source</label>
-          <select id="" name="" class="form__input form__input--select">
-            <option value="">Select source</option>
-            <option value="">Shares or managed funds</option>
-            <option value="">Cash</option>
-            <option value="">Investment property</option>
+          <select id="" name="" className="form__input form__input--select">
+            {optionsList}
             <option value="">Other</option>
           </select>
         </div>
@@ -35,7 +52,7 @@ function OtherIncome(props) {
   return (
     <div>
       <h2>Other income</h2>
-      <p>If you have any other sources of income plesae add them below.</p>
+      <p>If you have any other sources of income please add them below.</p>
       <div className="OtherIncome__action">
         <button className="btn btn--secondary" onClick={props.onAddingIncome}>
           Add another income source <i className="far fa-plus"></i>
@@ -43,7 +60,7 @@ function OtherIncome(props) {
       </div>
       { sources.length > 0 &&
         <div>
-          <h2>Income sources</h2>
+          <h2>{sources.length} other source{sources.length > 1 && <i>s</i>}</h2>
           {sources}
         </div>
       }

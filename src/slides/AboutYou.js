@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
 
-function AboutYou() {
-  const [ includePartner, setIncludePartner  ] = useState(false)
+function AboutYou(props) {
   const [ includePartnerVoluntary, setIncludePartnerVoluntary  ] = useState('no')
-
-  function handlePartnerInclude() {
-    setIncludePartner(!includePartner)
-  }
 
   return (
     <div>
       <div className="Alert">
-        <p class="flat">You will notice we have prefilled information we already know about you.</p>
+        <p className="flat">You will notice we have prefilled information we already know about you.</p>
       </div>
       <h2>About you</h2>
       <div className="form">
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <select id="" name="" class="form__input form__input--select">
+            <select id="" name="" className="form__input form__input--select">
               <option value="">Male</option>
               <option value="">Female</option>
             </select>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value="58" className="form__input" />
+            <input type="text" value={props.age} className="form__input" onChange={(val) => props.onSetAge(val)} />
           </div>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Current super balance</label>
-          <input type="text" value="$500,000" className="form__input" />
+          <input type="text" value={props.superBalance} className="form__input" onChange={(val) => props.onSetSuper(val)} />
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-          <input type="text" value="$150,000" className="form__input" />
+          <input type="text" value={props.salary} className="form__input" onChange={(val) => props.onSetSalary(val)} />
         </div>
         <h2>Contributions</h2>
         <div className="form__row">
@@ -62,34 +57,34 @@ function AboutYou() {
         </div>
       </div>
       <label className="form__label form__label--checkbox flat" htmlFor="includePartner">
-        <input type="checkbox" id="includePartner" className="form__checkbox" onChange={handlePartnerInclude} />
+        <input type="checkbox" id="includePartner" className="form__checkbox" onChange={() => props.onPartnerInclude()} />
         Include my partner
       </label>
-      { includePartner ?
+      { props.includePartner ?
         <div className="form">
           <hr />
           <h2>About your partner</h2>
           <div className="form__row">
             <div className="form__group">
               <label className="form__label" htmlFor="">Gender</label>
-              <select id="" name="" class="form__input form__input--select">
+              <select id="" name="" className="form__input form__input--select">
                 <option value="">Male</option>
                 <option value="">Female</option>
               </select>
             </div>
             <div className="form__group">
               <label className="form__label" htmlFor="">Age</label>
-              <input type="text" value="" className="form__input" />
+              <input type="text" className="form__input" />
             </div>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-            <input type="text" value="" className="form__input form__input--suffixed" />
+            <input type="text" value={props.partnerSalary} className="form__input form__input--suffixed" />
             <span className="form__suffix">per year</span>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Current super balance</label>
-            <input type="text" value="" className="form__input" />
+            <input type="text" value={props.partnerSuper} className="form__input" />
           </div>
           <h2>Your partner's contributions</h2>
           <div className="form__group">
