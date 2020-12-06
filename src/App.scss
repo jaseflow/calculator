@@ -17,6 +17,10 @@ $doubleSpacing: 2rem;
   box-sizing: border-box;
 }
 
+html {
+  background: $offWhite;
+}
+
 body {
   line-height: 1.5;
   color: #111;
@@ -440,10 +444,10 @@ hr {
 .Slides {
   position: fixed;
   top: 0;
+  background: $offWhite;
   left: 100%;
   width: 100%;
   height: 100%;
-  background: $offWhite;
   z-index: 50;
   transition: transform 200ms ease-out;
 }
@@ -792,11 +796,26 @@ hr {
     position: fixed;
     width: 100%;
     padding: 2rem;
-    margin-top: 2rem;
     border-top: 1px solid #ddd;
-    background: none;
+    background: $offWhite;
     box-shadow: none;
     padding-left: calc(100vw - 66%);
+  }
+
+  .Slides__back {
+    margin-left: -1rem;
+  }
+
+  .Slides__back--first {
+    display: none;
+  }
+
+  .Slides__footer .container {
+    margin-left: 3rem;
+  }
+
+  .Slides__footer .container div:last-child {
+    margin-left: auto;
   }
 
   .Slides--open {

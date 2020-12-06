@@ -326,7 +326,7 @@ function App() {
       <footer className={`Slides__footer ${footerVisible ? 'Slides__footer--visible' : ''}`}>
         <div className="container">
           { sectionIndex < 1 ? 
-            <Link to="/" className="Slides__back">
+            <Link to="/" className={`Slides__back ${sectionIndex === 0 ? 'Slides__back--first' : ''}`}>
               <i className="far fa-chevron-left"></i>
             </Link>
             :
