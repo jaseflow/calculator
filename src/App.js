@@ -248,10 +248,9 @@ function App() {
           <img src={Logo} alt="" className="Nav__logo" />
           <div className="Nav__blurb">
             <h1 className="Nav__title">Got a gap?</h1>
-            <p>To effectively plan for life after work,
-              you should understand how much you need and if you have a gap.
+            <p>
               This tool will help you identify and make the required adjustments
-              to create the future you want.
+              to effectively plan for life after work.
             </p>
             <p>
               <i style={{ marginRight : '0.5rem' }} className="far fa-stopwatch Nav__clock"></i>
