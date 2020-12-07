@@ -255,8 +255,11 @@ function App() {
             <h1 className="Nav__title">Got a gap?</h1>
             <p>To effectively plan for life after work,
               you should understand how much you need and if you have a gap.
-              This tool will help you identify and make the required adjustments
-              to effectively plan for life after work.
+              This tool will help you make the required adjustments to live the life you want.
+            </p>
+            <p>
+              <i style={{ marginRight : '0.5rem'  }} className="far fa-stopwatch Nav__clock"></i>
+              <strong>Takes approximately 15 minutes</strong>
             </p>
           </div>
         </header>
