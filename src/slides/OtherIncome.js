@@ -35,9 +35,8 @@ function OtherIncome(props) {
         <div className="form__group">
           <label className="form__label" htmlFor="">Income source</label>
           <div className="form__select">
-            <select id="" name="" className="form__input form__input--select">
+            <select id="" name="" className="form__input form__input--select" autofocus>
               {optionsList}
-              <option value="">Other</option>
             </select>
           </div>
         </div>
@@ -45,6 +44,18 @@ function OtherIncome(props) {
           <label className="form__label" htmlFor="">Value today</label>
           <input type="text" value=""i placeholder="Enter value" className="form__input" />
         </div>
+        {s.id === 'investment' &&
+          <div className="form__group">
+            <label className="form__label" htmlFor="">Income</label>
+            <div className="form__row">
+              <input type="text" value=""i placeholder="Enter value" className="form__input" />
+              <select id="" name="">
+                <option value="weekly">per week</option>
+                <option value="weekly">per month</option>
+              </select>
+            </div>
+          </div>
+        }
       </div>
     )
   })
@@ -60,7 +71,7 @@ function OtherIncome(props) {
         </div>
       }
       <div className="OtherIncome__action">
-        <button className="btn btn--secondary" onClick={props.onAddingIncome}>
+        <button className="btn btn--secondary" onClick={() => props.onAddingIncome(options[0])}>
           Add another income source <i className="far fa-plus"></i>
         </button>
       </div>

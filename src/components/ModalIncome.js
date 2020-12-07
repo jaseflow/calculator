@@ -34,10 +34,6 @@ function ModalIncome(props) {
       <div className="Modal__content Modal__content--tight">
         <ul className="Modal__list">
           {optionsList}
-          <li className="btn btn--tertiary btn--block" id="other">
-            <i className="fa fa-coins"></i>
-            Other
-          </li>
         </ul>
       </div>
       <footer className="Modal__footer">

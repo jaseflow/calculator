@@ -31,11 +31,12 @@ function AboutYou(props) {
           <label className="form__label" htmlFor="">Current super balance</label>
           <CurrencyInput
             prefix="$"
-            className="form__input form__input--prefilled"
+            className="form__input form__input--prefilled form__input--suffixed"
             allowDecimals={false}
             defaultValue={props.superBalance}
             onChange={(val) => props.onSetSuper(val)}
           />
+          <span className="form__suffix">as of 21 Nov 2020</span>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Annual salary (before tax)</label>
@@ -46,7 +47,7 @@ function AboutYou(props) {
             onChange={(val) => props.onSetSalary(val)} />
         </div>
         <h2>Contributions</h2>
-        <div className="form__row">
+        <div className="form__row--desktop">
           <div className="form__group">
             <label className="form__label" htmlFor="">Employer contributions</label>
             <input type="text" value="12%" className="form__input form__input--prefilled" />
@@ -112,16 +113,18 @@ function AboutYou(props) {
             <input type="text" value="" className="form__input form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
-          <label className="form__label" htmlFor="">Does your partner make voluntary contributions?</label>
-          <div className="form__options">
-            <label className="form__label form__label--radio" htmlFor="includePartnerVol" onChange={() => setIncludePartnerVoluntary('yes')}>
-              <input type="radio" value="yes" checked={includePartnerVoluntary === 'yes'} id="includePartnerVol" className="form__checkbox" />
-              Yes
-            </label>
-            <label className="form__label form__label--radio" htmlFor="excludePartnerVol" onChange={() => setIncludePartnerVoluntary('no')}>
-              <input type="radio" value="no" checked={includePartnerVoluntary === 'no'} id="excludePartnerVol" className="form__checkbox" />
-              No
-            </label>
+          <div className="form__group">
+            <label className="form__label" htmlFor="">Does your partner make voluntary contributions?</label>
+            <div className="form__options">
+              <label className="form__label form__label--radio" htmlFor="includePartnerVol" onChange={() => setIncludePartnerVoluntary('yes')}>
+                <input type="radio" value="yes" checked={includePartnerVoluntary === 'yes'} id="includePartnerVol" className="form__checkbox" />
+                Yes
+              </label>
+              <label className="form__label form__label--radio" htmlFor="excludePartnerVol" onChange={() => setIncludePartnerVoluntary('no')}>
+                <input type="radio" value="no" checked={includePartnerVoluntary === 'no'} id="excludePartnerVol" className="form__checkbox" />
+                No
+              </label>
+            </div>
           </div>
           { includePartnerVoluntary === 'yes' ?
             <div>

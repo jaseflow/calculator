@@ -116,8 +116,8 @@ function App() {
 
   function handleIncomeClick(val) {
     let sources = incomeSources
-    sources.push(val)
-    setIncomeSources(sources)
+    console.log(val)
+    setIncomeSources(incomeSources.concat(val))
     setModalOpen(false)
   }
 
@@ -292,7 +292,7 @@ function App() {
                       <OtherIncome
                         incomeSources={incomeSources}
                         onSourceRemove={(s) => handleSourceRemove(s)}
-                        onAddingIncome={() => handleModalOpen('income')} />
+                        onAddingIncome={(val) => handleIncomeClick(val)} />
                     </Route>
                   </Switch>
                 </div>
