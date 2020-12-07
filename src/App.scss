@@ -277,14 +277,18 @@ hr {
 
 .card__close {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
+  top: -6px;
+  right: -6px;
+  width: 36px;
+  height: 36px;
   text-align: center;
-  line-height: 44px;
+  line-height: 36px;
   z-index: 10;
   cursor: pointer;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  border: 1px solid #eee;
 }
 
 .card :last-child {
