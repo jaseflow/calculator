@@ -1,5 +1,7 @@
 import React, { useState  } from 'react';
 
+import CurrencyInput from 'react-currency-input-field'
+
 const options = [
   {
     id: 'shares',
@@ -42,7 +44,14 @@ function OtherIncome(props) {
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Value today</label>
-          <input type="text" value=""i placeholder="Enter value" className="form__input" />
+          <CurrencyInput
+            id="super"
+            prefix="$"
+            className="form__input"
+            allowDecimals={false}
+            placholder="Enter value"
+            onChange={(val) => props.onSetIncomeValue(val)}
+          />
         </div>
         {s.id === 'investment' &&
           <div className="form__group">

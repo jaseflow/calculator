@@ -103,6 +103,8 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value)
+  const [workingStrategy, setWorkingStrategy] = useState(1)
+  const [retiredStrategy, setRetiredStrategy] = useState(1)
   const [contributions, setContributions] = useState(150)
 
   function findWithAttr(array, attr, value) {
@@ -242,7 +244,9 @@ function App() {
   return (
     <div className="App">
       <header className="App__header">
-        <img src={LogoDark} alt="" className="App__logo" />
+        <div className="container">
+          <img src={LogoDark} alt="" className="App__logo" />
+        </div>
       </header>
       <nav className="Nav" style={{ height: windowHeight }}>
         <header className="Nav__header">
@@ -333,7 +337,11 @@ function App() {
                     reqIncome={reqIncome}
                     goals={goals}
                     contributions={contributions}
+                    retiredStrategy={retiredStrategy}
+                    workingStrategy={workingStrategy}
                     onOpenGoals={() => handleModalOpen('goals')}
+                    onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
+                    onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                     onSetReqIncome={(val) => setReqIncome(val)}
                     onSetContributions={(val) => setContributions(val)}
                   />

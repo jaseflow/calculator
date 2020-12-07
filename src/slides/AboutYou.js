@@ -28,8 +28,9 @@ function AboutYou(props) {
           </div>
         </div>
         <div className="form__group">
-          <label className="form__label" htmlFor="">Current super balance</label>
+          <label className="form__label" htmlFor="super">Current super balance</label>
           <CurrencyInput
+            id="super"
             prefix="$"
             className="form__input form__input--prefilled form__input--suffixed"
             allowDecimals={false}
@@ -39,12 +40,15 @@ function AboutYou(props) {
           <span className="form__suffix">as of 21 Nov 2020</span>
         </div>
         <div className="form__group">
-          <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-          <input
-            type="text"
-            value={props.salary}
+          <label className="form__label" htmlFor="slary">Annual salary (before tax)</label>
+          <CurrencyInput
+            id="salary"
+            prefix="$"
             className="form__input form__input--prefilled"
-            onChange={(val) => props.onSetSalary(val)} />
+            allowDecimals={false}
+            defaultValue={props.salary}
+            onChange={(val) => props.onSetSalary(val)}
+          />
         </div>
         <h2>Contributions</h2>
         <div className="form__row--desktop">
@@ -60,12 +64,15 @@ function AboutYou(props) {
         </div>
         <div className="form__row">
           <div className="form__group">
-            <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-            <input
-              type="text"
-              value={props.salary}
-              className="form__input form__input--prefilled form__input--suffixed"
-              onChange={(val) => props.onSetContributions(val)} />
+            <label className="form__label" htmlFor="contributions">Voluntary (before tax)</label>
+            <CurrencyInput
+              id="contributions"
+              prefix="$"
+              className="form__input form__input--prefilled"
+              allowDecimals={false}
+              defaultValue={props.contributions}
+              onChange={(val) => props.onSetContributions(val)}
+            />
             <span className="form__suffix">per month</span>
           </div>
           <div className="form__group">

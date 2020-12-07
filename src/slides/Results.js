@@ -38,6 +38,13 @@ const goalOptions = [
   }
 ]
 
+const strategies = {
+  1: 'Defensive',
+  2: 'Stable',
+  3: 'Balanced',
+  4: 'Div Growth',
+  5: 'Aggressive'
+}
 
 function Results(props) {
 
@@ -215,6 +222,38 @@ function Results(props) {
             tooltip={false}
             value={props.contributions}
             onChange={(val) => props.onSetContributions(val)}
+          />
+        </div>
+        <div className="form__slider form__slider--labels">
+          <label htmlFor="" class="form__label form__label--range">
+            Investment Strategy (working)
+            <strong>
+              {props.workingStrategy}
+            </strong>
+          </label>
+          <Slider
+            min={1}
+            max={5}
+            labels={strategies}
+            tooltip={false}
+            value={props.workingStrategy}
+            onChange={(val) => props.onSetWorkingStrategy(val)}
+          />
+        </div>
+        <div className="form__slider form__slider--labels">
+          <label htmlFor="" class="form__label form__label--range">
+            Investment Strategy (retired)
+            <strong>
+              {props.retiredStrategy}
+            </strong>
+          </label>
+          <Slider
+            min={1}
+            max={5}
+            labels={strategies}
+            tooltip={false}
+            value={props.retiredStrategy}
+            onChange={(val) => props.onSetRetiredStrategy(val)}
           />
         </div>
         { props.goals.length > 0 &&
