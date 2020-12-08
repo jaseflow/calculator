@@ -26,7 +26,7 @@ const plans = [
     id: 'simple',
     name: 'Simple',
     description: 'Age pension',
-    value: 15000
+    value: 23597
   },
   {
     id: 'modest',
@@ -53,7 +53,6 @@ const plans = [
     value: null
   }
 ]
-
 
 const steps = [
   {
@@ -381,6 +380,10 @@ function App() {
         </div>
       </footer>
       <Modal
+        simpleIncome={plans[0].value}
+        modestIncome={plans[1].value}
+        comfyIncome={plans[2].value}
+        premiumIncome={plans[3].value}
         onIncomeClick={(val) => handleIncomeClick(val)}
         onGoalClick={(val) => handleGoalClick(val)}
         active={activeModal} 
