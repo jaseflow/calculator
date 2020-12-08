@@ -93,7 +93,19 @@ function Results(props) {
   return (
     <div className="Results">
       <div className="Results__hero">
-        <h1 className="Results__title">We estimate that you can retire at</h1>
+        <h1 className="Results__title">
+          You can retire at age <strong>{props.retAge}</strong>
+          and earn&nbsp;
+          <strong>
+            <NumberFormat
+              value={props.reqIncome}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            />
+          </strong> 
+          &nbsp;per year with a 75% likelihood of your money lasting till age <strong>90</strong>.
+        </h1>
         <div className="Results__age">
           <div className="Results__copy">
             <strong>66</strong>

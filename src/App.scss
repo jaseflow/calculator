@@ -786,11 +786,15 @@ hr {
 }
 
 .Results__title {
-  font-size: 32px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1.5;
   text-align: center;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.Results__title strong {
+  font-weight: 700;
 }
 
 @keyframes showCopy {
