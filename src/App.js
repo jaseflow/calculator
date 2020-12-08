@@ -170,6 +170,7 @@ function App() {
       setFooterVisible(true)
     }
     if (location.pathname === '/step/results') {
+      setFooterVisible(false)
       setTimeout(() => {
         setProgress(75)
       }, 750)
