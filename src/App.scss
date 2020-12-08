@@ -233,6 +233,10 @@ hr {
   margin-bottom: 3rem;
 }
 
+.form__slider--nolabels .rangeslider__labels {
+  display: none;
+}
+
 .form__options {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -451,10 +455,6 @@ hr {
 .Nav__link--completed .Nav__counter,
 .Nav__counter--active {
   background: $darkGreen;
-}
-
-.Nav__link--completed .Nav__counter {
-  background: $offBlack;
 }
 
 .Nav__link--active,

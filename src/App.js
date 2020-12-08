@@ -88,6 +88,7 @@ function App() {
   let location = useLocation()
   let history = useHistory()
 
+  const [progress, setProgress] = useState(0)
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
@@ -167,6 +168,11 @@ function App() {
       setFooterVisible(false)
     } else if (location.path !== '/' && !footerVisible) {
       setFooterVisible(true)
+    }
+    if (location.pathname === '/step/results') {
+      setTimeout(() => {
+        setProgress(75)
+      }, 500)
     }
   },[location, footerVisible])
 
@@ -337,12 +343,14 @@ function App() {
               <section className="Slides__slide">
                 <div className="container">
                   <Results
+                    progress={progress}
                     reqIncome={reqIncome}
                     goals={goals}
                     contributions={contributions}
                     retiredStrategy={retiredStrategy}
                     workingStrategy={workingStrategy}
                     onOpenGoals={() => handleModalOpen('goals')}
+                    onSetProgress={(val) => setProgress(val)}
                     onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                     onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                     onSetReqIncome={(val) => setReqIncome(val)}

@@ -1,0 +1,7 @@
+.Pie__circle {
+  position: relative;
+  transition: stroke-dashoffset 375ms;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  clip-path: circle();
+}

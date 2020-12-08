@@ -1,4 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import Pie from '../components/Pie'
 
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
@@ -48,18 +50,6 @@ const strategies = {
 
 function Results(props) {
 
-  const selectedBadge = useRef(null)
-
-  useEffect(() => {
-    setTimeout(() => {
-      selectedBadge.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'center'
-      });
-    }, 1000)
-  },[])
-
   const optionsList = goalOptions.map((o) => {
     return (
       <option value={o.id} key={`selectoption-${o.id}`}>
@@ -103,80 +93,9 @@ function Results(props) {
   return (
     <div className="Results">
       <div className="Results__hero">
-        <div className="Projected">
-          <h2 className="Projected__title">Projected super balance</h2>
-          <p className="Projected__range">$1.3m - $1.6m</p>
-        </div>
-        <div className="Badges">
-          <div className="Badges__item">
-            <div className="Badge Badge--warning">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">62</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge Badge--warning">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">63</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge Badge--warning">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">64</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge Badge--warning">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">65</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item" ref={selectedBadge}>
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">66</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">67</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">68</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">69</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">70</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
-          </div>
-          <div className="Badges__item">
-            <div className="Badge">
-              <span className="Badge__label">Retire age</span>
-              <strong className="Badge__age">71</strong>
-              <small className="Badge__small">72% chance of your money lasting*</small>
-            </div>
+        <div className="Age">
+          <div className="Age__circle">
+            <Pie stroke={30} radius={150} progress={props.progress} />
           </div>
         </div>
       </div>
@@ -224,11 +143,11 @@ function Results(props) {
             onChange={(val) => props.onSetContributions(val)}
           />
         </div>
-        <div className="form__slider form__slider--labels">
+        <div className="form__slider form__slider--nolabels">
           <label htmlFor="" class="form__label form__label--range">
             Investment Strategy (working)
             <strong>
-              {props.workingStrategy}
+              {strategies[props.workingStrategy]}
             </strong>
           </label>
           <Slider
@@ -240,11 +159,11 @@ function Results(props) {
             onChange={(val) => props.onSetWorkingStrategy(val)}
           />
         </div>
-        <div className="form__slider form__slider--labels">
+        <div className="form__slider form__slider--nolabels">
           <label htmlFor="" class="form__label form__label--range">
             Investment Strategy (retired)
             <strong>
-              {props.retiredStrategy}
+              {strategies[props.retiredStrategy]}
             </strong>
           </label>
           <Slider
