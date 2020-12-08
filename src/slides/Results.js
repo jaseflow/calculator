@@ -94,18 +94,7 @@ function Results(props) {
     <div className="Results">
       <div className="Results__hero">
         <h1 className="Results__title">
-          You can retire at age <strong>{props.retAge}</strong>
-          and earn&nbsp;
-          <strong>
-            <NumberFormat
-              value={props.reqIncome}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'$'}
-            />
-          </strong> 
-          &nbsp;per year with a 75% likelihood of your money lasting till age <strong>90</strong>.
-        </h1>
+          You can retire at age <strong>{props.retirementAge}</strong> and earn <strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood of your money lasting till age <strong>90</strong>.</h1>
         <div className="Results__age">
           <div className="Results__copy">
             <strong>66</strong>
@@ -118,7 +107,7 @@ function Results(props) {
         </div>
       </div>
       <div className="Results__body">
-        <h2>Review your decisions below</h2>
+        <h2>Review your plans to improve your outcome</h2>
         <div className="form__slider">
           <label htmlFor="" class="form__label form__label--range">
             How much you need?

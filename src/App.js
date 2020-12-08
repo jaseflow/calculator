@@ -347,6 +347,7 @@ function App() {
                     progress={progress}
                     reqIncome={reqIncome}
                     goals={goals}
+                    retirementAge={retAge}
                     contributions={contributions}
                     retiredStrategy={retiredStrategy}
                     workingStrategy={workingStrategy}
