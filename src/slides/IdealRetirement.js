@@ -24,19 +24,6 @@ function IdealRetirement(props) {
   return (
     <div>
       <p>Your current combined income is $200,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
-      <div className="form__slider">
-        <label htmlFor="" class="form__label form__label--range">
-          How old will you be when you retire?
-          <strong>{props.retirementAge}</strong>
-        </label>
-        <Slider
-          min={50}
-          max={80}
-          tooltip={false}
-          value={props.retirementAge}
-          onChange={(val) => props.onSetRetirementAge(val)}
-        />
-      </div>
       <div>
         <h2>Your ideal retirement</h2>
         {planOptions}
