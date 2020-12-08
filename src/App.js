@@ -172,7 +172,7 @@ function App() {
     if (location.pathname === '/step/results') {
       setTimeout(() => {
         setProgress(75)
-      }, 500)
+      }, 750)
     }
   },[location, footerVisible])
 

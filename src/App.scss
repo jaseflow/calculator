@@ -749,6 +749,84 @@ hr {
   font-weight: 700;
 }
 
+.Results__age {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  margin-bottom: -4rem;
+  opacity: 0;
+  animation: showAge 375ms 375ms ease forwards;
+}
+
+@keyframes showAge {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.Results__age-bg {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: #527d2a;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.Results__pie {
+  position: relative;
+  z-index: 5;
+}
+
+.Results__title {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes showCopy {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Results__copy {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -1rem;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: showCopy 375ms 750ms ease forwards;
+}
+
+.Results__copy strong {
+  font-size: 66px;
+  font-weight: 700;
+}
+
+.Results__body {
+  padding-top: 2rem;
+}
+
 @keyframes showIncomeCard {
   0% {
     opacity: 0;
@@ -764,67 +842,6 @@ hr {
   opacity: 0;
   transform: translateY(2rem) scale(0.9);
   animation: showIncomeCard 357ms ease forwards;
-}
-
-.Badges {
-  white-space: nowrap;
-  overflow-x: auto;
-  margin-left: -2rem;
-  margin-right: -2rem;
-  padding-right: 2rem;
-  padding-bottom: 1rem;
-}
-
-.Badges__item {
-  display: inline-block;
-  margin-left: 1rem;
-}
-
-.Badge {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: #fff;
-  border: 15px solid $brandGreen;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-  line-height: 1.2;
-  white-space: normal;
-}
-
-.Badge--warning {
-  border-color: #fdc725;
-}
-
-.Badge__age {
-  font-size: 60px;
-  font-size: 900;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.Badge__small {
-  font-size: 13px;
-}
-
-.Projected {
-  text-align: center;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-}
-
-.Projected__title {
-  margin-bottom: 0;
-  font-weight: 700;
-}
-
-.Projected__range {
-  font-size: 18px;
 }
 
 @media(min-width: 1024px) {

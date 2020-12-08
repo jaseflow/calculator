@@ -93,9 +93,15 @@ function Results(props) {
   return (
     <div className="Results">
       <div className="Results__hero">
-        <div className="Age">
-          <div className="Age__circle">
-            <Pie stroke={30} radius={150} progress={props.progress} />
+        <h1 className="Results__title">You can retire at</h1>
+        <div className="Results__age">
+          <div className="Results__copy">
+            <strong>66</strong>
+            <small>{props.progress}% chance of your money lasting</small>
+          </div>
+          <div className="Results__age-bg"></div>
+          <div className="Results__pie">
+            <Pie stroke={20} radius={120} progress={props.progress} />
           </div>
         </div>
       </div>

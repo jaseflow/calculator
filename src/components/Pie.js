@@ -4,7 +4,7 @@ import './Pie.scss'
 
 function Pie(props) {
 
-  const normalizedRadius = props.radius - props.stroke * 2;
+  const normalizedRadius = props.radius - props.stroke;
   const circumference = normalizedRadius * 2 * Math.PI
 
   const strokeDashoffset = circumference - props.progress / 100 * circumference
@@ -17,8 +17,8 @@ function Pie(props) {
       <circle
         stroke="#bbb"
         fill="white"
-        stroke-width={props.stroke / 2}
-        r={82}
+        stroke-width={props.stroke}
+        r={100}
         cx={props.radius}
         cy={props.radius}
       />
