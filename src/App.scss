@@ -776,7 +776,7 @@ hr {
   height: 220px;
   background: #527d2a;
   border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
   z-index: 2;
 }
 
@@ -812,7 +812,6 @@ hr {
   width: 120px;
   text-align: center;
   line-height: 1.2;
-  margin-top: -1rem;
   opacity: 0;
   transform: translateY(1rem);
   animation: showCopy 375ms 750ms ease forwards;
