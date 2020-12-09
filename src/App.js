@@ -114,7 +114,6 @@ function App() {
   const [contributions, setContributions] = useState(150)
   const [resultLoaded, setResultLoaded] = useState(false)
 
-
   function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
       if(array[i][attr] === value) {
@@ -187,8 +186,10 @@ function App() {
     } else if (location.path !== '/' && !footerVisible) {
       setFooterVisible(true)
     }
-    if (location.pathname === '/step/results') {
+    if (location.pathname === '/step/results' || location.pathname === '/step/summary') {
       setFooterVisible(false)
+    }
+    if (location.pathname === '/step/results') {
       setResultLoaded(true)
       setTimeout(() => {
         setProgress(75)
@@ -360,29 +361,25 @@ function App() {
               </section>
             </Route>
             <Route path="/step/results">
-              <section className="Slides__slide Slides__slide--nofooter">
-                <div className="container">
-                  <Results
-                    progress={progress}
-                    reqIncome={reqIncome}
-                    goals={goals}
-                    retirementAge={retAge}
-                    contributions={contributions}
-                    retiredStrategy={retiredStrategy}
-                    workingStrategy={workingStrategy}
-                    loaded={resultLoaded}
-                    onOpenGoals={() => handleModalOpen('goals')}
-                    onSetProgress={(val) => setProgress(val)}
-                    onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
-                    onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
-                    onSetReqIncome={(val) => setReqIncome(val)}
-                    onSliderRelease={() => handleSliderRelease()}
-                    onSetContributions={(val) => setContributions(val)}
-                  />
-                </div>
-              </section>
+              <Results
+                progress={progress}
+                reqIncome={reqIncome}
+                goals={goals}
+                retirementAge={retAge}
+                contributions={contributions}
+                retiredStrategy={retiredStrategy}
+                workingStrategy={workingStrategy}
+                loaded={resultLoaded}
+                onOpenGoals={() => handleModalOpen('goals')}
+                onSetProgress={(val) => setProgress(val)}
+                onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
+                onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
+                onSetReqIncome={(val) => setReqIncome(val)}
+                onSliderRelease={() => handleSliderRelease()}
+                onSetContributions={(val) => setContributions(val)}
+              />
             </Route>
-            <Route path="/completed">
+            <Route path="/step/summary">
               <Summary />
             </Route>
           </Switch>

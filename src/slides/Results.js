@@ -201,7 +201,7 @@ function Results(props) {
           </div>
         }
         <div className="Results__action">
-          <Link to='/summary' className="btn btn--block">Complete</Link>
+          <Link to='/step/summary' className="btn btn--block">Complete</Link>
         </div>
       </div>
     </div>
