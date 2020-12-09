@@ -810,9 +810,6 @@ hr {
   font-size: 30px;
   text-align: center;
   color: #fff;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: all 357ms ease;
   margin-bottom: 0.5rem;
 }
 
@@ -828,11 +825,9 @@ hr {
 }
 
 .Results--loaded {
-  .Results__title,
   .Results__blurb {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 375ms;
   }
   .Results__age {
     opacity: 1;
