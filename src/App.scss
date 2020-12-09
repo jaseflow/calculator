@@ -759,6 +759,7 @@ hr {
 
 @media(max-width: 767px) {
   .Slides__wrap {
+    scroll-behavior: smooth;
     overflow-y: auto;
   }
 }
