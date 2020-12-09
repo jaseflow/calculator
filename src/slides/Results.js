@@ -50,6 +50,8 @@ const strategies = {
 
 function Results(props) {
 
+  const [loaded, setLoaded] = useState(false)
+
   const optionsList = goalOptions.map((o) => {
     return (
       <option value={o.id} key={`selectoption-${o.id}`}>
@@ -90,13 +92,25 @@ function Results(props) {
     )
   })
 
+  function handleSliderChange() {
+    setLoaded(false)
+    setTimeout(() => {
+      setLoaded(true)
+    }, 1000)
+  }
+
+  useEffect(() => {
+    setLoaded(true)
+  },[])
+
   return (
     <div className="Results">
-      <div className="Results__hero">
+      <div className={`Results__hero ${loaded ? 'Results__hero--loaded' : ''}`}>
         <h1 className="Results__title">
           You can retire at age <strong>{props.retirementAge}</strong> and earn <strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood of your money lasting till age <strong>90</strong>.</h1>
         <div className="Results__age">
           <div className="Results__copy">
+            <span>Retire at</span>
             <strong>66</strong>
             <small>{props.progress}% chance of your money lasting</small>
           </div>
@@ -107,10 +121,10 @@ function Results(props) {
         </div>
       </div>
       <div className="Results__body">
-        <h2>Review your plans to improve your outcome</h2>
+        <h2 class="text-centered">Review your decisions</h2>
         <div className="form__slider">
           <label htmlFor="" class="form__label form__label--range">
-            How much you need?
+            How much you need per year?
             <strong>
               <NumberFormat
                 value={props.reqIncome}
@@ -127,6 +141,7 @@ function Results(props) {
             tooltip={false}
             value={props.reqIncome}
             onChange={(val) => props.onSetReqIncome(val)}
+            onChangeComplete={() => handleSliderChange()}
           />
         </div>
         <div className="form__slider">
@@ -148,6 +163,7 @@ function Results(props) {
             tooltip={false}
             value={props.contributions}
             onChange={(val) => props.onSetContributions(val)}
+            onChangeComplete={() => handleSliderChange()}
           />
         </div>
         <div className="form__slider form__slider--nolabels">
