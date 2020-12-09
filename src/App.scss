@@ -784,6 +784,12 @@ hr {
 .Summary__hero {
   padding-bottom: 4rem;
   color: #fff;
+  overflow: hidden;
+}
+
+.Summary__blurb {
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .Summary__logo {
@@ -793,6 +799,7 @@ hr {
 .Summary__body {
   background: #fff;
   padding: 1rem;
+  padding-top: 0;
 }
 
 .Summary__block {
