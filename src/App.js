@@ -20,6 +20,9 @@ import { Switch,
   Route
 } from 'react-router-dom';
 
+import smoothscroll from 'smoothscroll-polyfill'
+smoothscroll.polyfill();
+
 const classNames = require('classnames')
 
 const plans = [
