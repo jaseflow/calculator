@@ -763,24 +763,6 @@ hr {
   transition: all 375ms ease;
 }
 
-@keyframes showAge {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.Results__hero--loaded {
-  .Results__age {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .Results__age-bg {
   position: absolute;
   width: 220px;
@@ -802,6 +784,23 @@ hr {
   text-align: center;
   color: #fff;
   font-weight: 400;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 357ms ease;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.Results__hero--loaded {
+  .Results__title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 375ms;
+  }
+  .Results__age {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .Results__title strong {
