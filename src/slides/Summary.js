@@ -3,6 +3,11 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../Logo.svg';
 
 function Summary(props) {
+
+  useEffect(() => {
+    props.onSummaryLoad()
+  }, [])
+
   return (
     <div className="Summary">
       <div className="Summary__hero">

@@ -129,6 +129,14 @@ function App() {
     setModalOpen(false)
   }
 
+  function handleSummaryLoad() {
+    wrapper.current.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   function handleSliderRelease() {
     wrapper.current.scroll({
       top: 0,
@@ -382,7 +390,8 @@ function App() {
               />
             </Route>
             <Route path="/step/summary">
-              <Summary />
+              <Summary
+                onSummaryLoad={handleSummaryLoad} />
             </Route>
           </Switch>
         </div>
