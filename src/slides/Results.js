@@ -104,12 +104,11 @@ function Results(props) {
   },[])
 
   return (
-    <div className="Results">
-      <div className={`Results__hero ${loaded ? 'Results__hero--loaded' : ''}`}>
+    <div className={`Results ${loaded ? 'Results--loaded' : ''}`}>
+      <div className="Results__hero">
         <h1 className="Results__title">
           When can you retire?
         </h1>
-        <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood of your money lasting till age <strong>90</strong>.</p>
         <div className="Results__age">
           <div className="Results__copy">
             <span>Retire at</span>
@@ -123,6 +122,8 @@ function Results(props) {
         </div>
       </div>
       <div className="Results__body">
+        <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br/>of your money lasting till age <strong>90</strong>.</p>
+        <hr className="Results__hr" />
         <h2 class="text-centered">Review your decisions</h2>
         <div className="form__slider">
           <label htmlFor="" class="form__label form__label--range">

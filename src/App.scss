@@ -477,7 +477,8 @@ hr {
   position: relative;
 }
 
-.Nav__footer:before {
+.Nav__footer:before,
+.Results__hero:after {
   width: 100%;
   height: 50px;
   border-radius: 50%;
@@ -489,6 +490,14 @@ hr {
   margin-top: -1rem;
   width: 110%;
   margin-left: -5%;
+}
+
+.Results__hero:after {
+  top: auto;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: -1rem;
+  z-index: 10;
 }
 
 .Slides {
@@ -754,7 +763,9 @@ hr {
   padding: 2rem;
   padding-bottom: 1rem;
   margin: -1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .Results__goal-title {
@@ -776,6 +787,8 @@ hr {
   margin-bottom: -4rem;
   opacity: 0;
   transition: all 375ms ease;
+  position: relative;
+  z-index: 50;
 }
 
 .Results__age-bg {
@@ -804,14 +817,17 @@ hr {
 }
 
 .Results__blurb {
-  color: #fff;
   text-align: center;
   opacity: 0;
   transform: translateY(100%);
   transition: all 357ms ease;
 }
 
-.Results__hero--loaded {
+.Results__hr {
+  margin: 2rem 0 1.5rem 0;
+}
+
+.Results--loaded {
   .Results__title,
   .Results__blurb {
     opacity: 1;
@@ -859,7 +875,12 @@ hr {
 }
 
 .Results__body {
-  padding-top: 1.5rem;
+  position: relative;
+  padding: 1rem;
+  padding-top: 3.5rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background: #fff;
 }
 
 @keyframes showIncomeCard {
