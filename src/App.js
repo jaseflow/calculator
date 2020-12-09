@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import Logo from './Logo.svg';
 import LogoDark from './logo--dark.svg';
@@ -88,6 +88,8 @@ function App() {
   let location = useLocation()
   let history = useHistory()
 
+  const wrapper = useRef(null)
+
   const [progress, setProgress] = useState(0)
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
@@ -107,6 +109,8 @@ function App() {
   const [workingStrategy, setWorkingStrategy] = useState(5)
   const [retiredStrategy, setRetiredStrategy] = useState(3)
   const [contributions, setContributions] = useState(150)
+  const [resultLoaded, setResultLoaded] = useState(false)
+
 
   function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
@@ -121,6 +125,18 @@ function App() {
     let sources = incomeSources
     setIncomeSources(incomeSources.concat(val))
     setModalOpen(false)
+  }
+
+  function handleSliderRelease() {
+    wrapper.current.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+    setResultLoaded(false)
+    setTimeout(() => {
+      setResultLoaded(true)
+    }, 1000)
   }
 
   function handleGoalClick(val) {
@@ -170,6 +186,7 @@ function App() {
     }
     if (location.pathname === '/step/results') {
       setFooterVisible(false)
+      setResultLoaded(true)
       setTimeout(() => {
         setProgress(75)
       }, 750)
@@ -278,7 +295,7 @@ function App() {
         </footer>
       </nav>
       <main className={`Slides ${location.pathname.includes('/step') ? 'Slides--open' : ''}`} style={{ height: windowHeight }}>
-        <div className="Slides__wrap" style={{ height: windowHeight }}>
+        <div className="Slides__wrap" ref={wrapper} style={{ height: windowHeight }}>
           <Switch>
             <Route path="/step/current">
               <section className="Slides__slide">
@@ -350,11 +367,13 @@ function App() {
                     contributions={contributions}
                     retiredStrategy={retiredStrategy}
                     workingStrategy={workingStrategy}
+                    loaded={resultLoaded}
                     onOpenGoals={() => handleModalOpen('goals')}
                     onSetProgress={(val) => setProgress(val)}
                     onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                     onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                     onSetReqIncome={(val) => setReqIncome(val)}
+                    onSliderRelease={() => handleSliderRelease()}
                     onSetContributions={(val) => setContributions(val)}
                   />
                 </div>

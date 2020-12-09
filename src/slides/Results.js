@@ -51,8 +51,6 @@ const strategies = {
 
 function Results(props) {
 
-  const [loaded, setLoaded] = useState(false)
-
   const optionsList = goalOptions.map((o) => {
     return (
       <option value={o.id} key={`selectoption-${o.id}`}>
@@ -93,19 +91,8 @@ function Results(props) {
     )
   })
 
-  function handleSliderChange() {
-    setLoaded(false)
-    setTimeout(() => {
-      setLoaded(true)
-    }, 1000)
-  }
-
-  useEffect(() => {
-    setLoaded(true)
-  },[])
-
   return (
-    <div className={`Results ${loaded ? 'Results--loaded' : ''}`}>
+    <div className={`Results ${props.loaded ? 'Results--loaded' : ''}`}>
       <div className="Results__hero">
         <h1 className="Results__title">
           When can you retire?
@@ -145,7 +132,7 @@ function Results(props) {
             tooltip={false}
             value={props.reqIncome}
             onChange={(val) => props.onSetReqIncome(val)}
-            onChangeComplete={() => handleSliderChange()}
+            onChangeComplete={() => props.onSliderRelease()}
           />
         </div>
         <div className="form__slider">
@@ -167,7 +154,7 @@ function Results(props) {
             tooltip={false}
             value={props.contributions}
             onChange={(val) => props.onSetContributions(val)}
-            onChangeComplete={() => handleSliderChange()}
+            onChangeComplete={() => props.onSliderRelease()}
           />
         </div>
         <div className="form__slider form__slider--nolabels">
@@ -184,6 +171,7 @@ function Results(props) {
             tooltip={false}
             value={props.workingStrategy}
             onChange={(val) => props.onSetWorkingStrategy(val)}
+            onChangeComplete={() => props.onSliderRelease()}
           />
         </div>
         <div className="form__slider form__slider--nolabels">
@@ -200,6 +188,7 @@ function Results(props) {
             tooltip={false}
             value={props.retiredStrategy}
             onChange={(val) => props.onSetRetiredStrategy(val)}
+            onChangeComplete={() => props.onSliderRelease()}
           />
         </div>
         { props.goals.length > 0 &&
