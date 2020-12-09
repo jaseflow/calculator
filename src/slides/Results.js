@@ -110,98 +110,102 @@ function Results(props) {
         </div>
       </div>
       <div className="Results__body">
-        <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br/>of your money lasting till age <strong>90</strong>.</p>
-        <hr className="Results__hr" />
-        <h2 class="text-centered">Review your decisions</h2>
-        <div className="form__slider">
-          <label htmlFor="" class="form__label form__label--range">
-            How much you need per year?
-            <strong>
-              <NumberFormat
+        <div className="container">
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br/>of your money lasting till age <strong>90</strong>.</p>
+          <hr className="Results__hr" />
+          <h2 class="text-centered">Review your decisions</h2>
+          <div className="Results__decisions">
+            <div className="form__slider">
+              <label htmlFor="" class="form__label form__label--range">
+                How much you need per year?
+                <strong>
+                  <NumberFormat
+                    value={props.reqIncome}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    prefix={'$'}
+                  /> 
+                  &nbsp;pa
+                </strong>
+              </label>
+              <Slider
+                min={10000}
+                max={200000}
+                tooltip={false}
                 value={props.reqIncome}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              /> 
-              &nbsp;pa
-            </strong>
-          </label>
-          <Slider
-            min={10000}
-            max={200000}
-            tooltip={false}
-            value={props.reqIncome}
-            onChange={(val) => props.onSetReqIncome(val)}
-            onChangeComplete={() => props.onSliderRelease()}
-          />
-        </div>
-        <div className="form__slider">
-          <label htmlFor="" class="form__label form__label--range">
-            Extra contributions
-            <strong>
-              <NumberFormat
-                value={props.contributions}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              /> 
-              &nbsp;month
-            </strong>
-          </label>
-          <Slider
-            min={0}
-            max={500}
-            tooltip={false}
-            value={props.contributions}
-            onChange={(val) => props.onSetContributions(val)}
-            onChangeComplete={() => props.onSliderRelease()}
-          />
-        </div>
-        <div className="form__slider form__slider--nolabels">
-          <label htmlFor="" class="form__label form__label--range">
-            Investment Strategy (working)
-            <strong>
-              {strategies[props.workingStrategy]}
-            </strong>
-          </label>
-          <Slider
-            min={1}
-            max={5}
-            labels={strategies}
-            tooltip={false}
-            value={props.workingStrategy}
-            onChange={(val) => props.onSetWorkingStrategy(val)}
-            onChangeComplete={() => props.onSliderRelease()}
-          />
-        </div>
-        <div className="form__slider form__slider--nolabels">
-          <label htmlFor="" class="form__label form__label--range">
-            Investment Strategy (retired)
-            <strong>
-              {strategies[props.retiredStrategy]}
-            </strong>
-          </label>
-          <Slider
-            min={1}
-            max={5}
-            labels={strategies}
-            tooltip={false}
-            value={props.retiredStrategy}
-            onChange={(val) => props.onSetRetiredStrategy(val)}
-            onChangeComplete={() => props.onSliderRelease()}
-          />
-        </div>
-        { props.goals.length > 0 &&
-          <div>
-            <div className="Results__goals-title">
-              <h2>Goals you added</h2>
-              <span onClick={() => props.onOpenGoals()}></span>
+                onChange={(val) => props.onSetReqIncome(val)}
+                onChangeComplete={() => props.onSliderRelease()}
+              />
             </div>
-            {goals}
+            <div className="form__slider">
+              <label htmlFor="" class="form__label form__label--range">
+                Extra contributions
+                <strong>
+                  <NumberFormat
+                    value={props.contributions}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    prefix={'$'}
+                  /> 
+                  &nbsp;month
+                </strong>
+              </label>
+              <Slider
+                min={0}
+                max={500}
+                tooltip={false}
+                value={props.contributions}
+                onChange={(val) => props.onSetContributions(val)}
+                onChangeComplete={() => props.onSliderRelease()}
+              />
+            </div>
+            <div className="form__slider form__slider--nolabels">
+              <label htmlFor="" class="form__label form__label--range">
+                Investment Strategy (working)
+                <strong>
+                  {strategies[props.workingStrategy]}
+                </strong>
+              </label>
+              <Slider
+                min={1}
+                max={5}
+                labels={strategies}
+                tooltip={false}
+                value={props.workingStrategy}
+                onChange={(val) => props.onSetWorkingStrategy(val)}
+                onChangeComplete={() => props.onSliderRelease()}
+              />
+            </div>
+            <div className="form__slider form__slider--nolabels">
+              <label htmlFor="" class="form__label form__label--range">
+                Investment Strategy (retired)
+                <strong>
+                  {strategies[props.retiredStrategy]}
+                </strong>
+              </label>
+              <Slider
+                min={1}
+                max={5}
+                labels={strategies}
+                tooltip={false}
+                value={props.retiredStrategy}
+                onChange={(val) => props.onSetRetiredStrategy(val)}
+                onChangeComplete={() => props.onSliderRelease()}
+              />
+            </div>
           </div>
-        }
-        <div className="Results__action">
-          <Link to='/step/summary' className="btn btn--block">Complete</Link>
+          { props.goals.length > 0 &&
+            <div>
+              <div className="Results__goals-title">
+                <h2>Goals you added</h2>
+                <span onClick={() => props.onOpenGoals()}></span>
+              </div>
+              {goals}
+            </div>
+          }
+          <div className="Results__action">
+            <Link to='/step/summary' className="btn btn--block">Complete</Link>
+          </div>
         </div>
       </div>
     </div>

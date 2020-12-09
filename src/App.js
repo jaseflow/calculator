@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import Logo from './Logo.svg';
 import LogoDark from './logo--dark.svg';
+import bg from './bg.jpg';
 import './App.scss';
 
 import AboutYou from './slides/AboutYou'
@@ -208,11 +209,8 @@ function App() {
   },[location, footerVisible])
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      history.push(steps[0].sections[0])
-    }
     setWindowHeight(window.innerHeight)
-  },[history])
+  },[])
 
   let nextButton
 
@@ -280,28 +278,35 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App__header">
-        <div className="container">
-          <img src={LogoDark} alt="" className="App__logo" />
-        </div>
-      </header>
-      <nav className="Nav" style={{ height: windowHeight }}>
+      <nav className={`Nav ${location.pathname.includes('/step') ? 'Nav--hidden' : ''}`} style={{ height: windowHeight }}>
         <header className="Nav__header">
-          <img src={Logo} alt="" className="Nav__logo" />
+          <div className="Nav__hero" style={{ backgroundImage: `url(${bg})`}}></div>
           <div className="Nav__blurb">
-            <h1 className="Nav__title">Got a gap?</h1>
-            <p>To effectively plan for life after work,
-              you should understand how much you need and if you have a gap.
-              This tool will help you make the required adjustments to live the life you want.
-            </p>
-            <p>
-              <i style={{ marginRight : '0.5rem'  }} className="far fa-stopwatch Nav__clock"></i>
-              <strong>Takes approximately 15 minutes</strong>
-            </p>
+            <img src={Logo} alt="" className="Nav__logo" />
+            <div>
+              <h1 className="Nav__title">Got a gap?</h1>
+              <p>To effectively plan for life after work,
+                you should understand how much you need and if you have a gap.
+                This tool will help you make the required adjustments to live the life you want.
+              </p>
+              <p>
+                <i style={{ marginRight : '0.5rem'  }} className="far fa-stopwatch Nav__clock"></i>
+                <strong>Takes approximately 15 minutes</strong>
+              </p>
+              <div className="Nav__action">
+                <Link class="btn btn--hero" to="/step/current/about-you">Get started</Link>
+              </div>
+            </div>
           </div>
         </header>
         <footer className="Nav__footer">
           <div className="Nav__content">
+            <Link to="/">
+              <img src={LogoDark} alt="" className="Nav__inline-logo" />
+            </Link>
+            <div className="Nav__track">
+              <div className="Nav__track-bar"></div>
+            </div>
             <ul className="Nav__steps">
               {navLinks}
             </ul>
