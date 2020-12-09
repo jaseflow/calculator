@@ -103,8 +103,8 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value)
-  const [workingStrategy, setWorkingStrategy] = useState(1)
-  const [retiredStrategy, setRetiredStrategy] = useState(1)
+  const [workingStrategy, setWorkingStrategy] = useState(5)
+  const [retiredStrategy, setRetiredStrategy] = useState(3)
   const [contributions, setContributions] = useState(150)
 
   function findWithAttr(array, attr, value) {
