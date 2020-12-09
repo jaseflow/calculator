@@ -136,8 +136,10 @@ function App() {
       behavior: 'smooth'
     })
     setResultLoaded(false)
+    setProgress(0)
     setTimeout(() => {
       setResultLoaded(true)
+      setProgress(82)
     }, 1000)
   }
 
