@@ -8,7 +8,7 @@ function Summary(props) {
       <div className="Summary__hero">
         <img src={Logo} alt="" className="Summary__logo" />
         <h1 className="Summary__title">You're on track</h1>
-        <p>You can retire at age 66 and earn $60,000 per year with a 70% likelihood of your money lasting til age 90</p>
+        <p>You can retire at age 66 and earn $60,000 per year with a 70% likelihood of your money lasting till age 90</p>
       </div>
       <div className="Summary__body">
         <div className="Summary__block">
