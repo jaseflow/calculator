@@ -610,13 +610,24 @@ hr {
 }
 
 .Plan__info {
+  text-align: center;
+  margin-right: -10px;
+  color: $blue;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Plan__info span {
+  display: none;
+  font-size: 14px;
+}
+
+.Plan__info i {
   font-size: 20px;
   width: 44px;
   height: 44px;
-  text-align: center;
   line-height: 44px;
-  margin-right: -10px;
-  color: $blue;
 }
 
 .Plan__name {
@@ -689,6 +700,10 @@ hr {
 .Modal__content {
   padding: 1rem;
   padding-bottom: calc(60px + 1rem);
+}
+
+.Modal__content ul li {
+  margin-bottom: 0.25rem;
 }
 
 .Modal__content--tight {
@@ -994,6 +1009,10 @@ hr {
     margin: -3rem;
     margin-bottom: 2rem;
     background: $offBlack;
+  }
+
+  .Plan__info span {
+    display: inline
   }
 
 }
