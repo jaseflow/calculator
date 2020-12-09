@@ -74,7 +74,7 @@ const steps = [
     ]
   },
   {
-    name: "When you will get there",
+    name: "When can you afford to retire?",
     completed: false,
     helperText: 'Retirement age to achieve your goals',
     sections: [
@@ -118,7 +118,6 @@ function App() {
 
   function handleIncomeClick(val) {
     let sources = incomeSources
-    console.log(val)
     setIncomeSources(incomeSources.concat(val))
     setModalOpen(false)
   }
@@ -358,6 +357,8 @@ function App() {
                   />
                 </div>
               </section>
+            </Route>
+            <Route path="/completed">
             </Route>
           </Switch>
         </div>

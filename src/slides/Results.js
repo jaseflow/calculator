@@ -107,7 +107,9 @@ function Results(props) {
     <div className="Results">
       <div className={`Results__hero ${loaded ? 'Results__hero--loaded' : ''}`}>
         <h1 className="Results__title">
-          You can retire at age <strong>66</strong> and earn <br className="show-mobile"/><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br className="show-mobile"/>of your money lasting till age <strong>90</strong>.</h1>
+          When can you retire?
+        </h1>
+        <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood of your money lasting till age <strong>90</strong>.</p>
         <div className="Results__age">
           <div className="Results__copy">
             <span>Retire at</span>

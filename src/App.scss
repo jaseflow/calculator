@@ -794,20 +794,29 @@ hr {
 }
 
 .Results__title {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 30px;
   text-align: center;
   color: #fff;
-  font-weight: 400;
   opacity: 0;
   transform: translateY(100%);
   transition: all 357ms ease;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+.Results__blurb {
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 357ms ease;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 1rem;
 }
 
 .Results__hero--loaded {
-  .Results__title {
+  .Results__title,
+  .Results__blurb {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 375ms;
