@@ -108,6 +108,7 @@ hr {
   padding: 0 $doubleSpacing;
   font-weight: 700;
   border-radius: $radius;
+  text-align: center;
   border: 0;
   cursor: pointer;
   transition: all 375ms ease;
@@ -546,6 +547,10 @@ hr {
   padding-bottom: calc(50px + 1rem);
 }
 
+.Slides__slide--nofooter {
+  padding-bottom: 1rem;
+}
+
 .Slides__title {
   display: flex;
   align-items: center;
@@ -758,11 +763,15 @@ hr {
   }
 }
 
+.Results {
+  overflow: hidden;
+  margin: -1rem;
+}
+
 .Results__hero {
   background: $darkGreen;
   padding: 2rem;
   padding-bottom: 1rem;
-  margin: -1rem;
   margin-bottom: 0;
   position: relative;
   z-index: 10;
@@ -873,9 +882,11 @@ hr {
   position: relative;
   padding: 1rem;
   padding-top: 3.5rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
   background: #fff;
+}
+
+.Results__action {
+  margin-top: 3rem;
 }
 
 @keyframes showIncomeCard {

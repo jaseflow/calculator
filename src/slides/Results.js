@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
 import Pie from '../components/Pie'
 
 import Slider from 'react-rangeslider'
@@ -210,6 +211,9 @@ function Results(props) {
             {goals}
           </div>
         }
+        <div className="Results__action">
+          <Link to='/summary' className="btn btn--block">Complete</Link>
+        </div>
       </div>
     </div>
   )

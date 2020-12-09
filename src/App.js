@@ -9,6 +9,7 @@ import OtherIncome from './slides/OtherIncome'
 import IdealRetirement from './slides/IdealRetirement'
 import RetirementGoals from './slides/RetirementGoals'
 import Results from './slides/Results'
+import Summary from './slides/Summary'
 
 import Modal from './components/Modal'
 
@@ -168,6 +169,7 @@ function App() {
       setFooterVisible(true)
     }
     if (location.pathname === '/step/results') {
+      setFooterVisible(false)
       setTimeout(() => {
         setProgress(75)
       }, 750)
@@ -338,7 +340,7 @@ function App() {
               </section>
             </Route>
             <Route path="/step/results">
-              <section className="Slides__slide">
+              <section className="Slides__slide Slides__slide--nofooter">
                 <div className="container">
                   <Results
                     progress={progress}
@@ -359,6 +361,7 @@ function App() {
               </section>
             </Route>
             <Route path="/completed">
+              <Summary />
             </Route>
           </Switch>
         </div>

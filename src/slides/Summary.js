@@ -6,11 +6,6 @@ function Summary(props) {
       <h1>You're on track</h1>
       <p>You can retire at age 66 and earn $60,000 per year with a 70% likelihood of your money lasting til age 90</p>
       <p>To achieve this outcome, you've made the following changes:</p>
-      <ol>
-        <li>
-          <p><strong>You increased after tax-co</p>
-        </li>
-      </ol>
     </div>
   )
 }
