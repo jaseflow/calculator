@@ -203,9 +203,6 @@ function Results(props) {
               {goals}
             </div>
           }
-          <div className="Results__action">
-            <Link to='/step/summary' className="btn btn--block">Complete</Link>
-          </div>
         </div>
       </div>
     </div>

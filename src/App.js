@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 import Logo from './Logo.svg';
 import LogoDark from './logo--dark.svg';
-import bg from './bg.jpg';
+import LogoWhite from './logo--white.png';
+import bg from './hero.jpg';
 import './App.scss';
 
 import AboutYou from './slides/AboutYou'
@@ -197,7 +198,7 @@ function App() {
     } else if (location.path !== '/' && !footerVisible) {
       setFooterVisible(true)
     }
-    if (location.pathname === '/step/results' || location.pathname === '/step/summary') {
+    if (location.pathname === '/step/summary') {
       setFooterVisible(false)
     }
     if (location.pathname === '/step/results') {
@@ -215,7 +216,7 @@ function App() {
   let nextButton
 
   if ((stepIndex + 1) === steps.length) {
-    nextButton = <Link to='/completed' className="btn">Complete</Link>
+    nextButton = <Link to='/completed' className="btn">Next steps</Link>
   } else {
     if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
       nextButton = (
@@ -282,7 +283,7 @@ function App() {
         <header className="Nav__header">
           <div className="Nav__hero" style={{ backgroundImage: `url(${bg})`}}></div>
           <div className="Nav__blurb">
-            <img src={Logo} alt="" className="Nav__logo" />
+            <img src={LogoWhite} alt="" className="Nav__logo" />
             <div>
               <h1 className="Nav__title">Got a gap?</h1>
               <p>To effectively plan for life after work,
@@ -304,11 +305,11 @@ function App() {
             <Link to="/">
               <img src={LogoDark} alt="" className="Nav__inline-logo" />
             </Link>
-            <div className="Nav__track">
-              <div className="Nav__track-bar"></div>
-            </div>
             <ul className="Nav__steps">
               {navLinks}
+              <div className="Nav__track">
+                <div className={`Nav__track-bar Nav__track-bar--${stepIndex}`}></div>
+              </div>
             </ul>
           </div>
         </footer>
