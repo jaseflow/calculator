@@ -3,16 +3,37 @@ import React from 'react';
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
+import NumberFormat from 'react-number-format'
+
 function IdealRetirement(props) {
 
   const planOptions = props.plans.map((p) => {
+    let value;
+    if (props.includePartner) {
+      console.log(p.value)
+      value = p.value && p.value.couple
+    } else {
+      console.log(p.value)
+      value = p.value && p.value.single
+    }
     return (
       <label htmlFor={p.id} class="Plan">
         <input type="radio" class="Plan__input" id={p.id} value={p.id} checked={props.activePlan === p.id} onChange={() => props.onSetPlan(p.id)} />
         <div className={`Plan__circle ${p.id === props.activePlan ? 'Plan__circle--selected' : ''}`}></div>
         <div className="Plan__content">
           <strong className="Plan__name">{p.name}</strong>
-          <small className="Plan__description">{p.description}</small>
+          {p.id !== 'custom' &&
+            <NumberFormat
+              className="Plan__value"
+              value={value}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            /> 
+          }
+          {p.id === 'custom' &&
+            <small class="Plan__value">Add your own</small>
+          }
         </div>
         { p.id !== 'custom' &&
           <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
@@ -26,7 +47,7 @@ function IdealRetirement(props) {
 
   return (
     <div>
-      <p>Your current combined income is $200,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+      <p>Your current {props.includePartner && 'combined'} income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
       <div>
         <h2>Your ideal retirement</h2>
         {planOptions}

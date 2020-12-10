@@ -107,7 +107,14 @@ function AboutYou(props) {
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Annual salary (before tax)</label>
-            <input type="text" value={props.partnerSalary} className="form__input form__input--suffixed" />
+            <CurrencyInput
+              id="partner-salary"
+              prefix="$"
+              className="form__input"
+              allowDecimals={false}
+              defaultValue={props.partnerSalary}
+              onChange={(val) => props.onSetPartnerSalary(val)}
+            />
             <span className="form__suffix">per year</span>
           </div>
           <div className="form__group">

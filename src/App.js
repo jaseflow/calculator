@@ -15,6 +15,9 @@ import Summary from './slides/Summary'
 
 import Modal from './components/Modal'
 
+import plans from './resources/plans'
+import sources from './resources/sources'
+
 import { Switch,
   useLocation,
   useHistory,
@@ -26,39 +29,6 @@ import smoothscroll from 'smoothscroll-polyfill'
 smoothscroll.polyfill();
 
 const classNames = require('classnames')
-
-const plans = [
-  {
-    id: 'simple',
-    name: 'Simple',
-    description: 'Age pension',
-    value: 23597
-  },
-  {
-    id: 'modest',
-    name: 'Modest',
-    description: '$27,902 pa',
-    value: 27902
-  },
-  {
-    id: 'comfy',
-    name: 'Comfortable',
-    description: '$43,687 pa',
-    value: 43687
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    description: '$100,000 pa',
-    value: 100000
-  },
-  {
-    id: 'custom',
-    name: 'Custom',
-    description: 'Enter your own',
-    value: null
-  }
-]
 
 const steps = [
   {
@@ -108,9 +78,11 @@ function App() {
   const [retAge, setRetAge] = useState(66)
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
+  const [partnerSalary, setPartnerSalary] = useState(0)
   const [incomeSources, setIncomeSources] = useState([])
+  const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
-  const [reqIncome, setReqIncome] = useState(activePlan.value)
+  const [reqIncome, setReqIncome] = useState(activePlan.value.single)
   const [workingStrategy, setWorkingStrategy] = useState(5)
   const [retiredStrategy, setRetiredStrategy] = useState(3)
   const [contributions, setContributions] = useState(150)
@@ -125,9 +97,9 @@ function App() {
     return -1;
   }
 
-  function handleIncomeClick(val) {
-    let sources = incomeSources
-    setIncomeSources(incomeSources.concat(val))
+  function handleAddIncome() {
+    let newSources = incomeSources
+    setIncomeSources(incomeSources.concat(sources[0]))
     setModalOpen(false)
   }
 
@@ -165,7 +137,7 @@ function App() {
     setActivePlan(plans[planIndex])
   }
 
-  function handleSourceRemove(i) {
+  function handleRemoveIncome(i) {
     const newSources = incomeSources.filter((item, index) => index !== i)
     setIncomeSources(newSources)
     setModalOpen(false)
@@ -188,9 +160,25 @@ function App() {
     setActiveModal(modal)
   }
 
+  function handleSetIncomeSourceValue(val, i) {
+    let sources = [...incomeSources]
+    let incomeSource = {...incomeSources[i]}
+    incomeSource.value = parseInt(val)
+    sources[i] = incomeSource
+    setIncomeSources(sources)
+  }
+
   useEffect(() => {
     setWindowHeight(window.innerHeight)
   },[])
+
+  useEffect(() => {
+    let totals = 0
+    incomeSources.forEach((s) => {
+      totals = totals + s.value
+    })
+    setIncome(salary + partnerSalary + totals)
+  },[incomeSources, salary, partnerSalary])
 
   useEffect(() => {
     if (location.pathname === '/calculator/' || location.pathname === '/') {
@@ -208,10 +196,6 @@ function App() {
       }, 750)
     }
   },[location, footerVisible])
-
-  useEffect(() => {
-    setWindowHeight(window.innerHeight)
-  },[])
 
   let nextButton
 
@@ -295,7 +279,7 @@ function App() {
                 <strong>Takes approximately 15 minutes</strong>
               </p>
               <div className="Nav__action">
-                <Link class="btn btn--hero" to="/step/current/about-you">Get started</Link>
+                <Link className="btn btn--hero" to="/step/current/about-you">Get started</Link>
               </div>
             </div>
           </div>
@@ -335,14 +319,16 @@ function App() {
                         onSetAge={(val) => setAge(val)}
                         onSetContributions={(val) => setContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}
-                        onSetSalary={(val) => setSalary(val)}
+                        onSetSalary={(val) => setSalary(parseInt(val))}
+                        onSetPartnerSalary={(val) => setPartnerSalary(parseInt(val))}
                       />
                     </Route>
                     <Route path="/step/current/other-income">
                       <OtherIncome
                         incomeSources={incomeSources}
-                        onSourceRemove={(s) => handleSourceRemove(s)}
-                        onAddingIncome={(val) => handleIncomeClick(val)} />
+                        onRemoveIncome={(s) => handleRemoveIncome(s)}
+                        onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
+                        onAddIncome={() => handleAddIncome()} />
                     </Route>
                   </Switch>
                 </div>
@@ -357,6 +343,8 @@ function App() {
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
                       <IdealRetirement
+                        income={income}
+                        includePartner={includePartner}
                         onSetPlan={(val) => handleActivePlan(val)}
                         onSetRetirementAge={(val) => setRetAge(val)}
                         retirementAge={retAge}
@@ -423,7 +411,6 @@ function App() {
         modestIncome={plans[1].value}
         comfyIncome={plans[2].value}
         premiumIncome={plans[3].value}
-        onIncomeClick={(val) => handleIncomeClick(val)}
         onGoalClick={(val) => handleGoalClick(val)}
         active={activeModal} 
         open={modalOpen}
