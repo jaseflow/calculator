@@ -125,7 +125,7 @@ function Results(props) {
         <div className="container">
           <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br/>of your money lasting till age <strong>90</strong>.</p>
           <hr className="Results__hr" />
-          <h2 class="text-centered">Review your decisions</h2>
+          <h2>Review your decisions</h2>
           <div className="Results__decisions">
             <div className="form__slider">
               <label htmlFor="" class="form__label form__label--range">
@@ -206,7 +206,8 @@ function Results(props) {
               />
             </div>
           </div>
-          <div>
+          <hr className="Results__hr" />
+          <section className="Results__section">
             <div className="Results__goals-title">
               <h2>Income sources</h2>
               <span className="Results__add-link" onClick={() => props.onOpenModal('income')}>Add income</span>
@@ -216,8 +217,9 @@ function Results(props) {
               :
               <p>No other income sources added</p>
             }
-          </div>
-          <div>
+          </section>
+          <hr className="Results__hr" />
+          <section className="Results__section">
             <div className="Results__goals-title">
               <h2>Goals you added</h2>
               <span className="Results__add-link" onClick={() => props.onOpenModal('goals')}>Add goals</span>
@@ -227,6 +229,22 @@ function Results(props) {
               :
               <p>No retirement goals added</p>
             }
+          </section>
+        </div>
+      </div>
+      <div className="Results__footer">
+        <div className="container">
+          <div className="Results__actions">
+            <div className="Results__block">
+              <h2>Get financial advice</h2>
+              <p>Talk to one of our experienced financial advisers about designing a financial strategy.</p>
+              <a href="#" class="btn btn--block"> Schedule an appointment</a>
+            </div>
+            <div className="Results__block">
+              <h2>Print a report</h2>
+              <p>Generate a detailed report of your projection to use as reference at your next financial discussion.</p>
+              <a href="#" class="btn btn--secondary">Save as PDF</a>
+            </div>
           </div>
         </div>
       </div>
