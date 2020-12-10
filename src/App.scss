@@ -874,14 +874,19 @@ hr {
   margin-bottom: 2rem;
 }
 
-.Results__goal-title {
+.Results__goals-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
+  h2 {
+    margin-bottom: 0;
+  }
 }
 
-.Results__goal-link {
-  color: $brandGreen;
+.Results__add-link {
+  color: $darkGreen;
+  font-size: 14px;
   font-weight: 700;
 }
 

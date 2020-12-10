@@ -370,14 +370,16 @@ function App() {
               <Results
                 progress={progress}
                 reqIncome={reqIncome}
+                incomeSources={incomeSources}
                 goals={goals}
                 retirementAge={retAge}
                 contributions={contributions}
                 retiredStrategy={retiredStrategy}
                 workingStrategy={workingStrategy}
                 loaded={resultLoaded}
-                onOpenGoals={() => handleModalOpen('goals')}
+                onOpenModal={(modal) => handleModalOpen(modal)}
                 onSetProgress={(val) => setProgress(val)}
+                onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
                 onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                 onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                 onSetReqIncome={(val) => setReqIncome(val)}

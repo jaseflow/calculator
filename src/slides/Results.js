@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pie from '../components/Pie'
 
+import IncomeSource from '../components/IncomeSource'
+
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
@@ -56,6 +58,16 @@ function Results(props) {
       <option value={o.id} key={`selectoption-${o.id}`}>
         {o.text}
       </option>
+    )
+  })
+
+  const sources = props.incomeSources.map((s, i) => {
+    return (
+      <IncomeSource
+        onRemove={() => props.onRemoveIncome(i)}
+        onSetIncomeSourceValue={(val) => props.onSetIncomeSourceValue(val, i)}
+        id={s.id}
+      />
     )
   })
 
@@ -194,15 +206,28 @@ function Results(props) {
               />
             </div>
           </div>
-          { props.goals.length > 0 &&
-            <div>
-              <div className="Results__goals-title">
-                <h2>Goals you added</h2>
-                <span onClick={() => props.onOpenGoals()}></span>
-              </div>
-              {goals}
+          <div>
+            <div className="Results__goals-title">
+              <h2>Income sources</h2>
+              <span className="Results__add-link" onClick={() => props.onOpenModal('income')}>Add income</span>
             </div>
-          }
+            {sources.length ?
+              sources
+              :
+              <p>No other income sources added</p>
+            }
+          </div>
+          <div>
+            <div className="Results__goals-title">
+              <h2>Goals you added</h2>
+              <span className="Results__add-link" onClick={() => props.onOpenModal('goals')}>Add goals</span>
+            </div>
+            {goals.length ?
+              goals
+              :
+              <p>No retirement goals added</p>
+            }
+          </div>
         </div>
       </div>
     </div>
