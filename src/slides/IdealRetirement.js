@@ -10,10 +10,8 @@ function IdealRetirement(props) {
   const planOptions = props.plans.map((p) => {
     let value;
     if (props.includePartner) {
-      console.log(p.value)
       value = p.value && p.value.couple
     } else {
-      console.log(p.value)
       value = p.value && p.value.single
     }
     return (
@@ -22,15 +20,19 @@ function IdealRetirement(props) {
         <div className={`Plan__circle ${p.id === props.activePlan ? 'Plan__circle--selected' : ''}`}></div>
         <div className="Plan__content">
           <strong className="Plan__name">{p.name}</strong>
-          {p.id !== 'custom' &&
-            <NumberFormat
-              className="Plan__value"
-              value={value}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'$'}
-            /> 
-          }
+          <span className="Plan__value">
+            {p.id !== 'custom' &&
+              <NumberFormat
+                value={value}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'$'}
+              /> 
+            }
+            {props.includePartner && p.id != 'custom' && 
+              <span>&nbsp;for a couple</span>
+            }
+          </span>
           {p.id === 'custom' &&
             <small class="Plan__value">Add your own</small>
           }

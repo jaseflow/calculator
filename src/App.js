@@ -156,6 +156,7 @@ function App() {
   }
 
   function handleModalOpen(modal) {
+    console.log(modal)
     setModalOpen(true)
     setActiveModal(modal)
   }
@@ -177,6 +178,7 @@ function App() {
     incomeSources.forEach((s) => {
       totals = totals + s.value
     })
+    console.log(totals + salary + partnerSalary)
     setIncome(salary + partnerSalary + totals)
   },[incomeSources, salary, partnerSalary])
 
@@ -407,10 +409,10 @@ function App() {
         </div>
       </footer>
       <Modal
-        simpleIncome={plans[0].value}
-        modestIncome={plans[1].value}
-        comfyIncome={plans[2].value}
-        premiumIncome={plans[3].value}
+        simpleIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+        modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+        comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
+        premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
         onGoalClick={(val) => handleGoalClick(val)}
         active={activeModal} 
         open={modalOpen}
