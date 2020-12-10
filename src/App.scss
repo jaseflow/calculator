@@ -528,6 +528,7 @@ hr {
 .Nav__footer {
   background: #fff;
   padding: 1rem;
+  padding-top: 0;
   position: relative;
 }
 
@@ -817,6 +818,12 @@ hr {
 }
 
 @media(max-width: 767px) {
+  .Nav__title {
+    margin-bottom: 0;
+  }
+  .Nav__footer {
+    padding-top: 0;
+  }
   .Slides__wrap {
     scroll-behavior: smooth;
     overflow-y: auto;
