@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/calculator/static/css/main.201bce88.chunk.css",
-    "main.js": "/calculator/static/js/main.e0f40310.chunk.js",
-    "main.js.map": "/calculator/static/js/main.e0f40310.chunk.js.map",
+    "main.css": "/calculator/static/css/main.6f93afdb.chunk.css",
+    "main.js": "/calculator/static/js/main.ce5404f7.chunk.js",
+    "main.js.map": "/calculator/static/js/main.ce5404f7.chunk.js.map",
     "runtime-main.js": "/calculator/static/js/runtime-main.b3150a8c.js",
     "runtime-main.js.map": "/calculator/static/js/runtime-main.b3150a8c.js.map",
     "static/css/2.6eb14f6a.chunk.css": "/calculator/static/css/2.6eb14f6a.chunk.css",
-    "static/js/2.c38c4dfc.chunk.js": "/calculator/static/js/2.c38c4dfc.chunk.js",
-    "static/js/2.c38c4dfc.chunk.js.map": "/calculator/static/js/2.c38c4dfc.chunk.js.map",
+    "static/js/2.ae968135.chunk.js": "/calculator/static/js/2.ae968135.chunk.js",
+    "static/js/2.ae968135.chunk.js.map": "/calculator/static/js/2.ae968135.chunk.js.map",
     "static/js/3.343715ca.chunk.js": "/calculator/static/js/3.343715ca.chunk.js",
     "static/js/3.343715ca.chunk.js.map": "/calculator/static/js/3.343715ca.chunk.js.map",
     "index.html": "/calculator/index.html",
     "static/css/2.6eb14f6a.chunk.css.map": "/calculator/static/css/2.6eb14f6a.chunk.css.map",
-    "static/css/main.201bce88.chunk.css.map": "/calculator/static/css/main.201bce88.chunk.css.map",
-    "static/js/2.c38c4dfc.chunk.js.LICENSE.txt": "/calculator/static/js/2.c38c4dfc.chunk.js.LICENSE.txt",
+    "static/css/main.6f93afdb.chunk.css.map": "/calculator/static/css/main.6f93afdb.chunk.css.map",
+    "static/js/2.ae968135.chunk.js.LICENSE.txt": "/calculator/static/js/2.ae968135.chunk.js.LICENSE.txt",
     "static/media/Logo.ac6a4afc.svg": "/calculator/static/media/Logo.ac6a4afc.svg",
-    "static/media/bg.42baaa64.jpg": "/calculator/static/media/bg.42baaa64.jpg",
+    "static/media/hero.6c167e07.jpg": "/calculator/static/media/hero.6c167e07.jpg",
     "static/media/logo--dark.3e9c97e6.svg": "/calculator/static/media/logo--dark.3e9c97e6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b3150a8c.js",
     "static/css/2.6eb14f6a.chunk.css",
-    "static/js/2.c38c4dfc.chunk.js",
-    "static/css/main.201bce88.chunk.css",
-    "static/js/main.e0f40310.chunk.js"
+    "static/js/2.ae968135.chunk.js",
+    "static/css/main.6f93afdb.chunk.css",
+    "static/js/main.ce5404f7.chunk.js"
   ]
 }
