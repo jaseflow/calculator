@@ -198,7 +198,7 @@ function App() {
     } else if (location.path !== '/' && !footerVisible) {
       setFooterVisible(true)
     }
-    if (location.pathname === '/step/summary') {
+    if (location.pathname === '/step/results' || location.pathname === '/step/summary') {
       setFooterVisible(false)
     }
     if (location.pathname === '/step/results') {
