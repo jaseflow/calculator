@@ -171,6 +171,8 @@ function Results(props) {
       </div>
       <div className="Results__footer">
         <div className="container">
+          <h1>Next steps</h1>
+          <hr />
           <div className="Results__actions">
             <div className="Results__block">
               <h2>Get financial advice</h2>
