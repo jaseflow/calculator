@@ -86,6 +86,11 @@ hr {
   display: none !important;
 }
 
+.rangeslider, .rangeslider .rangeslider__fill  {
+  box-shadow: none !important;
+  background: $gray;
+}
+
 .flat {
   margin-bottom: 0 !important;
 }
