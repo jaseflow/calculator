@@ -941,6 +941,7 @@ hr {
 
 .Results__hr {
   margin: 2rem 0 1.5rem 0;
+  opacity: 0.5;
 }
 
 .Results--loaded {
@@ -1008,6 +1009,30 @@ hr {
 
 .Results__action {
   margin-top: 1rem;
+}
+
+.Results__footer nav {
+  margin-left: -1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.Results__legal {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.Results__legal a {
+  display: inline-block;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+.Results__footer small {
+  opacity: 0.5;
+  text-align: center;
 }
 
 @keyframes showIncomeCard {

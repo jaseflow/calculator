@@ -51,7 +51,9 @@ function IdealRetirement(props) {
       <p>Your current {props.includePartner && 'combined'} income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
       <div>
         <h2>Your ideal retirement</h2>
-        {planOptions}
+        <div className="plans">
+          {planOptions}
+        </div>
         {props.activePlan === 'custom' &&
           <div className="IdealRetirement__custom">
             <div className="form">

@@ -174,7 +174,6 @@ function Results(props) {
       <div className="Results__footer">
         <div className="container">
           <h1>Next steps</h1>
-          <hr />
           <div className="Results__actions">
             <div className="Results__block">
               <h2>Get financial advice</h2>
@@ -193,7 +192,8 @@ function Results(props) {
               </a>
             </div>
           </div>
-          <footer>
+          <hr className="Results__hr" />
+          <footer class="Results__legal">
             <nav>
               <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/disclaimer">
                 Disclaimer
