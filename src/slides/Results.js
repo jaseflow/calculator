@@ -175,7 +175,7 @@ function Results(props) {
       </div>
       <div className="Results__footer">
         <div className="container">
-          <h1 className="text-centered">We offer trusted financial advice tailored to suit your lifestyle</h1>
+          <h1 className="text-centered">Next steps</h1>
           <div className="Results__actions">
             <div className="Results__block">
               <img src={superHealthCheckImg} alt="" />
