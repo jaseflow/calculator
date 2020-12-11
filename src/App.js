@@ -131,7 +131,7 @@ function App() {
     setModalOpen(false)
   }
 
-  function handleGoalRemove(i) {
+  function handleRemoveGoal(i) {
     const newGoals = goals.filter((item, index) => index !== i)
     setGoals(newGoals)
     setModalOpen(false)
@@ -188,7 +188,7 @@ function App() {
   let nextButton
 
   if ((stepIndex + 1) === steps.length) {
-    nextButton = <Link to='/completed' className="btn">Finish</Link>
+    nextButton = <Link to='/completed' className="btn">Next steps</Link>
   } else {
     if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
       nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
@@ -335,7 +335,7 @@ function App() {
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals
                         goals={goals}
-                        onGoalRemove={(i) => handleGoalRemove(i)}
+                        onRemoveGoal={(i) => handleRemoveGoal(i)}
                         onAddingGoal={() => handleModalOpen('goals')}
                       />
                     </Route>

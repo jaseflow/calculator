@@ -3,44 +3,12 @@ import React from 'react';
 import Pie from '../components/Pie'
 
 import IncomeSource from '../components/IncomeSource'
+import RetirementGoal from '../components/RetirementGoal'
 
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
 import NumberFormat from 'react-number-format'
-
-const goalOptions = [
-  {
-    id: 'holiday',
-    text: 'Holiday',
-    icon: 'plane-departure'
-  },
-  {
-    id: 'inheritance',
-    text: 'Inheritance',
-    icon: 'sack-dollar'
-  },
-  {
-    id: 'medical',
-    text: 'Medical expense',
-    icon: 'users-medical'
-  },
-  {
-    id: 'car',
-    text: 'New car',
-    icon: 'car'
-  },
-  {
-    id: 'house',
-    text: "Kid's house deposit",
-    icon: 'house'
-  },
-  {
-    id: 'gift',
-    text: 'Gift',
-    icon: 'gift'
-  }
-]
 
 const strategies = {
   1: 'Defensive',
@@ -51,14 +19,6 @@ const strategies = {
 }
 
 function Results(props) {
-
-  const optionsList = goalOptions.map((o) => {
-    return (
-      <option value={o.id} key={`selectoption-${o.id}`}>
-        {o.text}
-      </option>
-    )
-  })
 
   const sources = props.incomeSources.map((s, i) => {
     return (
@@ -72,33 +32,11 @@ function Results(props) {
 
   const goals = props.goals.map((s, i) => {
     return (
-      <div className="GoalCard card">
-        <i className="far fa-times card__close" onClick={() => props.onGoalRemove(i)}></i>
-        <div className="form__group">
-          <label className="form__label" htmlFor="">Income source</label>
-          <div className="form__select">
-            <select id="" name="" className="form__input form__input--select">
-              {optionsList}
-              <option value="">Other</option>
-            </select>
-          </div>
-        </div>
-        <div className="form__group">
-          <label className="form__label" htmlFor="">Cost</label>
-          <input type="text" value=""i placeholder="Enter value" className="form__input" />
-        </div>
-        <div className="form__group">
-          <label className="form__label" htmlFor="">How often</label>
-          <div className="form__select">
-            <select id="" name="" className="form__input form__input--select">
-              <option value="">Once</option>
-              <option value="">Annually</option>
-              <option value="">Every two years</option>
-              <option value="">Every five years</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <RetirementGoal
+        onRemove={() => props.onRemoveGoal(i)}
+        onSetGoalCost={(val) => props.onSetGoalCost(val, i)}
+        id={s.id}
+      />
     )
   })
 
@@ -209,7 +147,7 @@ function Results(props) {
           <section className="Results__section">
             <div className="Results__goals-title">
               <h2>Income sources</h2>
-              <span className="Results__add-link" onClick={() => props.onOpenModal('income')}>Add income</span>
+              <span className="btn btn--text" onClick={() => props.onOpenModal('income')}>Add income</span>
             </div>
             {sources.length ?
               sources
@@ -221,7 +159,7 @@ function Results(props) {
           <section className="Results__section">
             <div className="Results__goals-title">
               <h2>Goals you added</h2>
-              <span className="Results__add-link" onClick={() => props.onOpenModal('goals')}>Add goals</span>
+              <span className="btn btn--text" onClick={() => props.onOpenModal('goals')}>Add goals</span>
             </div>
             {goals.length ?
               goals
@@ -237,12 +175,12 @@ function Results(props) {
             <div className="Results__block">
               <h2>Get financial advice</h2>
               <p>Talk to one of our experienced financial advisers about designing a financial strategy.</p>
-              <a href="#" class="btn btn--block"> Schedule an appointment</a>
+              <a href="#" class="btn Results__action"> Schedule an appointment</a>
             </div>
             <div className="Results__block">
               <h2>Print a report</h2>
               <p>Generate a detailed report of your projection to use as reference at your next financial discussion.</p>
-              <a href="#" class="btn btn--secondary">Save as PDF</a>
+              <a href="#" class="btn btn--secondary Results__action">Save as PDF</a>
             </div>
           </div>
         </div>

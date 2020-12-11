@@ -22,7 +22,7 @@ function ModalIncome(props) {
 
   const optionsList = options.map((o) => {
     return (
-      <li className="btn btn--tertiary btn--block" key={`option-${o.id}`} onClick={() => props.onOptionClick(o)}>
+      <li className="Modal__option" key={`option-${o.id}`} onClick={() => props.onOptionClick(o)}>
         <i className={`fa fa-${o.icon}`}></i>
         {o.text}
       </li>
