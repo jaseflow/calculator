@@ -188,19 +188,10 @@ function App() {
   let nextButton
 
   if ((stepIndex + 1) === steps.length) {
-    nextButton = <Link to='/completed' className="btn">Next steps</Link>
+    nextButton = <Link to='/completed' className="btn">Finish</Link>
   } else {
     if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
-      nextButton = (
-        <div>
-          <div className="show-desktop">
-            <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
-          </div>
-          <div className="show-mobile">
-            <Link onClick={handleSave} to="/" className="btn">Save</Link>
-          </div>
-        </div>
-      )
+      nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
     } else {
       nextButton = <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
     }
