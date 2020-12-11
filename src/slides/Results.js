@@ -2,7 +2,9 @@ import React from 'react';
 
 import Pie from '../components/Pie'
 
-import AppointmentImg from '../appointment.jpg'
+import comprehensiveImg from '../1.png'
+import singleImg from '../2.png'
+import superHealthCheckImg from '../3.png'
 
 import IncomeSource from '../components/IncomeSource'
 import RetirementGoal from '../components/RetirementGoal'
@@ -173,22 +175,33 @@ function Results(props) {
       </div>
       <div className="Results__footer">
         <div className="container">
-          <h1>Next steps</h1>
+          <h1 className="text-centered">We offer trusted financial advice tailored to suit your lifestyle</h1>
           <div className="Results__actions">
             <div className="Results__block">
-              <h2>Get financial advice</h2>
-              <p>Talk to one of our experienced financial advisers about designing a financial strategy.</p>
-              <a href="#" class="btn btn--iconleft Results__action">
+              <img src={superHealthCheckImg} alt="" />
+              <h2 className="flat">Super Health Checks</h2>
+              <p>Covers broad recommendations that do not take into account your personal circumstances.</p>
+              <a href="https://www.lgiasuper.com.au/superannuation/super-health-check" class="btn btn--iconleft Results__action">
                 <i className="fa fa-calendar"></i>
-                Schedule an appointment
+                Book now
               </a>
             </div>
             <div className="Results__block">
-              <h2>Print a report</h2>
-              <p>Generate a detailed report of your projection to use as reference at your next financial discussion.</p>
-              <a href="#" class="btn btn--secondary btn--iconleft Results__action">
-                <i className="fa fa-download"></i>
-                Save as PDF
+              <img src={singleImg} alt="" />
+              <h2 className="flat">Single issue advice</h2>
+              <p>Covers personal advice restricted to limited topics, such as salary sacrificing and investment switching.</p>
+              <a href="https://www.lgiasuper.com.au/about-us/contact-us" class="btn btn--iconleft Results__action">
+                <i className="fa fa-calendar"></i>
+                Book now
+              </a>
+            </div>
+            <div className="Results__block">
+              <img src={comprehensiveImg} alt="" />
+              <h2 className="flat">Comprehensive advice</h2>
+              <p>Provides in-depth retirement planning tailored to suit your personal needs.</p>
+              <a href="https://www.lgiasuper.com.au/superannuation/financial-advice" class="btn btn--iconleft Results__action">
+                <i className="fa fa-calendar"></i>
+                Book now
               </a>
             </div>
           </div>
