@@ -150,6 +150,14 @@ hr {
   transition: box-shadow 375ms ease;
 }
 
+.btn--iconleft i {
+  margin-right: 1rem;
+}
+
+.btn--iconright i {
+  margin-left: 1rem;
+}
+
 .btn--block {
   width: 100%;
 }
@@ -766,6 +774,8 @@ hr {
 .Modal__hero {
   background: $gray;
   height: 150px;
+  background-size: cover;
+  background-position: center;
 }
 
 .Modal__content {
@@ -994,6 +1004,10 @@ hr {
 
 .Results__block {
   margin-bottom: 2rem;
+}
+
+.Results__action {
+  margin-top: 1rem;
 }
 
 @keyframes showIncomeCard {

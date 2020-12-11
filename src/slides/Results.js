@@ -2,6 +2,8 @@ import React from 'react';
 
 import Pie from '../components/Pie'
 
+import AppointmentImg from '../appointment.jpg'
+
 import IncomeSource from '../components/IncomeSource'
 import RetirementGoal from '../components/RetirementGoal'
 
@@ -177,14 +179,44 @@ function Results(props) {
             <div className="Results__block">
               <h2>Get financial advice</h2>
               <p>Talk to one of our experienced financial advisers about designing a financial strategy.</p>
-              <a href="#" class="btn Results__action"> Schedule an appointment</a>
+              <a href="#" class="btn btn--iconleft Results__action">
+                <i className="fa fa-calendar"></i>
+                Schedule an appointment
+              </a>
             </div>
             <div className="Results__block">
               <h2>Print a report</h2>
               <p>Generate a detailed report of your projection to use as reference at your next financial discussion.</p>
-              <a href="#" class="btn btn--secondary Results__action">Save as PDF</a>
+              <a href="#" class="btn btn--secondary btn--iconleft Results__action">
+                <i className="fa fa-download"></i>
+                Save as PDF
+              </a>
             </div>
           </div>
+          <footer>
+            <nav>
+              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/disclaimer">
+                Disclaimer
+              </a>
+              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/contact-us">
+                Contact
+              </a>
+              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance">
+                Governance
+              </a>
+              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/privacy">
+                Privacy
+              </a>
+              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/site-map">
+                Site map
+              </a>
+            </nav>
+            <p>
+              <small>LGIAsuper Trustee ABN 94 085 088 484</small>
+              <small>AFS Licence No. 230511</small>
+              <small>LGIAsuper ABN 23 053 121 564</small>
+            </p>
+          </footer>
         </div>
       </div>
     </div>

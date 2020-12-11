@@ -46,7 +46,7 @@ const steps = [
     ]
   },
   {
-    name: "When can you afford to retire?",
+    name: "When can you afford to retire",
     completed: false,
     helperText: 'Retirement age to achieve your goals',
     sections: [

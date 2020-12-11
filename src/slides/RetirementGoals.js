@@ -26,7 +26,7 @@ function RetirementGoals(props) {
         </div>
       }
       <div className="RetirementGoals__action">
-        <button className="btn btn--secondary" onClick={props.onAddingGoal}>Add a retirement goals <i className="far fa-plus"></i></button>
+        <button className="btn btn--secondary btn--iconright" onClick={props.onAddingGoal}>Add a retirement goals <i className="far fa-plus"></i></button>
       </div>
     </div>
   )

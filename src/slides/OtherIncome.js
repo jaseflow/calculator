@@ -25,7 +25,7 @@ function OtherIncome(props) {
         </div>
       }
       <div className="OtherIncome__action">
-        <button className="btn btn--secondary" onClick={() => props.onAddIncome()}>
+        <button className="btn btn--secondary btn--iconright" onClick={() => props.onAddIncome()}>
           Add another income source <i className="far fa-plus"></i>
         </button>
       </div>

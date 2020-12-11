@@ -1,12 +1,14 @@
 import React from 'react';
 
+import ComfyHero from '../comfy.jpg'
+
 import NumberFormat from 'react-number-format'
 
 function ModalComfortable(props) {
   return (
     <div class="Modal__card Modal__card--scrollable">
       <div className="Modal__scroll">
-        <div className="Modal__hero"></div>
+        <div className="Modal__hero" style={{ backgroundImage: `url(${ComfyHero})` }}></div>
         <div className="Modal__content">
           <h2 class="flat">Comfortable retirement</h2>
           <NumberFormat

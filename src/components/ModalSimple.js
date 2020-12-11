@@ -1,12 +1,14 @@
 import React from 'react';
 
+import SimpleHero from '../simple.jpg'
+
 import NumberFormat from 'react-number-format'
 
 function ModalSimple(props) {
   return (
     <div class="Modal__card Modal__card--scrollable">
       <div className="Modal__scroll">
-        <div className="Modal__hero"></div>
+        <div className="Modal__hero" style={{ backgroundImage: `url(${SimpleHero})` }}></div>
         <div className="Modal__content">
           <h2 class="flat">Simple retirement</h2>
           <p>
