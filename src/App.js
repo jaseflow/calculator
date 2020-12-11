@@ -100,11 +100,19 @@ function App() {
   }
 
   function handleSliderRelease() {
-    wrapper.current.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
+    if (window.innerWidth > 768) {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    } else {
+      wrapper.current.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
     setResultLoaded(false)
     setProgress(0)
     setTimeout(() => {
