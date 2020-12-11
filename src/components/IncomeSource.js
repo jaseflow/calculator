@@ -7,7 +7,7 @@ import sources from '../resources/sources'
 function IncomeSource(props) {
   const optionsList = sources.map((o) => {
     return (
-      <option value={o.id} key={`selectoption-${o.id}`}>
+      <option value={o.id} selected={o.id === props.id} key={`selectoption-${o.id}`}>
         {o.text}
       </option>
     )
@@ -18,7 +18,7 @@ function IncomeSource(props) {
       <div className="form__group">
         <label className="form__label" htmlFor="">Income source</label>
         <div className="form__select">
-          <select id="" name="" className="form__input form__input--select" autofocus>
+          <select id="" name="" className="form__input form__input--select">
             {optionsList}
           </select>
         </div>
@@ -31,7 +31,7 @@ function IncomeSource(props) {
           className="form__input"
           allowDecimals={false}
           placeholder="Enter value"
-          autofocus
+          autoFocus
           onChange={(val) => props.onSetIncomeSourceValue(val)}
         />
       </div>

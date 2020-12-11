@@ -1,8 +1,6 @@
-import React, { useState  } from 'react';
+import React from 'react';
 
 import IncomeSource from '../components/IncomeSource'
-
-import sources from '../resources/sources'
 
 function OtherIncome(props) {
 

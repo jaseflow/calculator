@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
 import NumberFormat from 'react-number-format'
@@ -29,7 +28,7 @@ function IdealRetirement(props) {
                 prefix={'$'}
               /> 
             }
-            {props.includePartner && p.id != 'custom' && 
+            {props.includePartner && p.id !== 'custom' && 
               <span>&nbsp;for a couple</span>
             }
           </span>

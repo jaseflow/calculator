@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import Logo from './Logo.svg';
 import LogoDark from './logo--dark.svg';
 import LogoWhite from './logo--white.png';
 import bg from './hero.jpg';
@@ -11,16 +10,13 @@ import OtherIncome from './slides/OtherIncome'
 import IdealRetirement from './slides/IdealRetirement'
 import RetirementGoals from './slides/RetirementGoals'
 import Results from './slides/Results'
-import Summary from './slides/Summary'
 
 import Modal from './components/Modal'
 
 import plans from './resources/plans'
-import sources from './resources/sources'
 
 import { Switch,
   useLocation,
-  useHistory,
   Link,
   Route
 } from 'react-router-dom';
@@ -61,7 +57,6 @@ const steps = [
 
 function App() {
   let location = useLocation()
-  let history = useHistory()
 
   const wrapper = useRef(null)
 
@@ -97,18 +92,11 @@ function App() {
     return -1;
   }
 
-  function handleAddIncome() {
+  function handleAddIncome(val) {
     let newSources = incomeSources
-    setIncomeSources(incomeSources.concat(sources[0]))
+    newSources.push(val)
+    setIncomeSources(newSources)
     setModalOpen(false)
-  }
-
-  function handleSummaryLoad() {
-    wrapper.current.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
   }
 
   function handleSliderRelease() {
@@ -156,7 +144,6 @@ function App() {
   }
 
   function handleModalOpen(modal) {
-    console.log(modal)
     setModalOpen(true)
     setActiveModal(modal)
   }
@@ -178,7 +165,6 @@ function App() {
     incomeSources.forEach((s) => {
       totals = totals + s.value
     })
-    console.log(totals + salary + partnerSalary)
     setIncome(salary + partnerSalary + totals)
   },[incomeSources, salary, partnerSalary])
 
@@ -330,7 +316,7 @@ function App() {
                         incomeSources={incomeSources}
                         onRemoveIncome={(s) => handleRemoveIncome(s)}
                         onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
-                        onAddIncome={() => handleAddIncome()} />
+                        onAddIncome={() => handleModalOpen('income')} />
                     </Route>
                   </Switch>
                 </div>
@@ -387,10 +373,6 @@ function App() {
                 onSetContributions={(val) => setContributions(val)}
               />
             </Route>
-            <Route path="/step/summary">
-              <Summary
-                onSummaryLoad={handleSummaryLoad} />
-            </Route>
           </Switch>
         </div>
       </main>
@@ -415,6 +397,7 @@ function App() {
         modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
         comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
         premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
+        onIncomeClick={(val) => handleAddIncome(val)}
         onGoalClick={(val) => handleGoalClick(val)}
         active={activeModal} 
         open={modalOpen}
