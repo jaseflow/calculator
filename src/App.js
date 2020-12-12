@@ -171,11 +171,19 @@ function App() {
 
   useEffect(() => {
     if (includePartner || includePartnerVoluntary === 'yes') {
-      wrapper.current.scroll({
-        top: wrapper.current.scrollHeight,
-        left: 0,
-        behavior: 'smooth'
-      })
+      if (window.innerWidth < 768) {
+        wrapper.current.scroll({
+          top: wrapper.current.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        })
+      } else {
+        window.scroll({
+          top: wrapper.current.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }
     }
   },[includePartner, includePartnerVoluntary])
 

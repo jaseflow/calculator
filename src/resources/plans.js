@@ -13,8 +13,8 @@ const plans = [
     name: 'Modest',
     description: '$27,902 pa',
     value: {
-      single: 27902,
-      couple: 55804
+      single: 27987,
+      couple: 40440
     }
   },
   {
@@ -22,8 +22,8 @@ const plans = [
     name: 'Comfortable',
     description: '$43,687 pa',
     value: {
-      single: 43687,
-      couple: 87374
+      single: 43901,
+      couple: 62083
     }
   },
   {

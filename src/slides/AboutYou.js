@@ -82,7 +82,7 @@ function AboutYou(props) {
         </div>
       </div>
       <label className="form__label form__label--checkbox flat" htmlFor="includePartner">
-        <input type="checkbox" id="includePartner" className="form__checkbox" onChange={() => props.onPartnerInclude()} />
+        <input type="checkbox" checked={props.includePartner} id="includePartner" className="form__checkbox" onChange={() => props.onPartnerInclude()} />
         Include my partner
       </label>
       { props.includePartner ?
