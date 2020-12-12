@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {
-  const [ includePartnerVoluntary, setIncludePartnerVoluntary  ] = useState('no')
 
   return (
     <div>
@@ -87,7 +86,7 @@ function AboutYou(props) {
         Include my partner
       </label>
       { props.includePartner ?
-        <div className="form">
+        <div className="form" id="partner">
           <hr />
           <h2>About your partner</h2>
           <div className="form__row">
@@ -130,17 +129,17 @@ function AboutYou(props) {
           <div className="form__group">
             <label className="form__label" htmlFor="">Does your partner make voluntary contributions?</label>
             <div className="form__options">
-              <label className="form__label form__label--radio" htmlFor="includePartnerVol" onChange={() => setIncludePartnerVoluntary('yes')}>
-                <input type="radio" value="yes" checked={includePartnerVoluntary === 'yes'} id="includePartnerVol" className="form__checkbox" />
+              <label className="form__label form__label--radio" htmlFor="includePartnerVol" onChange={() => props.onIncludePartnerVoluntary('yes')}>
+                <input type="radio" value="yes" checked={props.includePartnerVoluntary === 'yes'} id="includePartnerVol" className="form__checkbox" />
                 Yes
               </label>
-              <label className="form__label form__label--radio" htmlFor="excludePartnerVol" onChange={() => setIncludePartnerVoluntary('no')}>
-                <input type="radio" value="no" checked={includePartnerVoluntary === 'no'} id="excludePartnerVol" className="form__checkbox" />
+              <label className="form__label form__label--radio" htmlFor="excludePartnerVol" onChange={() => props.onIncludePartnerVoluntary('no')}>
+                <input type="radio" value="no" checked={props.includePartnerVoluntary === 'no'} id="excludePartnerVol" className="form__checkbox" />
                 No
               </label>
             </div>
           </div>
-          { includePartnerVoluntary === 'yes' ?
+          { props.includePartnerVoluntary === 'yes' ?
             <div>
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (before tax)</label>

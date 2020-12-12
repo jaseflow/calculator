@@ -66,6 +66,7 @@ function App() {
   const [windowHeight, setWindowHeight] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [includePartner, setIncludePartner] = useState(false)
+  const [includePartnerVoluntary, setIncludePartnerVoluntary] = useState('no')
   const [footerVisible, setFooterVisible] = useState(false)
   const [activeModal, setActiveModal] = useState('')
   const [activePlan, setActivePlan] = useState(plans[0])
@@ -169,6 +170,16 @@ function App() {
   },[])
 
   useEffect(() => {
+    if (includePartner || includePartnerVoluntary === 'yes') {
+      wrapper.current.scroll({
+        top: wrapper.current.scrollHeight,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  },[includePartner, includePartnerVoluntary])
+
+  useEffect(() => {
     let totals = 0
     incomeSources.forEach((s) => {
       totals = totals + s.value
@@ -186,6 +197,11 @@ function App() {
       setFooterVisible(false)
     }
     if (location.pathname === '/step/results') {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
       setResultLoaded(true)
       setTimeout(() => {
         setProgress(75)
@@ -299,10 +315,12 @@ function App() {
                       <AboutYou 
                         age={age}
                         includePartner={includePartner}
+                        includePartnerVoluntary={includePartnerVoluntary}
                         contributions={contributions}
                         superBalance={superBalance}
                         salary={salary}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
+                        onIncludePartnerVoluntary={(val) => setIncludePartnerVoluntary(val)}
                         onSetAge={(val) => setAge(val)}
                         onSetContributions={(val) => setContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}
