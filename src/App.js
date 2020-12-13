@@ -236,7 +236,7 @@ function App() {
       'Nav__link--completed': step.completed
     })
     return (
-      <li key={`step-${i}`}>
+      <li key={`step-${i}`} className="flat">
         {step.completed || stepIndex === i ?
           <Link to={steps[i].sections[0]} onClick={() => setStepIndex(i)} className={linkClasses}>
             {step.completed ? 
@@ -356,7 +356,10 @@ function App() {
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
                       <IdealRetirement
-                        income={income}
+                        simpleIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+                        modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+                        comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
+                        premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
                         includePartner={includePartner}
                         onSetPlan={(val) => handleActivePlan(val)}
                         onSetRetirementAge={(val) => setRetAge(val)}

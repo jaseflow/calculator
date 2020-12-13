@@ -3,6 +3,7 @@ const plans = [
     id: 'simple',
     name: 'Simple',
     description: 'Age pension',
+    standard: 'asfa',
     value: {
       single: 23597,
       couple: 47194
@@ -12,6 +13,7 @@ const plans = [
     id: 'modest',
     name: 'Modest',
     description: '$27,902 pa',
+    standard: 'asfa',
     value: {
       single: 27987,
       couple: 40440
@@ -21,6 +23,7 @@ const plans = [
     id: 'comfy',
     name: 'Comfortable',
     description: '$43,687 pa',
+    standard: 'asfa',
     value: {
       single: 43901,
       couple: 62083
@@ -30,6 +33,7 @@ const plans = [
     id: 'premium',
     name: 'Premium',
     description: '$100,000 pa',
+    standard: 'lgia',
     value: {
       single: 100000,
       couple: 200000

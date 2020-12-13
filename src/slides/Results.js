@@ -208,19 +208,19 @@ function Results(props) {
           <hr className="Results__hr" />
           <footer class="Results__legal">
             <nav>
-              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/disclaimer">
+              <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/disclaimer">
                 Disclaimer
               </a>
-              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/contact-us">
+              <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/contact-us">
                 Contact
               </a>
-              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance">
+              <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/governance">
                 Governance
               </a>
-              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/privacy">
+              <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/privacy">
                 Privacy
               </a>
-              <a target="_blank" href="https://www.lgiasuper.com.au/about-us/site-map">
+              <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/site-map">
                 Site map
               </a>
             </nav>
