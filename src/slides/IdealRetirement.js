@@ -6,6 +6,8 @@ import ContentSimple from '../components/ContentSimple'
 import ContentModest from '../components/ContentModest'
 import ContentComfy from '../components/ContentComfy'
 import ContentPremium from '../components/ContentPremium'
+import Tooltip from '../components/Tooltip'
+
 import NumberFormat from 'react-number-format'
 
 function IdealRetirement(props) {
@@ -104,21 +106,30 @@ function IdealRetirement(props) {
   return (
     <div>
       <div>
-        <p>The budgets for comfortable and modest retirement lifestyles are calculations from the
-        Association of Superannuation Funds of Australia (ASFA) Retirement Standard, September
-        quarter 2020.</p>
-        <p>The budget for a premium retirement lifestyle is an estimate by LGIAsuper, independent to
-        the ASFA Retirement Standard.</p>
         <div className="plans">
           <div className="plans__list">
             <div>
-              <h3>ASFA Retirement Standard</h3>
+              <div className="plans__header">
+                <h3 className="flat">
+                  ASFA Retirement Standard
+                </h3>
+                <Tooltip>
+                  <p>The budgets for comfortable and modest retirement lifestyles are calculations from the Association of Superannuation Funds of Australia (ASFA) Retirement Standard, September quarter 2020.</p>
+                </Tooltip>
+              </div>
               <div class="plans__options">
                 {asfaList}
               </div>
             </div>
             <div>
-              <h3>LGIAsuper Retirement Standard</h3>
+              <div className="plans__header">
+                <h3 className="flat">
+                  LGIAsuper Retirement Standard
+                </h3>
+                <Tooltip>
+                  <p>The budget for a premium retirement lifestyle is an estimate by LGIAsuper, independent to the ASFA Retirement Standard.</p>
+                </Tooltip>
+              </div>
               <div class="plans__options">
                 {lgiaList}
               </div>

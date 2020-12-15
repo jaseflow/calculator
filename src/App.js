@@ -223,7 +223,7 @@ function App() {
     nextButton = <Link to='/completed' className="btn">Next steps</Link>
   } else {
     if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
-      nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Save</Link>
+      nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Done</Link>
     } else {
       nextButton = <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
     }

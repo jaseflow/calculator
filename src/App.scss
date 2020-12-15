@@ -657,6 +657,58 @@ hr {
   display: none;
 }
 
+.plans__help {
+  margin-right: 1rem;
+}
+
+.plans__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip__content {
+  display: none;
+  position: absolute;
+  width: calc(100vw - 2rem);
+  right: 0;
+  top: 2.25rem;
+  font-size: 13px;
+  background: #fff;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+  border-radius: 5px;
+  max-width: 280px;
+  &:before {
+    content: '';
+    position: absolute;
+    right: 14px;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #ffffff transparent;
+  }
+  p { margin-bottom: 0 }
+}
+
+.tooltip__content--open {
+  display: block;
+}
+
+.tooltip__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+}
+
 .Plan {
   background: #fff;
   border-radius: $radius;
@@ -902,7 +954,7 @@ hr {
 .Results__hero {
   background: linear-gradient(35deg, #00945A 57.39%, #7FC241 106.02%);
   padding: 1rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
   margin-bottom: 0;
   position: relative;
   z-index: 10;
