@@ -38,12 +38,15 @@ function IncomeSource(props) {
       {props.id === 'investment' &&
         <div className="form__group">
           <label className="form__label" htmlFor="">Income</label>
-          <div className="form__row">
+          <div className="form__field">
             <input type="text" value=""i placeholder="Enter value" className="form__input" />
-            <select id="" name="">
-              <option value="weekly">per week</option>
-              <option value="weekly">per month</option>
-            </select>
+            <div className="form__select form__select--inline">
+              <select id="" name="">
+                <option value="weekly">per week</option>
+                <option value="weekly">per month</option>
+                <option value="weekly">per year</option>
+              </select>
+            </div>
           </div>
         </div>
       }

@@ -83,7 +83,7 @@ function App() {
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value.single)
-  const [employerContributions, setEmployerContributions] = useState('12%')
+  const [employerContributions, setEmployerContributions] = useState('9.5%')
   const [memberContributions, setMemberContributions] = useState('6%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
   const [retiredStrategy, setRetiredStrategy] = useState(3)

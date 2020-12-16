@@ -209,6 +209,10 @@ hr {
   margin-bottom: 1rem;
 }
 
+.form__field {
+  position: relative;
+}
+
 .form__select {
   position: relative;
 }
@@ -230,6 +234,24 @@ hr {
   color: $offBlack;
   font-size: 16px;
   pointer-events: none;
+}
+
+.form__select--inline {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.form__select--inline select {
+  appearance: none;
+  background: none;
+  border: 0;
+  font-size: 13px;
+  padding-right: 36px;
+}
+
+.form__select--inline:after {
+  top: 6px;
 }
 
 .form__label {
