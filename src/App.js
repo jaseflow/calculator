@@ -83,10 +83,13 @@ function App() {
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan.value.single)
+  const [employerContributions, setEmployerContributions] = useState('12%')
+  const [memberContributions, setMemberContributions] = useState('6%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
   const [retiredStrategy, setRetiredStrategy] = useState(3)
-  const [contributions, setContributions] = useState(150)
+  const [volContributions, setVolContributions] = useState(150)
   const [resultLoaded, setResultLoaded] = useState(false)
+  const [viewTotals, setViewTotals] = useState(false)
 
   function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
@@ -101,6 +104,27 @@ function App() {
     if(stepIndex === 0 && !acceptedDisc) {
       e.preventDefault()
       handleModalOpen('disclaimer')
+    }
+  }
+
+  function handleViewToggle() {
+    setViewTotals(!viewTotals)
+    if(!viewTotals) {
+      const employerPercentage = parseInt(employerContributions.replace('%', ''))
+      const employerTotal = ((employerPercentage / 100) * salary) / 12
+
+      const memberPercentage = parseInt(memberContributions.replace('%', ''))
+      const memberTotal = ((memberPercentage / 100) * salary) / 12
+      setEmployerContributions(`$${employerTotal}`)
+      setMemberContributions(`$${memberTotal}`)
+    } else {
+      const employerTotal = parseInt(employerContributions.replace('$', ''))
+      const employerPercentage = ((employerTotal / salary) * 100) * 12
+
+      const memberTotal = parseInt(memberContributions.replace('$', ''))
+      const memberPercentage = ((memberTotal / salary) * 100) * 12
+      setEmployerContributions(`${employerPercentage}%`)
+      setMemberContributions(`${memberPercentage}%`)
     }
   }
 
@@ -335,13 +359,17 @@ function App() {
                         age={age}
                         includePartner={includePartner}
                         includePartnerVoluntary={includePartnerVoluntary}
-                        contributions={contributions}
+                        volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
+                        employerContributions={employerContributions}
+                        memberContributions={memberContributions}
+                        viewTotals={viewTotals}
+                        onSetViewTotals={() => handleViewToggle()}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
                         onIncludePartnerVoluntary={(val) => setIncludePartnerVoluntary(val)}
                         onSetAge={(val) => setAge(val)}
-                        onSetContributions={(val) => setContributions(val)}
+                        onSetContributions={(val) => setVolContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}
                         onSetSalary={(val) => setSalary(parseInt(val))}
                         onSetPartnerSalary={(val) => setPartnerSalary(parseInt(val))}
@@ -396,7 +424,7 @@ function App() {
                 incomeSources={incomeSources}
                 goals={goals}
                 retirementAge={retAge}
-                contributions={contributions}
+                volContributions={volContributions}
                 retiredStrategy={retiredStrategy}
                 workingStrategy={workingStrategy}
                 deathAge={deathAge}
@@ -408,7 +436,7 @@ function App() {
                 onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                 onSetReqIncome={(val) => setReqIncome(val)}
                 onSliderRelease={() => handleSliderRelease()}
-                onSetContributions={(val) => setContributions(val)}
+                onSetVolContributions={(val) => setVolContributions(val)}
               />
             </Route>
           </Switch>

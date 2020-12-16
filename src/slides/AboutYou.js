@@ -1,11 +1,15 @@
 import React from 'react';
 
+import Switch from 'react-switch'
+
+import FormToggle from '../components/FormToggle'
+
 import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {
 
   return (
-    <div>
+    <div className="AboutYou">
       <h2>About you</h2>
       <div className="Alert">
         <p className="flat">You will notice we have prefilled information we already know about you.</p>
@@ -14,11 +18,11 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <input type="text" value="Male" className="form__input form__input--prefilled" disabled />
+            <input type="text" value="Male" className="form__input form__input--prefilled" />
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value={props.age} className="form__input form__input--prefilled" disabled />
+            <input type="text" value={props.age} className="form__input form__input--prefilled" />
           </div>
         </div>
         <div className="form__group">
@@ -46,16 +50,36 @@ function AboutYou(props) {
             onChange={(val) => props.onSetSalary(val)}
           />
         </div>
-        <h2>Contributions</h2>
+        <h2 className="AboutYou__contributions">
+          Contributions
+          <div className="form__switch">
+            Percentage
+            <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={props.onSetViewTotals} checked={props.viewTotals} />
+            Totals
+          </div>
+        </h2>
         <div className="form__row--desktop">
           <div className="form__group">
-            <label className="form__label" htmlFor="">Employer contributions</label>
-            <input type="text" value="12%" className="form__input form__input--prefilled" disabled />
+            <label className="form__label form__label--toggle" htmlFor="">
+              Employer contributions
+            </label>
+            <input type="text" value={props.employerContributions} className="form__input form__input--prefilled" />
+            { props.viewTotals ?
+              <span className="form__suffix">per month</span>
+              :
+              <span className="form__suffix">of salary per month</span>
+            }
           </div>
           <div className="form__group">
-            <label className="form__label" htmlFor="">Standard Member contributions</label>
-            <input type="text" value="6%" className="form__input form__input--prefilled form__input--suffixed" disabled />
-            <span className="form__suffix">before tax</span>
+            <label className="form__label form__label--toggle" htmlFor="">
+              Standard Member contributions
+            </label>
+            <input type="text" value={props.memberContributions} className="form__input form__input--prefilled form__input--suffixed" />
+            { props.viewTotals ?
+              <span className="form__suffix">per month</span>
+              :
+              <span className="form__suffix">of salary per month</span>
+            }
           </div>
         </div>
         <div className="form__row">
@@ -66,8 +90,8 @@ function AboutYou(props) {
               prefix="$"
               className="form__input form__input--prefilled"
               allowDecimals={false}
-              defaultValue={props.contributions}
-              onChange={(val) => props.onSetContributions(val)}
+              defaultValue={props.volContributions}
+              onChange={(val) => props.onSetVolContributions(val)}
             />
             <span className="form__suffix">per month</span>
           </div>

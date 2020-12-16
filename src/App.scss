@@ -239,6 +239,12 @@ hr {
   font-size: 14px;
 }
 
+.form__label--toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .form__label--range {
   display: flex;
   align-items: center;
@@ -280,8 +286,23 @@ hr {
   background: none;
 }
 
+.form__switch {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.form__switch .Switch {
+  margin: 0 0.5rem;
+}
+
 .form__checkbox {
   margin-right: 1rem;
+}
+
+.form__toggle {
+  color: $darkGreen;
+  cursor: pointer;
 }
 
 .form__slider {
@@ -314,9 +335,7 @@ hr {
 }
 
 .form__input--prefilled {
-  border-color: transparent;
-  background: darken($offWhite, 10);
-  color: lighten($offBlack, 20);
+  border-color: $darkGreen;
 }
 
 .form__input:focus {
@@ -360,11 +379,17 @@ hr {
   margin-bottom: 0;
 }
 
+.AboutYou__contributions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .Alert {
   padding: 1rem;
   background: #fff;
   line-height: 1.2;
-  border-left: 5px solid $brandGreen;
+  border-left: 5px solid $darkGreen;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -662,11 +687,13 @@ hr {
 }
 
 .Slides__back {
+  display: block;
   width: 44px;
   height: 44px;
   line-height: 44px;
   text-align: center;
   color: $offBlack;
+  margin-left: -1rem;
 }
 
 .OtherIncome__action,
@@ -1178,6 +1205,14 @@ hr {
 }
 
 @media(min-width: 1024px) {
+
+  .form__label--toggle {
+    justify-content: flex-start;
+  }
+
+  .form__toggle {
+    margin-left: 1.5rem;
+  }
 
   .form__row--desktop {
     display: grid;

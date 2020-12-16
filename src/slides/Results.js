@@ -95,7 +95,7 @@ function Results(props) {
                 Extra contributions
                 <strong>
                   <NumberFormat
-                    value={props.contributions}
+                    value={props.volContributions}
                     displayType={'text'}
                     thousandSeparator={true}
                     prefix={'$'}
@@ -107,8 +107,8 @@ function Results(props) {
                 min={0}
                 max={500}
                 tooltip={false}
-                value={props.contributions}
-                onChange={(val) => props.onSetContributions(val)}
+                value={props.volContributions}
+                onChange={(val) => props.onSetVolContributions(val)}
                 onChangeComplete={() => props.onSliderRelease()}
               />
             </div>
