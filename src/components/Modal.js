@@ -20,7 +20,7 @@ function Modal(props) {
           'modest': <ModalModest income={props.modestIncome} onDismiss={props.onDismiss} />,
           'comfy': <ModalComfortable income={props.comfyIncome} onDismiss={props.onDismiss} />,
           'premium': <ModalPremium income={props.premiumIncome} onDismiss={props.onDismiss} />,
-          'disclaimer': <ModalDisclaimer acceptedDisc={props.acceptedDisc} onAcceptDisc={props.onAcceptDisc} onContinueDisc={props.onContinueDisc} />,
+          'disclaimer': <ModalDisclaimer acceptedDisc={props.acceptedDisc} onAcceptDisc={props.onAcceptDisc} onDismiss={props.onDismiss} onContinueDisc={props.onContinueDisc} />,
           'assumptions':
             <ModalAssumptions
               likelihood={props.likelihood}
