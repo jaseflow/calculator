@@ -136,6 +136,11 @@ hr {
   text-decoration: none;
 }
 
+.btn[disabled] {
+  opacity: 0.25;
+  cursor: default;
+}
+
 .btn--text {
   background: none;
   color: $darkGreen;
@@ -657,10 +662,6 @@ hr {
   display: none;
 }
 
-.plans__help {
-  margin-right: 1rem;
-}
-
 .plans__header {
   display: flex;
   align-items: center;
@@ -670,6 +671,14 @@ hr {
 
 .tooltip {
   position: relative;
+}
+
+.tooltip__icon {
+  margin-right: 1rem;
+}
+
+.tooltip__icon {
+  cursor: pointer;
 }
 
 .tooltip__content {
@@ -866,7 +875,7 @@ hr {
 
 .Modal__content {
   padding: 1rem;
-  padding-bottom: calc(60px + 1rem);
+  padding-bottom: calc(60px + 2rem);
 }
 
 .Modal__content--tight {
@@ -936,7 +945,7 @@ hr {
     display: block;
   }
   .Nav__title {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
   .Nav__footer {
     padding-top: 0;
@@ -958,6 +967,12 @@ hr {
   margin-bottom: 0;
   position: relative;
   z-index: 10;
+}
+
+.Results__link {
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .Summary__block {

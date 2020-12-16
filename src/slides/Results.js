@@ -54,17 +54,17 @@ function Results(props) {
           <div className="Results__copy">
             <span>Retire at</span>
             <strong>66</strong>
-            <small>{props.progress}% chance of your money lasting</small>
+            <small><span className="Results__link" onClick={() => props.onOpenModal('assumptions')}>{props.likelihood}% likelihood</span> of your money lasting</small>
           </div>
           <div className="Results__age-bg"></div>
           <div className="Results__pie">
-            <Pie stroke={20} radius={120} progress={props.progress} />
+            <Pie stroke={20} radius={120} progress={props.likelihood} />
           </div>
         </div>
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a 75% likelihood <br/>of your money lasting till age <strong>90</strong>.</p>
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a {props.likelihood}% likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div className="Results__decisions">
@@ -103,7 +103,7 @@ function Results(props) {
                   &nbsp;month
                 </strong>
               </label>
-              <Slider
+            <Slider
                 min={0}
                 max={500}
                 tooltip={false}

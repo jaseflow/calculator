@@ -56,7 +56,7 @@ function AboutYou(props) {
             <input type="text" value="12%" className="form__input form__input--prefilled" />
           </div>
           <div className="form__group">
-            <label className="form__label" htmlFor="">Standard</label>
+            <label className="form__label" htmlFor="">Standard Member contributions</label>
             <input type="text" value="6%" className="form__input form__input--prefilled form__input--suffixed" />
             <span className="form__suffix">before tax</span>
           </div>

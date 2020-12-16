@@ -5,7 +5,7 @@ function Tooltip(props) {
 
   return (
     <div className="tooltip">
-      <i className="far fa-question-circle plans__help" onClick={() => setOpen(!open)}></i>
+      <i className="far fa-question-circle tooltip__icon" onClick={() => setOpen(!open)}></i>
       <div className={`tooltip__content ${open ? 'tooltip__content--open' : ''}`}>
         {props.children}
         <footer className="tooltip__footer">

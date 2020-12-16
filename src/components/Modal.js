@@ -6,6 +6,8 @@ import ModalSimple from './ModalSimple'
 import ModalModest from './ModalModest'
 import ModalComfortable from './ModalComfortable'
 import ModalPremium from './ModalPremium'
+import ModalAssumptions from './ModalAssumptions'
+import ModalDisclaimer from './ModalDisclaimer'
 
 function Modal(props) {
   return (
@@ -17,7 +19,16 @@ function Modal(props) {
           'simple': <ModalSimple income={props.simpleIncome} onDismiss={props.onDismiss} />,
           'modest': <ModalModest income={props.modestIncome} onDismiss={props.onDismiss} />,
           'comfy': <ModalComfortable income={props.comfyIncome} onDismiss={props.onDismiss} />,
-          'premium': <ModalPremium income={props.premiumIncome} onDismiss={props.onDismiss} />
+          'premium': <ModalPremium income={props.premiumIncome} onDismiss={props.onDismiss} />,
+          'disclaimer': <ModalDisclaimer acceptedDisc={props.acceptedDisc} onAcceptDisc={props.onAcceptDisc} onContinueDisc={props.onContinueDisc} />,
+          'assumptions':
+            <ModalAssumptions
+              likelihood={props.likelihood}
+              deathAge={props.deathAge}
+              onSetDeathAge={(val) => props.onSetDeathAge(val)} 
+              onSetLikelihood={(val) => props.onSetLikelihood(val)} 
+              onDismiss={props.onDismiss}
+            />
         }[props.active]
       }
     </div>

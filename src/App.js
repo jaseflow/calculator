@@ -17,6 +17,7 @@ import plans from './resources/plans'
 
 import { Switch,
   useLocation,
+  useHistory,
   Link,
   Route
 } from 'react-router-dom';
@@ -57,13 +58,14 @@ const steps = [
 
 function App() {
   let location = useLocation()
+  let history = useHistory()
 
   const wrapper = useRef(null)
 
-  const [progress, setProgress] = useState(0)
   const [stepIndex, setStepIndex] = useState(0)
   const [sectionIndex, setSectionIndex] = useState(0)
   const [windowHeight, setWindowHeight] = useState(null)
+  const [acceptedDisc, setAcceptedDisc] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [includePartner, setIncludePartner] = useState(false)
   const [includePartnerVoluntary, setIncludePartnerVoluntary] = useState('no')
@@ -72,6 +74,8 @@ function App() {
   const [activePlan, setActivePlan] = useState(plans[0])
   const [age, setAge] = useState(58)
   const [retAge, setRetAge] = useState(66)
+  const [deathAge, setDeathAge] = useState(90)
+  const [likelihood, setLikelihood] = useState(75)
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
   const [partnerSalary, setPartnerSalary] = useState(0)
@@ -91,6 +95,18 @@ function App() {
       }
     }
     return -1;
+  }
+
+  function handleLinkClick(e) {
+    if(stepIndex === 0 && !acceptedDisc) {
+      e.preventDefault()
+      handleModalOpen('disclaimer')
+    }
+  }
+
+  function handleContinueDisc() {
+    setModalOpen(false)
+    history.push(steps[0].sections[0])
   }
 
   function handleAddIncome(val) {
@@ -115,10 +131,8 @@ function App() {
       })
     }
     setResultLoaded(false)
-    setProgress(0)
     setTimeout(() => {
       setResultLoaded(true)
-      setProgress(82)
     }, 1000)
   }
 
@@ -211,9 +225,6 @@ function App() {
         behavior: 'smooth'
       })
       setResultLoaded(true)
-      setTimeout(() => {
-        setProgress(75)
-      }, 750)
     }
   },[location, footerVisible])
 
@@ -223,7 +234,7 @@ function App() {
     nextButton = <Link to='/completed' className="btn">Next steps</Link>
   } else {
     if ((sectionIndex + 1) >= steps[stepIndex].sections.length) {
-      nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Done</Link>
+      nextButton = <Link onClick={handleSave} to={steps[stepIndex + 1].sections[0]} className="btn">Next</Link>
     } else {
       nextButton = <Link onClick={() => setSectionIndex(sectionIndex + 1)} to={steps[stepIndex].sections[sectionIndex + 1]} className="btn">Next</Link>
     }
@@ -238,7 +249,7 @@ function App() {
     return (
       <li key={`step-${i}`} className="flat">
         {step.completed || stepIndex === i ?
-          <Link to={steps[i].sections[0]} onClick={() => setStepIndex(i)} className={linkClasses}>
+          <Link to={steps[i].sections[0]} onClick={(e) => handleLinkClick(e)} className={linkClasses}>
             {step.completed ? 
               <div className="Nav__counter Nav__counter--checked">
                 <i className="far fa-check"></i>
@@ -290,7 +301,7 @@ function App() {
                 <strong>Takes approximately 15 minutes</strong>
               </p>
               <div className="Nav__action">
-                <Link className="btn btn--hero" to="/step/current/about-you">Get started</Link>
+                <Link className="btn btn--hero" onClick={handleLinkClick} to="/step/current/about-you">Get started</Link>
               </div>
             </div>
           </div>
@@ -363,7 +374,6 @@ function App() {
                         includePartner={includePartner}
                         onSetPlan={(val) => handleActivePlan(val)}
                         onSetRetirementAge={(val) => setRetAge(val)}
-                        retirementAge={retAge}
                         activePlan={activePlan.id}
                         plans={plans}
                         onInfoClick={(d) => handleModalOpen(d)}
@@ -382,7 +392,6 @@ function App() {
             </Route>
             <Route path="/step/results">
               <Results
-                progress={progress}
                 reqIncome={reqIncome}
                 incomeSources={incomeSources}
                 goals={goals}
@@ -390,9 +399,10 @@ function App() {
                 contributions={contributions}
                 retiredStrategy={retiredStrategy}
                 workingStrategy={workingStrategy}
+                deathAge={deathAge}
+                likelihood={likelihood}
                 loaded={resultLoaded}
                 onOpenModal={(modal) => handleModalOpen(modal)}
-                onSetProgress={(val) => setProgress(val)}
                 onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
                 onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                 onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
@@ -406,15 +416,20 @@ function App() {
       </main>
       <footer className={`Slides__footer ${footerVisible ? 'Slides__footer--visible' : ''}`}>
         <div className="container">
-          { sectionIndex < 1 ? 
-            <Link to="/" className={`Slides__back ${sectionIndex === 0 ? 'Slides__back--first' : ''}`}>
-              <i className="far fa-chevron-left"></i>
-            </Link>
-            :
-            <Link onClick={() => setSectionIndex(sectionIndex - 1)} to={steps[stepIndex].sections[sectionIndex - 1]} className="Slides__back">
-              <i className="far fa-chevron-left"></i>
-            </Link>
-          }
+          <div className="Slides__actions">
+            { sectionIndex < 1 ? 
+              <Link to="/" className={`Slides__back ${sectionIndex === 0 ? 'Slides__back--first' : ''}`}>
+                <i className="far fa-chevron-left"></i>
+              </Link>
+              :
+              <Link onClick={() => setSectionIndex(sectionIndex - 1)} to={steps[stepIndex].sections[sectionIndex - 1]} className="Slides__back">
+                <i className="far fa-chevron-left"></i>
+              </Link>
+            }
+            <div onClick={() => handleModalOpen('assumptions')} hidden>
+              <i className="fa fa-cog"></i>
+            </div>
+          </div>
           <div>
             {nextButton}
           </div>
@@ -425,11 +440,18 @@ function App() {
         modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
         comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
         premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
+        deathAge={deathAge}
+        likelihood={likelihood}
         onIncomeClick={(val) => handleAddIncome(val)}
         onGoalClick={(val) => handleGoalClick(val)}
+        onSetDeathAge={(val) => setDeathAge(val)}
+        onSetLikelihood={(val) => setLikelihood(val)}
         active={activeModal} 
         open={modalOpen}
+        acceptedDisc={acceptedDisc}
         onDismiss={() => setModalOpen(false)}
+        onAcceptDisc={() => setAcceptedDisc(!acceptedDisc)}
+        onContinueDisc={handleContinueDisc}
       />
     </div>
   );
