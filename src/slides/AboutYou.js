@@ -14,16 +14,11 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <div className="form__select">
-              <select id="" name="" className="form__input form__input--prefilled form__input--select">
-                <option value="">Male</option>
-                <option value="">Female</option>
-              </select>
-            </div>
+            <input type="text" value="Male" className="form__input form__input--prefilled" disabled />
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value={props.age} className="form__input form__input--prefilled" onChange={(val) => props.onSetAge(val)} />
+            <input type="text" value={props.age} className="form__input form__input--prefilled" disabled />
           </div>
         </div>
         <div className="form__group">
@@ -33,6 +28,7 @@ function AboutYou(props) {
             prefix="$"
             className="form__input form__input--prefilled form__input--suffixed"
             allowDecimals={false}
+            disabled={true}
             defaultValue={props.superBalance}
             onChange={(val) => props.onSetSuper(val)}
           />
@@ -44,6 +40,7 @@ function AboutYou(props) {
             id="salary"
             prefix="$"
             className="form__input form__input--prefilled"
+            disabled={true}
             allowDecimals={false}
             defaultValue={props.salary}
             onChange={(val) => props.onSetSalary(val)}
@@ -53,11 +50,11 @@ function AboutYou(props) {
         <div className="form__row--desktop">
           <div className="form__group">
             <label className="form__label" htmlFor="">Employer contributions</label>
-            <input type="text" value="12%" className="form__input form__input--prefilled" />
+            <input type="text" value="12%" className="form__input form__input--prefilled" disabled />
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Standard Member contributions</label>
-            <input type="text" value="6%" className="form__input form__input--prefilled form__input--suffixed" />
+            <input type="text" value="6%" className="form__input form__input--prefilled form__input--suffixed" disabled />
             <span className="form__suffix">before tax</span>
           </div>
         </div>

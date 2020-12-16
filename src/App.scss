@@ -73,6 +73,10 @@ hr {
   margin: 1rem 0;
 }
 
+.hr-double {
+  margin: 1.5rem 0;
+}
+
 .text-centered {
   text-align: center;
 }
@@ -257,9 +261,23 @@ hr {
   transition: background 375ms ease;
 }
 
+.form__label--clear {
+  padding: 0;
+  background: none;
+  align-items: flex-start;
+}
+
+.form__label--clear .form__checkbox {
+  margin-top: 0.5rem;
+}
+
 .form__label--checkbox:hover,
 .form__label--radio:hover {
   background: rgba(0,0,0,0.075);
+}
+
+.form__label--clear:hover {
+  background: none;
 }
 
 .form__checkbox {
@@ -296,7 +314,9 @@ hr {
 }
 
 .form__input--prefilled {
-  border-color: $darkGreen;
+  border-color: transparent;
+  background: darken($offWhite, 10);
+  color: lighten($offBlack, 20);
 }
 
 .form__input:focus {
@@ -620,7 +640,7 @@ hr {
 
 .Slides__slide {
   padding: 1rem;
-  padding-bottom: calc(50px + 1rem);
+  padding-bottom: calc(50px + 2rem);
 }
 
 .Slides__slide--nofooter {
