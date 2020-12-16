@@ -147,18 +147,20 @@ function Results(props) {
               />
             </div>
           </div>
-          <hr className="Results__hr" />
-          <section className="Results__section">
-            <div className="Results__goals-title">
-              <h2>Income sources</h2>
-              <span className="btn btn--text" onClick={() => props.onOpenModal('income')}>Add income</span>
-            </div>
-            {sources.length ?
-              sources
-              :
-              <p>No other income sources added</p>
-            }
-          </section>
+          <div hidden>
+            <hr className="Results__hr" />
+            <section className="Results__section">
+              <div className="Results__goals-title">
+                <h2>Income sources</h2>
+                <span className="btn btn--text" onClick={() => props.onOpenModal('income')}>Add income</span>
+              </div>
+              {sources.length ?
+                sources
+                :
+                <p>No other income sources added</p>
+              }
+            </section>
+          </div>
           <hr className="Results__hr" />
           <section className="Results__section">
             <div className="Results__goals-title">
