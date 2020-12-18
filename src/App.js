@@ -441,10 +441,9 @@ function App() {
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
                       <IdealRetirement
-                        simpleIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
-                        modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
-                        comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
-                        premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
+                        modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+                        comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+                        premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                         includePartner={includePartner}
                         onSetPlan={(val) => handleActivePlan(val)}
                         onSetRetirementAge={(val) => setRetAge(val)}
@@ -519,10 +518,9 @@ function App() {
         </div>
       </footer>
       <Modal
-        simpleIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
-        modestIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
-        comfyIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
-        premiumIncome={includePartner ? plans[3].value.couple : plans[3].value.single}
+        modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+        comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+        premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
         deathAge={deathAge}
         likelihood={likelihood}
         onIncomeClick={(val) => handleAddIncome(val)}

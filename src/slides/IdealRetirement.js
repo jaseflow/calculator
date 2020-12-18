@@ -2,7 +2,6 @@ import React from 'react';
 
 import 'react-rangeslider/lib/index.css'
 
-import ContentSimple from '../components/ContentSimple'
 import ContentModest from '../components/ContentModest'
 import ContentComfy from '../components/ContentComfy'
 import ContentPremium from '../components/ContentPremium'
@@ -138,7 +137,6 @@ function IdealRetirement(props) {
           <div className="plans__content">
             {
               {
-                'simple': <ContentSimple income={props.simpleIncome} />,
                 'modest': <ContentModest income={props.modestIncome} />,
                 'comfy': <ContentComfy income={props.comfyIncome} />,
                 'premium': <ContentPremium income={props.premiumIncome} />

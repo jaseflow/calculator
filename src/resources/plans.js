@@ -1,15 +1,5 @@
 const plans = [
   {
-    id: 'simple',
-    name: 'Simple',
-    description: 'Age pension',
-    standard: 'asfa',
-    value: {
-      single: 23597,
-      couple: 47194
-    }
-  },
-  {
     id: 'modest',
     name: 'Modest',
     description: '$27,902 pa',
