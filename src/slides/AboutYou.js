@@ -16,7 +16,12 @@ function AboutYou(props) {
         <div className="form__row">
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
-            <input type="text" value="Male" className="form__input form__input--prefilled" />
+            <div className="form__select">
+              <select id="" name="" className="form__input form__input--prefilled" defaultValue="male">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>

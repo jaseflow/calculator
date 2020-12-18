@@ -125,7 +125,7 @@ function Results(props) {
             </div>
             <div className="form__slider form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                Investment Strategy (working)
+                Investment Strategy (while working)
                 <strong>
                   {strategies[props.workingStrategy]}
                 </strong>
@@ -142,7 +142,7 @@ function Results(props) {
             </div>
             <div className="form__slider form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                Investment Strategy (retired)
+                Investment Strategy (after you retire)
                 <strong>
                   {strategies[props.retiredStrategy]}
                 </strong>
