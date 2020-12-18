@@ -27,8 +27,14 @@ function Results(props) {
   const sources = props.incomeSources.map((s, i) => {
     return (
       <IncomeSource
+        key={`income-${s.id}`}
+        value={s.value}
+        income={s.income}
+        period={s.period}
         onRemove={() => props.onRemoveIncome(i)}
         onSetIncomeSourceValue={(val) => props.onSetIncomeSourceValue(val, i)}
+        onSetIncomeSourcePeriod={(val) => props.onSetIncomeSourcePeriod(val, i)}
+        onSetIncomeSourceIncome={(val) => props.onSetIncomeSourceIncome(val, i)}
         id={s.id}
       />
     )
@@ -37,9 +43,14 @@ function Results(props) {
   const goals = props.goals.map((s, i) => {
     return (
       <RetirementGoal
+        key={`goal-${s.id}`}
         onRemove={() => props.onRemoveGoal(i)}
+        onSetGoalFrequency={(val) => props.onSetGoalCost(val, i)}
+        onSetGoalId={(val) => props.onSetGoalId(val, i)}
         onSetGoalCost={(val) => props.onSetGoalCost(val, i)}
         id={s.id}
+        cost={s.cost}
+        frequency={s.frequency}
       />
     )
   })
@@ -147,7 +158,7 @@ function Results(props) {
               />
             </div>
           </div>
-          <div hidden>
+          <div>
             <hr className="Results__hr" />
             <section className="Results__section">
               <div className="Results__goals-title">

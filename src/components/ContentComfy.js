@@ -5,7 +5,7 @@ import NumberFormat from 'react-number-format'
 function ContentComfy(props) {
   return (
     <div>
-      <h2 class="flat">Comfortable retirement</h2>
+      <h2 className="flat">Comfortable retirement</h2>
       <p>
         <NumberFormat
           value={props.income}

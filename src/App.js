@@ -196,11 +196,55 @@ function App() {
   }
 
   function handleSetIncomeSourceValue(val, i) {
+    console.log('value is ', val, i)
     let sources = [...incomeSources]
     let incomeSource = {...incomeSources[i]}
     incomeSource.value = parseInt(val)
     sources[i] = incomeSource
     setIncomeSources(sources)
+  }
+
+  function handleSetIncomeSourceIncome(val, i) {
+    console.log('income is ', val, i)
+    let sources = [...incomeSources]
+    let incomeSource = {...incomeSources[i]}
+    incomeSource.income = parseInt(val)
+    sources[i] = incomeSource
+    setIncomeSources(sources)
+  }
+
+  function handleSetIncomeSourcePeriod(val, i) {
+    console.log('period is ', val, i)
+    let sources = [...incomeSources]
+    let incomeSource = {...incomeSources[i]}
+    incomeSource.period = val
+    sources[i] = incomeSource
+    setIncomeSources(sources)
+  }
+
+  function handleSetGoalId(val, i) {
+    let newGoals = [...goals]
+    let currentGoal = {...goals[i]}
+    currentGoal.id = val
+    newGoals[i] = currentGoal
+    setGoals(newGoals)
+  }
+
+  function handleSetGoalFrequency(val, i) {
+    let newGoals = [...goals]
+    let currentGoal = {...goals[i]}
+    currentGoal.frequency = val
+    console.log(currentGoal)
+    newGoals[i] = currentGoal
+    setGoals(newGoals)
+  }
+
+  function handleSetGoalCost(val, i) {
+    let newGoals = [...goals]
+    let currentGoal = {...goals[i]}
+    currentGoal.cost = parseInt(val)
+    newGoals[i] = currentGoal
+    setGoals(newGoals)
   }
 
   useEffect(() => {
@@ -380,6 +424,8 @@ function App() {
                         incomeSources={incomeSources}
                         onRemoveIncome={(s) => handleRemoveIncome(s)}
                         onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
+                        onSetIncomeSourceIncome={(val, i) => handleSetIncomeSourceIncome(val, i)}
+                        onSetIncomeSourcePeriod={(val, i) => handleSetIncomeSourcePeriod(val, i)}
                         onAddIncome={() => handleModalOpen('income')} />
                     </Route>
                   </Switch>
@@ -412,6 +458,9 @@ function App() {
                         goals={goals}
                         onRemoveGoal={(i) => handleRemoveGoal(i)}
                         onAddingGoal={() => handleModalOpen('goals')}
+                        onSetGoalCost={(val, i) => handleSetGoalCost(val, i)}
+                        onSetGoalFrequency={(val, i) => handleSetGoalFrequency(val, i)}
+                        onSetGoalId={(val, i) => handleSetGoalId(val, i)}
                       />
                     </Route>
                   </Switch>
@@ -431,12 +480,18 @@ function App() {
                 likelihood={likelihood}
                 loaded={resultLoaded}
                 onOpenModal={(modal) => handleModalOpen(modal)}
-                onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
+                onRemoveIncome={(s) => handleRemoveIncome(s)}
                 onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                 onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                 onSetReqIncome={(val) => setReqIncome(val)}
                 onSliderRelease={() => handleSliderRelease()}
                 onSetVolContributions={(val) => setVolContributions(val)}
+                onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
+                onSetIncomeSourceIncome={(val, i) => handleSetIncomeSourceIncome(val, i)}
+                onSetIncomeSourcePeriod={(val, i) => handleSetIncomeSourcePeriod(val, i)}
+                onSetGoalCost={(val, i) => handleSetGoalCost(val, i)}
+                onSetGoalFrequency={(val, i) => handleSetGoalFrequency(val, i)}
+                onSetGoalId={(val, i) => handleSetGoalId(val, i)}
               />
             </Route>
           </Switch>

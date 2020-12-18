@@ -9,6 +9,8 @@ function OtherIncome(props) {
       <IncomeSource
         onRemove={() => props.onRemoveIncome(i)}
         onSetIncomeSourceValue={(val) => props.onSetIncomeSourceValue(val, i)}
+        onSetIncomeSourceIncome={(val) => props.onSetIncomeSourceIncome(val, i)}
+        onSetIncomeSourcePeriod={(val) => props.onSetIncomeSourcePeriod(val, i)}
         id={s.id}
       />
     )

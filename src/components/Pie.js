@@ -17,7 +17,7 @@ function Pie(props) {
       <circle
         stroke="#bbb"
         fill="white"
-        stroke-width={props.stroke}
+        strokeWidth={props.stroke}
         r={100}
         cx={props.radius}
         cy={props.radius}
@@ -28,7 +28,7 @@ function Pie(props) {
         fill="transparent"
         strokeDasharray={circumference + ' ' + circumference}
         style={{strokeDashoffset}}
-        stroke-width={props.stroke}
+        strokeWidth={props.stroke}
         r={normalizedRadius}
         cx={props.radius}
         cy={props.radius}

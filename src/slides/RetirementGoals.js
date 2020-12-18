@@ -7,9 +7,14 @@ function RetirementGoals(props) {
   const goals = props.goals.map((s, i) => {
     return (
       <RetirementGoal
+        key={`goal-${s.id}`}
         onRemove={() => props.onRemoveGoal(i)}
+        onSetGoalFrequency={(val) => props.onSetGoalFrequency(val, i)}
+        onSetGoalId={(val) => props.onSetGoalId(val, i)}
         onSetGoalCost={(val) => props.onSetGoalCost(val, i)}
         id={s.id}
+        cost={s.cost}
+        frequency={s.frequency}
       />
     )
   })

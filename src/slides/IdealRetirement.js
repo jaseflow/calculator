@@ -23,8 +23,8 @@ function IdealRetirement(props) {
       value = p.value && p.value.single
     }
     return (
-      <label htmlFor={p.id} class={`Plan ${p.id === props.activePlan ? 'Plan--selected' : ''}`}>
-        <input type="radio" class="Plan__input" id={p.id} value={p.id} checked={props.activePlan === p.id} onChange={() => props.onSetPlan(p.id)} />
+      <label htmlFor={p.id} className={`Plan ${p.id === props.activePlan ? 'Plan--selected' : ''}`} key={`plan-${p.id}`}>
+        <input type="radio" className="Plan__input" id={p.id} value={p.id} checked={props.activePlan === p.id} onChange={() => props.onSetPlan(p.id)} />
         <div className={`Plan__circle ${p.id === props.activePlan ? 'Plan__circle--selected' : ''}`}></div>
         <div className="Plan__content">
           <strong className="Plan__name">
@@ -47,7 +47,7 @@ function IdealRetirement(props) {
             }
           </span>
           {p.id === 'custom' &&
-            <small class="Plan__value">Add your own</small>
+            <small className="Plan__value">Add your own</small>
           }
         </div>
         { p.id !== 'custom' &&
@@ -67,8 +67,8 @@ function IdealRetirement(props) {
       value = p.value && p.value.single
     }
     return (
-      <label htmlFor={p.id} class={`Plan ${p.id === props.activePlan ? 'Plan--selected' : ''}`}>
-        <input type="radio" class="Plan__input" id={p.id} value={p.id} checked={props.activePlan === p.id} onChange={() => props.onSetPlan(p.id)} />
+      <label htmlFor={p.id} className={`Plan ${p.id === props.activePlan ? 'Plan--selected' : ''}`} key={`plan-${p.id}`}>
+        <input type="radio" className="Plan__input" id={p.id} value={p.id} checked={props.activePlan === p.id} onChange={() => props.onSetPlan(p.id)} />
         <div className={`Plan__circle ${p.id === props.activePlan ? 'Plan__circle--selected' : ''}`}></div>
         <div className="Plan__content">
           <strong className="Plan__name">
@@ -91,7 +91,7 @@ function IdealRetirement(props) {
             }
           </span>
           {p.id === 'custom' &&
-            <small class="Plan__value">Add your own</small>
+            <small className="Plan__value">Add your own</small>
           }
         </div>
         { p.id !== 'custom' &&
@@ -117,7 +117,7 @@ function IdealRetirement(props) {
                   <p>The budgets for comfortable and modest retirement lifestyles are calculations from the Association of Superannuation Funds of Australia (ASFA) Retirement Standard, September quarter 2020.</p>
                 </Tooltip>
               </div>
-              <div class="plans__options">
+              <div className="plans__options">
                 {asfaList}
               </div>
             </div>
@@ -130,12 +130,12 @@ function IdealRetirement(props) {
                   <p>The budget for a premium retirement lifestyle is an estimate by LGIAsuper, independent to the ASFA Retirement Standard.</p>
                 </Tooltip>
               </div>
-              <div class="plans__options">
+              <div className="plans__options">
                 {lgiaList}
               </div>
             </div>
           </div>
-          <div class="plans__content">
+          <div className="plans__content">
             {
               {
                 'simple': <ContentSimple income={props.simpleIncome} />,

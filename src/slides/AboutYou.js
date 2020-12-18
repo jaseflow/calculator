@@ -2,8 +2,6 @@ import React from 'react';
 
 import Switch from 'react-switch'
 
-import FormToggle from '../components/FormToggle'
-
 import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {

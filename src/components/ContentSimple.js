@@ -1,12 +1,11 @@
 import React from 'react'
 
-import SimpleHero from '../simple.jpg'
 import NumberFormat from 'react-number-format'
 
 function ContentSimple(props) {
   return (
     <div>
-      <h2 class="flat">Simple retirement</h2>
+      <h2 className="flat">Simple retirement</h2>
       <p>
         <NumberFormat
         value={props.income}

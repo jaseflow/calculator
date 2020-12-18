@@ -24,27 +24,35 @@ function IncomeSource(props) {
         </div>
       </div>
       <div className="form__group">
-        <label className="form__label" htmlFor="">Value today</label>
+        <label className="form__label" htmlFor="incomeValue">Value today</label>
         <CurrencyInput
-          id="super"
+          id="incomeValue"
           prefix="$"
+          value={props.value}
           className="form__input"
           allowDecimals={false}
           placeholder="Enter value"
-          autoFocus
           onChange={(val) => props.onSetIncomeSourceValue(val)}
         />
       </div>
       {props.id === 'investment' &&
         <div className="form__group">
-          <label className="form__label" htmlFor="">Income</label>
+          <label className="form__label" htmlFor="incomeIncome">Income</label>
           <div className="form__field">
-            <input type="text" value=""i placeholder="Enter value" className="form__input" />
+            <CurrencyInput
+              id="incomeIncome"
+              value={props.income}
+              prefix="$"
+              className="form__input"
+              allowDecimals={false}
+              placeholder="Enter income"
+              onChange={(val) => props.onSetIncomeSourceIncome(val)}
+            />
             <div className="form__select form__select--inline">
-              <select id="" name="">
-                <option value="weekly">per week</option>
-                <option value="weekly">per month</option>
-                <option value="weekly">per year</option>
+              <select id="" name="" onChange={(e) => props.onSetIncomeSourcePeriod(e.target.value)}>
+                <option id="period-weekly" value="weekly" selected={props.period === 'weekly'} >per week</option>
+                <option id="period-month" value="month" selected={props.period === 'month'}>per month</option>
+                <option id="period-annual" value="annual" selected={props.period === 'annual'}>per year</option>
               </select>
             </div>
           </div>

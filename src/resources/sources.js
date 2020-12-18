@@ -16,6 +16,7 @@ const sources = [
     text: 'Investment property',
     icon: 'house',
     income: null,
+    period: null,
     value: null
   }
 ]
