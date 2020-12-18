@@ -119,6 +119,10 @@ hr {
   margin: 0 auto;
 }
 
+.container--large {
+  max-width: 1024px;
+}
+
 .show-desktop {
   display: none !important;
 }
@@ -1443,7 +1447,7 @@ hr {
   .Results__actions {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2rem;
+    grid-column-gap: 3rem;
   }
 
   .Plan__info {

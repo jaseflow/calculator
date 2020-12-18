@@ -2,9 +2,9 @@ import React from 'react';
 
 import Pie from '../components/Pie'
 
-import consolidateImg from '../consolidate.png'
-import printImg from '../print.png'
-import superHealthCheckImg from '../shc.png'
+import consolidateImg from '../consolidate.svg'
+import printImg from '../form.svg'
+import superHealthCheckImg from '../shc.svg'
 
 import IncomeSource from '../components/IncomeSource'
 import RetirementGoal from '../components/RetirementGoal'
@@ -209,7 +209,7 @@ function Results(props) {
             <div className="Results__block">
               <img src={printImg} alt="" />
               <h2 className="flat">Print a report</h2>
-              <p>Generate a detailed report of your projection for your reference or to share with your partner or financial advisor</p>
+              <p>Generate a detailed report of your projection for your reference or to share with your financial advisor.</p>
               <a href="https://www.lgiasuper.com.au/superannuation/financial-advice" class="btn btn--iconleft Results__action">
                 Save as PDF
               </a>
