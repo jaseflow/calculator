@@ -1185,6 +1185,10 @@ hr {
   margin-bottom: 1rem;
 }
 
+.Results__block p {
+  color: $gray;
+}
+
 .Results__action {
   margin-top: 1rem;
 }
@@ -1216,6 +1220,83 @@ hr {
   opacity: 0.5;
   text-align: center;
 }
+
+.RetirementPlans {
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.RetirementPlans th {
+  text-align: center;
+  font-weight: 500;
+  background: #fff;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  border-left: 1px solid darken($offWhite, 10);
+}
+
+.RetirementPlans th:first-child {
+  background: lighten($offBlack, 10);
+}
+
+.RetirementPlans td:first-child,
+.RetirementPlans th:first-child,
+.RetirementPlans th:nth-child(2),
+.RetirementPlans td:nth-child(2) {
+  border-left: 0;
+}
+
+.RetirementPlans th > div {
+  margin: -1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  font-size: 13px;
+  border-bottom: 1px solid #ddd;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RetirementPlans th > div img {
+  width: 60px;
+}
+
+.RetirementPlans th h3 {
+  font-size: 20px;
+}
+
+.RetirementPlans th i {
+  margin-left: 1rem;
+}
+
+.RetirementPlans td {
+  background: #f8f8f8;
+  padding: 0 1rem;
+  font-size: 15px;
+  height: 70px;
+  border-left: 1px solid darken($offWhite, 10);
+}
+
+.RetirementPlans img {
+  width: 50px;
+}
+
+.RetirementPlans tr:nth-child(even) td {
+  background: #f0f0f0;
+}
+
+.RetirementPlans td:first-child {
+  background: $offBlack;
+}
+
+.RetirementPlans tr:nth-child(even) td:first-child {
+  background: lighten($offBlack, 10);
+}
+
 
 @keyframes showIncomeCard {
   0% {
@@ -1435,6 +1516,10 @@ hr {
 
   .Results__blurb br {
     display: none;
+  }
+
+  .Results__footer-title {
+    margin-bottom: 4rem;
   }
 
   .Results__decisions {

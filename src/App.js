@@ -8,6 +8,7 @@ import './App.scss';
 import AboutYou from './slides/AboutYou'
 import OtherIncome from './slides/OtherIncome'
 import IdealRetirement from './slides/IdealRetirement'
+import IdealRetirementNew from './slides/IdealRetirementNew'
 import RetirementGoals from './slides/RetirementGoals'
 import Results from './slides/Results'
 
@@ -440,16 +441,26 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <IdealRetirement
+                      <div hidden>
+                        <IdealRetirement
+                          modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+                          comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+                          premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
+                          includePartner={includePartner}
+                          onSetPlan={(val) => handleActivePlan(val)}
+                          onSetRetirementAge={(val) => setRetAge(val)}
+                          activePlan={activePlan.id}
+                          plans={plans}
+                          onInfoClick={(d) => handleModalOpen(d)}
+                        />
+                      </div>
+                      <IdealRetirementNew
+                        income={income}
                         modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                         comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                         premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                         includePartner={includePartner}
-                        onSetPlan={(val) => handleActivePlan(val)}
-                        onSetRetirementAge={(val) => setRetAge(val)}
-                        activePlan={activePlan.id}
-                        plans={plans}
-                        onInfoClick={(d) => handleModalOpen(d)}
+                        onSetCustomIncome={(val) => setReqIncome(val)}
                       />
                     </Route>
                     <Route path="/step/future/retirement-goals">
