@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/calculator/static/css/main.b373abe2.chunk.css",
-    "main.js": "/calculator/static/js/main.bd92cf26.chunk.js",
-    "main.js.map": "/calculator/static/js/main.bd92cf26.chunk.js.map",
+    "main.js": "/calculator/static/js/main.15b03db2.chunk.js",
+    "main.js.map": "/calculator/static/js/main.15b03db2.chunk.js.map",
     "runtime-main.js": "/calculator/static/js/runtime-main.bf502691.js",
     "runtime-main.js.map": "/calculator/static/js/runtime-main.bf502691.js.map",
     "static/css/2.6eb14f6a.chunk.css": "/calculator/static/css/2.6eb14f6a.chunk.css",
@@ -14,9 +14,6 @@
     "static/css/2.6eb14f6a.chunk.css.map": "/calculator/static/css/2.6eb14f6a.chunk.css.map",
     "static/css/main.b373abe2.chunk.css.map": "/calculator/static/css/main.b373abe2.chunk.css.map",
     "static/js/2.c92a4dd6.chunk.js.LICENSE.txt": "/calculator/static/js/2.c92a4dd6.chunk.js.LICENSE.txt",
-    "static/media/1.b82671ec.png": "/calculator/static/media/1.b82671ec.png",
-    "static/media/2.5f70f640.png": "/calculator/static/media/2.5f70f640.png",
-    "static/media/3.408d010d.png": "/calculator/static/media/3.408d010d.png",
     "static/media/hero.6c167e07.jpg": "/calculator/static/media/hero.6c167e07.jpg",
     "static/media/logo--dark.3e9c97e6.svg": "/calculator/static/media/logo--dark.3e9c97e6.svg"
   },
@@ -25,6 +22,6 @@
     "static/css/2.6eb14f6a.chunk.css",
     "static/js/2.c92a4dd6.chunk.js",
     "static/css/main.b373abe2.chunk.css",
-    "static/js/main.bd92cf26.chunk.js"
+    "static/js/main.15b03db2.chunk.js"
   ]
 }
