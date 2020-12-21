@@ -3,6 +3,8 @@ import React from 'react';
 import CurrencyInput from 'react-currency-input-field'
 import NumberFormat from 'react-number-format'
 
+import Tooltip from '../components/Tooltip'
+
 import repairs from '../icons/green/9.png'
 import appliances from '../icons/green/2.png'
 import utility from '../icons/green/1.png'
@@ -28,8 +30,11 @@ function IdealRetirementDesktop(props) {
           <tr>
             <th></th>
             <th>
-              <div>
+              <div className="RetirementPlans__standard">
                 <img src={asfa} alt="" />
+                <Tooltip>
+                  <p>The budgets for comfortable and modest retirement lifestyles are calculations from the Association of Superannuation Funds of Australia (ASFA) Retirement Standard, September quarter 2020.</p>
+                </Tooltip>
               </div>
               <h3 className="flat">Modest</h3>
               <p>
@@ -47,14 +52,17 @@ function IdealRetirementDesktop(props) {
                 }
               </p>
               <button
-                className={`btn btn--secondary ${props.activePlan === 'modest' ? 'selected' : ''}`}
+                className={`btn ${props.activePlan === 'modest' ? '' : 'btn--secondary'} RetirementPlans__select`}
                 onClick={() => props.onSetPlan('modest')} >
                 {props.activePlan === 'modest' ? 'Selected' : 'Select'}
               </button>
             </th>
             <th>
-              <div>
+              <div className="RetirementPlans__standard">
                 <img src={asfa} alt="" />
+                <Tooltip>
+                  <p>The budgets for comfortable and modest retirement lifestyles are calculations from the Association of Superannuation Funds of Australia (ASFA) Retirement Standard, September quarter 2020.</p>
+                </Tooltip>
               </div>
               <h3 className="flat">Comfortable</h3>
               <p>
@@ -72,14 +80,17 @@ function IdealRetirementDesktop(props) {
                 }
               </p>
               <button
-                className={`btn btn--secondary ${props.activePlan === 'comfy' ? 'selected' : ''}`}
+                className={`btn ${props.activePlan === 'comfy' ? '' : 'btn--secondary'} RetirementPlans__select`}
                 onClick={() => props.onSetPlan('comfy')} >
                 {props.activePlan === 'comfy' ? 'Selected' : 'Select'}
               </button>
             </th>
             <th>
-              <div>
+              <div className="RetirementPlans__standard">
                 <img src={lgia} alt="" />
+                <Tooltip>
+                  <p>The budget for a premium retirement lifestyle is an estimate by LGIAsuper, independent to the ASFA Retirement Standard.</p>
+                </Tooltip>
               </div>
               <h3 className="flat">Premium</h3>
               <p>
@@ -97,7 +108,7 @@ function IdealRetirementDesktop(props) {
                 }
               </p>
               <button
-                className={`btn btn--secondary ${props.activePlan === 'premium' ? 'selected' : ''}`}
+                className={`btn ${props.activePlan === 'premium' ? '' : 'btn--secondary'} RetirementPlans__select`}
                 onClick={() => props.onSetPlan('premium')} >
                 {props.activePlan === 'premium' ? 'Selected' : 'Select'}
               </button>

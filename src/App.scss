@@ -748,6 +748,7 @@ hr {
 
 .tooltip {
   position: relative;
+  text-align: left;
 }
 
 .tooltip__icon {
@@ -1242,8 +1243,13 @@ hr {
   border-left: 1px solid darken($offWhite, 10);
 }
 
-.RetirementPlans th {
-  width: calc(33.3333333% - 20px);
+.RetirementPlans__standard {
+  position: relative;
+}
+
+.RetirementPlans__standard .tooltip {
+  position: absolute;
+  right: 0;
 }
 
 .RetirementPlans th:first-child {
@@ -1282,8 +1288,9 @@ hr {
   margin-left: 1rem;
 }
 
-.RetirementPlans th .btn {
-  width: 150px;
+.RetirementPlans__select {
+  width: 160px;
+  transition: none;
 }
 
 .RetirementPlans td {

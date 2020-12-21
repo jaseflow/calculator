@@ -202,7 +202,7 @@ function Results(props) {
               <img src={consolidateImg} alt="" />
               <h2 className="flat">Consolidate</h2>
               <p>Covers personal advice restricted to limited topics, such as salary sacrificing and investment switching.</p>
-              <a href="https://www.lgiasuper.com.au/about-us/contact-us" class="btn btn--iconleft Results__action">
+              <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent" class="btn btn--iconleft Results__action">
                 Find out more
               </a>
             </div>
