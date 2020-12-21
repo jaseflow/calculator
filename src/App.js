@@ -197,7 +197,6 @@ function App() {
   }
 
   function handleSetIncomeSourceValue(val, i) {
-    console.log('value is ', val, i)
     let sources = [...incomeSources]
     let incomeSource = {...incomeSources[i]}
     incomeSource.value = parseInt(val)
@@ -206,7 +205,6 @@ function App() {
   }
 
   function handleSetIncomeSourceIncome(val, i) {
-    console.log('income is ', val, i)
     let sources = [...incomeSources]
     let incomeSource = {...incomeSources[i]}
     incomeSource.income = parseInt(val)
@@ -215,7 +213,6 @@ function App() {
   }
 
   function handleSetIncomeSourcePeriod(val, i) {
-    console.log('period is ', val, i)
     let sources = [...incomeSources]
     let incomeSource = {...incomeSources[i]}
     incomeSource.period = val
@@ -235,7 +232,6 @@ function App() {
     let newGoals = [...goals]
     let currentGoal = {...goals[i]}
     currentGoal.frequency = val
-    console.log(currentGoal)
     newGoals[i] = currentGoal
     setGoals(newGoals)
   }
