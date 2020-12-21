@@ -7,8 +7,8 @@ import './App.scss';
 
 import AboutYou from './slides/AboutYou'
 import OtherIncome from './slides/OtherIncome'
-import IdealRetirement from './slides/IdealRetirement'
-import IdealRetirementNew from './slides/IdealRetirementNew'
+import IdealRetirementMobile from './slides/IdealRetirementMobile'
+import IdealRetirementDesktop from './slides/IdealRetirementDesktop'
 import RetirementGoals from './slides/RetirementGoals'
 import Results from './slides/Results'
 
@@ -279,6 +279,14 @@ function App() {
   },[incomeSources, salary, partnerSalary])
 
   useEffect(() => {
+    if (includePartner) {
+      setReqIncome(activePlan.value.couple)
+    } else {
+      setReqIncome(activePlan.value.single)
+    }
+  },[activePlan])
+
+  useEffect(() => {
     if (location.pathname === '/calculator/' || location.pathname === '/') {
       setFooterVisible(false)
     } else if (location.path !== '/' && !footerVisible) {
@@ -414,7 +422,7 @@ function App() {
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
                         onIncludePartnerVoluntary={(val) => setIncludePartnerVoluntary(val)}
                         onSetAge={(val) => setAge(val)}
-                        onSetContributions={(val) => setVolContributions(val)}
+                        onSetVolContributions={(val) => setVolContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}
                         onSetSalary={(val) => setSalary(parseInt(val))}
                         onSetPartnerSalary={(val) => setPartnerSalary(parseInt(val))}
@@ -441,27 +449,33 @@ function App() {
                   </h1>
                   <Switch>
                     <Route path="/step/future/ideal-retirement">
-                      <div hidden>
-                        <IdealRetirement
+                      <div className="show-mobile">
+                        <IdealRetirementMobile
+                          income={income}
+                          activePlan={activePlan.id}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
                           onSetPlan={(val) => handleActivePlan(val)}
-                          onSetRetirementAge={(val) => setRetAge(val)}
-                          activePlan={activePlan.id}
+                          onSetCustomIncome={(val) => setReqIncome(val)}
                           plans={plans}
                           onInfoClick={(d) => handleModalOpen(d)}
                         />
                       </div>
-                      <IdealRetirementNew
-                        income={income}
-                        modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
-                        comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
-                        premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
-                        includePartner={includePartner}
-                        onSetCustomIncome={(val) => setReqIncome(val)}
-                      />
+                      <div className="show-desktop">
+                        <IdealRetirementDesktop
+                          income={income}
+                          reqIncome={reqIncome}
+                          modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
+                          comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
+                          premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
+                          includePartner={includePartner}
+                          activePlan={activePlan.id}
+                          onSetPlan={(val) => handleActivePlan(val)}
+                          onSetCustomIncome={(val) => setReqIncome(val)}
+                        />
+                      </div>
                     </Route>
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals

@@ -17,10 +17,10 @@ import leisure from '../icons/green/10.png'
 import asfa from '../asfa.png'
 import lgia from '../inline.png'
 
-function IdealRetirementNew(props) {
+function IdealRetirementDesktop(props) {
 
   return (
-    <div>
+    <div className="IdealRetirement">
       <p>Your current income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'} /> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
       <h2>Standard retirement incomes</h2>
       <table className="RetirementPlans">
@@ -31,7 +31,7 @@ function IdealRetirementNew(props) {
               <div>
                 <img src={asfa} alt="" />
               </div>
-              <h3 className="flat">Modest retirement</h3>
+              <h3 className="flat">Modest</h3>
               <p>
                 <NumberFormat
                   value={props.modestIncome}
@@ -46,13 +46,17 @@ function IdealRetirementNew(props) {
                   <i className="fas fa-user Plan__person"></i>
                 }
               </p>
-              <button class="btn btn--secondary">Select</button>
+              <button
+                className={`btn btn--secondary ${props.activePlan === 'modest' ? 'selected' : ''}`}
+                onClick={() => props.onSetPlan('modest')} >
+                {props.activePlan === 'modest' ? 'Selected' : 'Select'}
+              </button>
             </th>
             <th>
               <div>
                 <img src={asfa} alt="" />
               </div>
-              <h3 className="flat">Comfortable retirement</h3>
+              <h3 className="flat">Comfortable</h3>
               <p>
                 <NumberFormat
                   value={props.comfyIncome}
@@ -67,13 +71,17 @@ function IdealRetirementNew(props) {
                   <i className="fas fa-user Plan__person"></i>
                 }
               </p>
-              <button class="btn btn--secondary">Select</button>
+              <button
+                className={`btn btn--secondary ${props.activePlan === 'comfy' ? 'selected' : ''}`}
+                onClick={() => props.onSetPlan('comfy')} >
+                {props.activePlan === 'comfy' ? 'Selected' : 'Select'}
+              </button>
             </th>
             <th>
               <div>
                 <img src={lgia} alt="" />
               </div>
-              <h3 className="flat">Premium retirement</h3>
+              <h3 className="flat">Premium</h3>
               <p>
                 <NumberFormat
                   value={props.premiumIncome}
@@ -88,7 +96,11 @@ function IdealRetirementNew(props) {
                   <i className="fas fa-user Plan__person"></i>
                 }
               </p>
-              <button class="btn btn--secondary">Select</button>
+              <button
+                className={`btn btn--secondary ${props.activePlan === 'premium' ? 'selected' : ''}`}
+                onClick={() => props.onSetPlan('premium')} >
+                {props.activePlan === 'premium' ? 'Selected' : 'Select'}
+              </button>
             </th>
           </tr>
         </thead>
@@ -235,21 +247,23 @@ function IdealRetirementNew(props) {
           </tr>
         </tbody>
       </table>
-      <h2>Enter custom amount</h2>
-      <div className="form__group">
-        <label className="form__label" htmlFor="super">Retirement income</label>
-        <CurrencyInput
-          id="super"
-          prefix="$"
-          className="form__input form__input--suffixed"
-          placeholder="Enter amount"
-          allowDecimals={false}
-          onChange={(val) => props.onSetCustomIncome(val)}
-        />
-        <span className="form__suffix">yearly income</span>
+      <h2>Have your own retirement income in mind?</h2>
+      <div className="IdealRetirement__custom">
+        <div className="form__group">
+          <label className="form__label" htmlFor="super">Enter a custom amount</label>
+          <CurrencyInput
+            id="super"
+            prefix="$"
+            className="form__input form__input--suffixed"
+            placeholder="Enter amount"
+            allowDecimals={false}
+            onChange={(val) => props.onSetCustomIncome(val)}
+          />
+          <span className="form__suffix">yearly income</span>
+        </div>
       </div>
     </div>
   )
 }
 
-export default IdealRetirementNew
+export default IdealRetirementDesktop

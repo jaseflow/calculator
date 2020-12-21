@@ -161,6 +161,10 @@ hr {
   line-height: 36px;
   border: 2px solid $offBlack;
   color: $offBlack;
+  &.selected {
+    border-color: $darkGreen;
+    color: $darkGreen;
+  }
 }
 
 .btn--hero {
@@ -1238,8 +1242,13 @@ hr {
   border-left: 1px solid darken($offWhite, 10);
 }
 
+.RetirementPlans th {
+  width: calc(33.3333333% - 20px);
+}
+
 .RetirementPlans th:first-child {
   background: lighten($offBlack, 10);
+  width: 60px;
 }
 
 .RetirementPlans td:first-child,
@@ -1273,6 +1282,10 @@ hr {
   margin-left: 1rem;
 }
 
+.RetirementPlans th .btn {
+  width: 150px;
+}
+
 .RetirementPlans td {
   background: #f8f8f8;
   padding: 0 1rem;
@@ -1296,7 +1309,6 @@ hr {
 .RetirementPlans tr:nth-child(even) td:first-child {
   background: lighten($offBlack, 10);
 }
-
 
 @keyframes showIncomeCard {
   0% {

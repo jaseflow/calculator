@@ -9,7 +9,7 @@ import Tooltip from '../components/Tooltip'
 
 import NumberFormat from 'react-number-format'
 
-function IdealRetirement(props) {
+function IdealRetirementMobile(props) {
 
   const asfaOptions = props.plans.filter((p) => p.standard === 'asfa')
   const lgiaOptions = props.plans.filter((p) => p.standard === 'lgia')
@@ -105,6 +105,7 @@ function IdealRetirement(props) {
   return (
     <div>
       <div>
+        <p>Your current income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'} /> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
         <div className="plans">
           <div className="plans__list">
             <div>
@@ -145,7 +146,7 @@ function IdealRetirement(props) {
           </div>
         </div>
         {props.activePlan === 'custom' &&
-          <div className="IdealRetirement__custom">
+          <div className="IdealRetirementMobile__custom">
             <div className="form">
               <div className="form__group">
                 <label className="form__label" htmlFor="">Custom retirement income</label>
@@ -160,4 +161,4 @@ function IdealRetirement(props) {
   )
 }
 
-export default IdealRetirement
+export default IdealRetirementMobile
