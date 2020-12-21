@@ -267,6 +267,7 @@ function IdealRetirementDesktop(props) {
             prefix="$"
             className="form__input form__input--suffixed"
             placeholder="Enter amount"
+            value={props.reqIncome}
             allowDecimals={false}
             onChange={(val) => props.onSetCustomIncome(val)}
           />

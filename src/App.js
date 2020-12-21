@@ -83,7 +83,7 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
-  const [reqIncome, setReqIncome] = useState(activePlan.value.single)
+  const [reqIncome, setReqIncome] = useState(activePlan && activePlan.value.single)
   const [employerContributions, setEmployerContributions] = useState('12%')
   const [memberContributions, setMemberContributions] = useState('6%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
@@ -139,6 +139,11 @@ function App() {
     newSources.push(val)
     setIncomeSources(newSources)
     setModalOpen(false)
+  }
+
+  function handleCustomIncome(val) {
+    setActivePlan(null)
+    setReqIncome(val)
   }
 
   function handleSliderRelease() {
@@ -275,9 +280,9 @@ function App() {
   },[incomeSources, salary, partnerSalary])
 
   useEffect(() => {
-    if (includePartner) {
+    if (activePlan && includePartner) {
       setReqIncome(activePlan.value.couple)
-    } else {
+    } else if (activePlan && !includePartner) {
       setReqIncome(activePlan.value.single)
     }
   },[activePlan])
@@ -448,13 +453,14 @@ function App() {
                       <div className="show-mobile">
                         <IdealRetirementMobile
                           income={income}
-                          activePlan={activePlan.id}
+                          activePlan={activePlan && activePlan.id}
+                          reqIncome={reqIncome}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
                           onSetPlan={(val) => handleActivePlan(val)}
-                          onSetCustomIncome={(val) => setReqIncome(val)}
+                          onSetCustomIncome={(val) => handleCustomIncome(val)}
                           plans={plans}
                           onInfoClick={(d) => handleModalOpen(d)}
                         />
@@ -467,9 +473,9 @@ function App() {
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
-                          activePlan={activePlan.id}
+                          activePlan={activePlan && activePlan.id}
                           onSetPlan={(val) => handleActivePlan(val)}
-                          onSetCustomIncome={(val) => setReqIncome(val)}
+                          onSetCustomIncome={(val) => handleCustomIncome(val)}
                         />
                       </div>
                     </Route>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'react-rangeslider/lib/index.css'
+import CurrencyInput from 'react-currency-input-field'
 
 import ContentModest from '../components/ContentModest'
 import ContentComfy from '../components/ContentComfy'
@@ -106,6 +106,7 @@ function IdealRetirementMobile(props) {
     <div>
       <div>
         <p>Your current income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'} /> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+        <h2>Standard retirement incomes</h2>
         <div className="plans">
           <div className="plans__list">
             <div>
@@ -145,17 +146,23 @@ function IdealRetirementMobile(props) {
             }
           </div>
         </div>
-        {props.activePlan === 'custom' &&
-          <div className="IdealRetirementMobile__custom">
-            <div className="form">
-              <div className="form__group">
-                <label className="form__label" htmlFor="">Custom retirement income</label>
-                <input type="text" value="$500,000" className="form__input form__input--suffixed" />
-                <span className="form__suffix">per year</span>
-              </div>
+        <h2>Set our own income</h2>
+        <div className="IdealRetirementMobile__custom">
+          <div className="form">
+            <div className="form__group">
+              <label className="form__label" htmlFor="">Custom retirement income</label>
+              <CurrencyInput
+                prefix="$"
+                className="form__input form__input--suffixed"
+                placeholder="Enter amount"
+                value={props.reqIncome}
+                allowDecimals={false}
+                onChange={(val) => props.onSetCustomIncome(val)}
+              />
+              <span className="form__suffix">per year</span>
             </div>
           </div>
-        }
+        </div>
       </div>
     </div>
   )
