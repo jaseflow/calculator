@@ -8,7 +8,7 @@ function AboutYou(props) {
 
   const otherFundsList = props.otherFunds.map((fund, i) => {
     return (
-      <div className="form__row">
+      <div className="form__row--desktop">
         <div className="form__group">
           <label className="form__label" htmlFor="">Balance of other fund #{i + 1}</label>
           <CurrencyInput
