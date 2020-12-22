@@ -2,7 +2,6 @@ import React from 'react';
 
 import ModalGoals from './ModalGoals'
 import ModalIncome from './ModalIncome'
-import ModalSimple from './ModalSimple'
 import ModalModest from './ModalModest'
 import ModalComfortable from './ModalComfortable'
 import ModalPremium from './ModalPremium'

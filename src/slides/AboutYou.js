@@ -106,7 +106,7 @@ function AboutYou(props) {
           Contributions
           <div className="form__switch">
             Percentage
-            <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={props.onSetViewTotals} checked={props.viewTotals} />
+            <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetViewTotals(val)} checked={props.viewTotals} />
             Totals
           </div>
         </h2>
@@ -178,6 +178,10 @@ function AboutYou(props) {
             </div>
           </div>
           <div className="form__group">
+            <label className="form__label" htmlFor="">Current super balance (All funds)</label>
+            <input type="text" value={props.partnerSuper} className="form__input" />
+          </div>
+          <div className="form__group">
             <label className="form__label" htmlFor="">Annual salary (before tax)</label>
             <CurrencyInput
               id="partner-salary"
@@ -189,15 +193,32 @@ function AboutYou(props) {
             />
             <span className="form__suffix">per year</span>
           </div>
-          <div className="form__group">
-            <label className="form__label" htmlFor="">Current super balance</label>
-            <input type="text" value={props.partnerSuper} className="form__input" />
-          </div>
-          <h2>Your partner's contributions</h2>
-          <div className="form__group">
-            <label className="form__label" htmlFor="">Employer contributions</label>
-            <input type="text" value="" className="form__input form__input--suffixed" />
-            <span className="form__suffix">per month</span>
+          <h2 className="AboutYou__contributions">
+            Your partner's contributions
+          </h2>
+          <div className="form__row--desktop">
+            <div className="form__group">
+              <label className="form__label form__label--suffixed" htmlFor="">
+                Employer contributions
+              </label>
+              <input type="text" value={props.partnerEmployerContributions} className="form__input" />
+              { props.viewTotals ?
+                <span className="form__suffix">per month</span>
+                :
+                <span className="form__suffix">of salary per month</span>
+              }
+            </div>
+            <div className="form__group">
+              <label className="form__label form__label--toggle" htmlFor="">
+                Standard Member contributions
+              </label>
+              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" />
+              { props.viewTotals ?
+                <span className="form__suffix">per month</span>
+                :
+                <span className="form__suffix">of salary per month</span>
+              }
+            </div>
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Does your partner make voluntary contributions?</label>
@@ -213,14 +234,16 @@ function AboutYou(props) {
             </div>
           </div>
           { props.includePartnerVoluntary === 'yes' ?
-            <div>
+            <div className="form__row--desktop">
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-                <input type="text" value="" className="form__input" />
+                <input type="text" value="" className="form__input form__input--suffixed" placeholder="Enter amount" />
+                <span className="form__suffix">per month</span>
               </div>
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (after tax)</label>
-                <input type="text" value="" className="form__input" />
+                <input type="text" value="" className="form__input form__input--suffixed" placeholder="Enter amount" />
+                <span className="form__suffix">per month</span>
               </div>
             </div>
           : null }

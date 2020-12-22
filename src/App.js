@@ -76,7 +76,6 @@ function App() {
   const [activeModal, setActiveModal] = useState('')
   const [activePlan, setActivePlan] = useState(plans[0])
   const [age, setAge] = useState(58)
-  const [retAge, setRetAge] = useState(66)
   const [deathAge, setDeathAge] = useState(90)
   const [likelihood, setLikelihood] = useState(75)
   const [superBalance, setSuperBalance] = useState(500000)
@@ -150,14 +149,14 @@ function App() {
     }
   }
 
-  function handleViewToggle() {
-    setViewTotals(!viewTotals)
-    if(!viewTotals) {
+  function handleViewToggle(val) {
+    if(val) {
       const employerPercentage = parseInt(employerContributions.replace('%', ''))
       const employerTotal = ((employerPercentage / 100) * salary) / 12
 
       const memberPercentage = parseInt(memberContributions.replace('%', ''))
       const memberTotal = ((memberPercentage / 100) * salary) / 12
+
       setEmployerContributions(`$${employerTotal}`)
       setMemberContributions(`$${memberTotal}`)
     } else {
@@ -166,9 +165,11 @@ function App() {
 
       const memberTotal = parseInt(memberContributions.replace('$', ''))
       const memberPercentage = ((memberTotal / salary) * 100) * 12
+
       setEmployerContributions(`${employerPercentage}%`)
       setMemberContributions(`${memberPercentage}%`)
     }
+    setViewTotals(val)
   }
 
   function handleContinueDisc() {
@@ -327,7 +328,7 @@ function App() {
     } else if (activePlan && !includePartner) {
       setReqIncome(activePlan.value.single)
     }
-  },[activePlan])
+  },[activePlan, includePartner])
 
   useEffect(() => {
     if (location.pathname === '/calculator/' || location.pathname === '/') {
@@ -463,7 +464,7 @@ function App() {
                         employerContributions={employerContributions}
                         memberContributions={memberContributions}
                         viewTotals={viewTotals}
-                        onSetViewTotals={() => handleViewToggle()}
+                        onSetViewTotals={(val) => handleViewToggle(val)}
                         onAddOtherFund={() => addOtherFund()}
                         onRemoveOtherFund={(i) => handleRemoveOtherFund(i)}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
@@ -547,7 +548,6 @@ function App() {
                 reqIncome={reqIncome}
                 incomeSources={incomeSources}
                 goals={goals}
-                retirementAge={retAge}
                 volContributions={volContributions}
                 retiredStrategy={retiredStrategy}
                 workingStrategy={workingStrategy}

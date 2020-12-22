@@ -25,15 +25,9 @@ const plans = [
     description: '$100,000 pa',
     standard: 'lgia',
     value: {
-      single: 100000,
-      couple: 200000
+      single: 80000,
+      couple: 100000
     }
-  },
-  {
-    id: 'custom',
-    name: 'Custom',
-    description: 'Enter your own',
-    value: null
   }
 ]
 

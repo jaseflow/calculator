@@ -30,14 +30,12 @@ function IdealRetirementMobile(props) {
             {p.name}
           </strong>
           <span className="Plan__value">
-            {p.id !== 'custom' &&
-              <NumberFormat
-                value={value}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              /> 
-            }
+            <NumberFormat
+              value={value}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            />
              &nbsp;yearly income
             {props.includePartner ?
               <i className="fas fa-user-friends Plan__person"></i>
@@ -45,15 +43,11 @@ function IdealRetirementMobile(props) {
               <i className="fas fa-user Plan__person"></i>
             }
           </span>
-          {p.id === 'custom' &&
-            <small className="Plan__value">Add your own</small>
-          }
+          <small className="Plan__value">Add your own</small>
         </div>
-        { p.id !== 'custom' &&
-          <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
-            <i className="fal fa-info-circle"></i>
-          </div>
-        }
+        <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
+          <i className="fal fa-info-circle"></i>
+        </div>
       </label>
     )
   })
@@ -74,14 +68,12 @@ function IdealRetirementMobile(props) {
             {p.name}
           </strong>
           <span className="Plan__value">
-            {p.id !== 'custom' &&
-              <NumberFormat
-                value={value}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              /> 
-            }
+            <NumberFormat
+              value={value}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            />
             &nbsp;yearly income
             {props.includePartner ?
               <i className="fas fa-user-friends Plan__person"></i>
@@ -89,15 +81,11 @@ function IdealRetirementMobile(props) {
               <i className="fas fa-user Plan__person"></i>
             }
           </span>
-          {p.id === 'custom' &&
-            <small className="Plan__value">Add your own</small>
-          }
+          <small className="Plan__value">Add your own</small>
         </div>
-        { p.id !== 'custom' &&
-          <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
-            <i className="fal fa-info-circle"></i>
-          </div>
-        }
+        <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
+          <i className="fal fa-info-circle"></i>
+        </div>
       </label>
     )
   })
