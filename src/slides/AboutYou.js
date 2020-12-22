@@ -6,6 +6,33 @@ import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {
 
+  const otherFundsList = props.otherFunds.map((fund, i) => {
+    return (
+      <div className="form__row">
+        <div className="form__group">
+          <label className="form__label" htmlFor="">Balance of other fund #{i + 1}</label>
+          <CurrencyInput
+            prefix="$"
+            className="form__input"
+            allowDecimals={false}
+            defaultValue={fund.balance}
+            placeholder="Enter balance"
+            onChange={(val) => props.onSetOtherFundBalance(val, i)}
+          />
+        </div>
+        <div className="form__group">
+          <label className="form__label form__label--toggle" htmlFor="">
+            <span>Name of other fund #{i + 1} (optional)</span>
+            {i > 0 && 
+              <span className="form__toggle" onClick={() => props.onRemoveOtherFund(i)}>Remove fund</span>
+            }
+          </label>
+          <input type="text" value={fund.name} className="form__input" placeholder="Enter fund name" onChange={(e) => props.onSetOtherFundName(e.target.value, i)}/>
+        </div>
+      </div>
+    )
+  })
+
   return (
     <div className="AboutYou">
       <h2>About you</h2>
@@ -29,7 +56,7 @@ function AboutYou(props) {
           </div>
         </div>
         <div className="form__group">
-          <label className="form__label" htmlFor="super">Current super balance</label>
+          <label className="form__label" htmlFor="super">Current LGIAsuper super balance</label>
           <CurrencyInput
             id="super"
             prefix="$"
@@ -41,6 +68,28 @@ function AboutYou(props) {
           />
           <span className="form__suffix">as of 21 Nov 2020</span>
         </div>
+        <div className="form__group">
+          <label className="form__label" htmlFor="">Do you have a super balance in any other funds?</label>
+          <div className="form__options">
+            <label className="form__label form__label--radio flat" htmlFor="hasOtherSuper" onChange={() => props.onIncludeOtherSuper('yes')}>
+              <input type="radio" value="yes" checked={props.hasOtherSuper === 'yes'} id="hasOtherSuper" className="form__checkbox" />
+              Yes
+            </label>
+            <label className="form__label form__label--radio flat" htmlFor="noOtherSuper" onChange={() => props.onIncludeOtherSuper('no')}>
+              <input type="radio" value="no" checked={props.hasOtherSuper === 'no'} id="noOtherSuper" className="form__checkbox" />
+              No
+            </label>
+          </div>
+        </div>
+        { props.hasOtherSuper === 'yes' &&
+          <div className="form__group">
+            {otherFundsList}
+            <button className="form__label form__label--checkbox" htmlFor="includePartner" onClick={() => props.onAddOtherFund()}>
+              <i className="fa fa-plus"></i>
+              Add another fund
+            </button>
+          </div>
+        }
         <div className="form__group">
           <label className="form__label" htmlFor="slary">Annual salary (before tax)</label>
           <CurrencyInput
