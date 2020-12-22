@@ -72,6 +72,8 @@ function App() {
   const [includePartnerVoluntary, setIncludePartnerVoluntary] = useState('no')
   const [hasOtherSuper, setHasOtherSuper] = useState('no')
   const [otherFunds, setOtherFunds] = useState([])
+  const [partnerHasOtherSuper, setPartnerHasOtherSuper] = useState('no')
+  const [partnerOtherFunds, setPartnerOtherFunds] = useState([])
   const [footerVisible, setFooterVisible] = useState(false)
   const [activeModal, setActiveModal] = useState('')
   const [activePlan, setActivePlan] = useState(plans[0])
@@ -129,7 +131,6 @@ function App() {
   }
 
   function handleSetOtherFundName(val, i) {
-    console.log(val, i)
     let funds = [...otherFunds]
     let fund = {...otherFunds[i]}
     fund.name = val
@@ -142,11 +143,51 @@ function App() {
     setOtherFunds(newFunds)
   }
 
+  function addPartnerOtherFund() {
+    let newFund = {
+      balance: '',
+      name: ''
+    }
+    let funds = [...partnerOtherFunds]
+    funds.push(newFund)
+    setPartnerOtherFunds(funds)
+  }
+
+  function handleSetPartnerOtherFundBalance(val, i) {
+    let funds = [...partnerOtherFunds]
+    let fund = {...partnerOtherFunds[i]}
+    fund.balance = parseInt(val)
+    funds[i] = fund
+    setPartnerOtherFunds(funds)
+  }
+
+  function handleSetPartnerOtherFundName(val, i) {
+    let funds = [...partnerOtherFunds]
+    let fund = {...partnerOtherFunds[i]}
+    fund.name = val
+    funds[i] = fund
+    setPartnerOtherFunds(funds)
+  }
+
+  function handleRemovePartnerOtherFund(i) {
+    const newFunds = partnerOtherFunds.filter((fund, index) => index !== i)
+    setPartnerOtherFunds(newFunds)
+  }
+
   function handleIncludeOtherSuper(val) {
     setHasOtherSuper(val)
     // add fund if no funds
     if (val === 'yes' && !otherFunds.length) {
       addOtherFund()
+    }
+  }
+
+  function handleIncludePartnerOtherSuper(val) {
+    console.log(val)
+    setPartnerHasOtherSuper(val)
+    // add fund if no funds
+    if (val === 'yes' && !partnerOtherFunds.length) {
+      addPartnerOtherFund()
     }
   }
 
@@ -457,6 +498,8 @@ function App() {
                         includePartnerVoluntary={includePartnerVoluntary}
                         hasOtherSuper={hasOtherSuper}
                         otherFunds={otherFunds}
+                        partnerHasOtherSuper={partnerHasOtherSuper}
+                        partnerOtherFunds={partnerOtherFunds}
                         volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
@@ -471,6 +514,11 @@ function App() {
                         onIncludeOtherSuper={(val) => handleIncludeOtherSuper(val)}
                         onSetOtherFundBalance={(val, i) => handleSetOtherFundBalance(val, i)}
                         onSetOtherFundName={(val, i) => handleSetOtherFundName(val, i)}
+                        onAddPartnerOtherFund={() => addPartnerOtherFund()}
+                        onRemovePartnerOtherFund={(i) => handleRemovePartnerOtherFund(i)}
+                        onIncludePartnerOtherSuper={(val) => handleIncludePartnerOtherSuper(val)}
+                        onSetPartnerOtherFundBalance={(val, i) => handleSetPartnerOtherFundBalance(val, i)}
+                        onSetPartnerOtherFundName={(val, i) => handleSetPartnerOtherFundName(val, i)}
                         onSetAge={(val) => setAge(val)}
                         onSetVolContributions={(val) => setVolContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}

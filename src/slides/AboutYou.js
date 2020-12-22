@@ -33,6 +33,33 @@ function AboutYou(props) {
     )
   })
 
+  const partnerOtherFundsList = props.partnerOtherFunds.map((fund, i) => {
+    return (
+      <div className="form__row--desktop">
+        <div className="form__group">
+          <label className="form__label" htmlFor="">Balance of other fund #{i + 1}</label>
+          <CurrencyInput
+            prefix="$"
+            className="form__input"
+            allowDecimals={false}
+            defaultValue={fund.balance}
+            placeholder="Enter balance"
+            onChange={(val) => props.onSetPartnerOtherFundBalance(val, i)}
+          />
+        </div>
+        <div className="form__group">
+          <label className="form__label form__label--toggle" htmlFor="">
+            <span>Name of other fund #{i + 1} (optional)</span>
+            {i > 0 && 
+              <span className="form__toggle" onClick={() => props.onRemovePartnerOtherFund(i)}>Remove fund</span>
+            }
+          </label>
+          <input type="text" value={fund.name} className="form__input" placeholder="Enter fund name" onChange={(e) => props.onSetPartnerOtherFundName(e.target.value, i)}/>
+        </div>
+      </div>
+    )
+  })
+
   return (
     <div className="AboutYou">
       <h2>About you</h2>
@@ -193,6 +220,28 @@ function AboutYou(props) {
             <label className="form__label" htmlFor="">Current super balance</label>
             <input type="text" value={props.partnerSuper} className="form__input" />
           </div>
+          <div className="form__group">
+            <label className="form__label" htmlFor="">Do you have a super balance in any other funds?</label>
+            <div className="form__options">
+              <label className="form__label form__label--radio flat" htmlFor="partnerHasOtherSuper" onChange={() => props.onIncludePartnerOtherSuper('yes')}>
+                <input type="radio" value="yes" checked={props.partnerHasOtherSuper === 'yes'} id="partnerHasOtherSuper" className="form__checkbox" />
+                Yes
+              </label>
+              <label className="form__label form__label--radio flat" htmlFor="partnerNoOtherSuper" onChange={() => props.onIncludePartnerOtherSuper('no')}>
+                <input type="radio" value="no" checked={props.partnerHasOtherSuper === 'no'} id="partnerNoOtherSuper" className="form__checkbox" />
+                No
+              </label>
+            </div>
+          </div>
+          { props.partnerHasOtherSuper === 'yes' &&
+            <div className="form__group">
+              {partnerOtherFundsList}
+              <button className="form__label form__label--checkbox" htmlFor="includePartner" onClick={() => props.onAddPartnerOtherFund()}>
+                <i className="fa fa-plus"></i>
+                Add another fund
+              </button>
+            </div>
+          }
           <h2>Your partner's contributions</h2>
           <div className="form__group">
             <label className="form__label" htmlFor="">Employer contributions</label>
