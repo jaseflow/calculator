@@ -661,6 +661,15 @@ hr {
   z-index: 10;
 }
 
+.Settings {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.Settings__label {
+  margin-left: 0.5rem;
+}
+
 .Slides {
   position: fixed;
   top: 0;
@@ -1494,10 +1503,6 @@ hr {
 
   .Slides__back {
     margin-left: -1rem;
-  }
-
-  .Slides__footer .container div:last-child {
-    margin-left: auto;
   }
 
   .Slides--open {

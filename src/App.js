@@ -584,9 +584,10 @@ function App() {
                 <i className="far fa-chevron-left"></i>
               </Link>
             }
-            <div onClick={() => handleModalOpen('assumptions')} hidden>
-              <i className="fa fa-cog"></i>
-            </div>
+          </div>
+          <div onClick={() => handleModalOpen('assumptions')} className="Settings">
+            <i className="fa fa-cog"></i>
+            <span className="Settings__label">Settings</span>
           </div>
           <div>
             {nextButton}

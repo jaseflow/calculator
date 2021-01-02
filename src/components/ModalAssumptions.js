@@ -7,10 +7,11 @@ function ModalAssumptions(props) {
   return (
     <div className="Modal__card">
       <div className="Modal__content">
-        <h2>Assumptions</h2>
+        <h2>Settings</h2>
+        <p>These settings are assumptions made that help us calculate the retirement age. They use defaults which are standard for the average person.</p>
         <div className="form__slider">
           <label htmlFor="" class="form__label form__label--range">
-            How long you need your income to last?
+            What age would you like your income to last to?
             <strong>
               {props.deathAge}
             </strong>
