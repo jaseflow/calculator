@@ -200,6 +200,7 @@ function Results(props) {
                   <input type="text" class="form__input" placeholder="Enter an email address" />
                   <button className="btn form__action">Send</button>
                 </div>
+                <p style={{ marginTop: '0.5rem' }}>Want to save a copy instead? <a href="#">Download PDF</a></p>
               </div>
             </div>
           </div>
