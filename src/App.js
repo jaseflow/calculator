@@ -556,6 +556,7 @@ function App() {
                 loaded={resultLoaded}
                 onOpenModal={(modal) => handleModalOpen(modal)}
                 onRemoveIncome={(s) => handleRemoveIncome(s)}
+                onRemoveGoal={(i) => handleRemoveGoal(i)}
                 onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                 onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                 onSetReqIncome={(val) => setReqIncome(val)}

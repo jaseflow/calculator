@@ -15,7 +15,7 @@ function RetirementGoal(props) {
 
   return (
     <div className="GoalCard card">
-      <i className="far fa-times card__close" onClick={props.onGoalRemove}></i>
+      <i className="far fa-times card__close" onClick={props.onRemove}></i>
       <div className="form__group">
         <label className="form__label" htmlFor="">Goal</label>
         <div className="form__select">
