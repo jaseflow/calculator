@@ -206,6 +206,10 @@ hr {
   background: none;
 }
 
+.form {
+  text-align: left;
+}
+
 .form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -378,6 +382,15 @@ hr {
 }
 
 .form__input:focus {
+}
+
+.form__submit {
+  display: flex;
+}
+
+.form__submit .btn {
+  height: 50px;
+  border: 2px solid #323D47;
 }
 
 .form__suffix {
@@ -1204,8 +1217,18 @@ hr {
 }
 
 .Results__block {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
+}
+
+.Results__block--divided {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  text-align: left;
+}
+
+.Results__block--divided img {
+  display: none;
 }
 
 .Results__block img {
@@ -1543,9 +1566,20 @@ hr {
     grid-column-gap: 1rem;
   }
 
+  .Results__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3rem;
+  }
+
   .Results__blurb {
     font-size: 24px;
     max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .Results__block--divided .Results__wrap {
+    max-width: 85%;
     margin: 0 auto;
   }
 
@@ -1562,12 +1596,6 @@ hr {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2rem;
     margin-top: 2rem;
-  }
-
-  .Results__actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 3rem;
   }
 
   .Plan__info {
