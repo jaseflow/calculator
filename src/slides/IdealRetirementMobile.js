@@ -34,6 +34,7 @@ function IdealRetirementMobile(props) {
               value={value}
               displayType={'text'}
               thousandSeparator={true}
+              step={500}
               prefix={'$'}
             />
              &nbsp;yearly income

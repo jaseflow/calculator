@@ -1035,6 +1035,11 @@ hr {
   padding-top: 0.5rem;
 }
 
+.IdealRetirement__slider {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
 .Projected {
   color: #fff;
   text-align: center;
@@ -1307,6 +1312,7 @@ hr {
 }
 
 .RetirementPlans__select {
+  display: none;
   width: 160px;
   transition: none;
 }

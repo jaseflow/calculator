@@ -3,6 +3,9 @@ import React from 'react';
 import CurrencyInput from 'react-currency-input-field'
 import NumberFormat from 'react-number-format'
 
+import Slider from 'react-rangeslider'
+import 'react-rangeslider/lib/index.css'
+
 import Tooltip from '../components/Tooltip'
 
 import repairs from '../icons/green/9.png'
@@ -21,10 +24,38 @@ import lgia from '../inline.png'
 
 function IdealRetirementDesktop(props) {
 
+  const labels = {
+    27978: 'Modest',
+    43901: 'Comfortable',
+    80000: 'Premium'
+  }
+
   return (
     <div className="IdealRetirement">
-      <p>Your current income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'} /> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
-      <h2>Standard retirement incomes</h2>
+      <p>Your current income is $150000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+      <div className="form__slider IdealRetirement__slider">
+        <label htmlFor="" class="form__label form__label--range">
+          How much income will you need?
+          <strong>
+            <NumberFormat
+              value={props.reqIncome}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            /> 
+            &nbsp; / year
+          </strong>
+        </label>
+        <Slider
+          min={10000}
+          max={100000}
+          tooltip={false}
+          step={500}
+          labels={labels}
+          value={props.reqIncome}
+          onChange={(val) => props.onSetCustomIncome(val)}
+        />
+      </div>
       <table className="RetirementPlans">
         <thead>
           <tr>
@@ -37,7 +68,7 @@ function IdealRetirementDesktop(props) {
                 </Tooltip>
               </div>
               <h3 className="flat">Modest</h3>
-              <p>
+              <p className="flat">
                 <NumberFormat
                   value={props.modestIncome}
                   displayType={'text'}
@@ -65,7 +96,7 @@ function IdealRetirementDesktop(props) {
                 </Tooltip>
               </div>
               <h3 className="flat">Comfortable</h3>
-              <p>
+              <p className="flat">
                 <NumberFormat
                   value={props.comfyIncome}
                   displayType={'text'}
@@ -93,7 +124,7 @@ function IdealRetirementDesktop(props) {
                 </Tooltip>
               </div>
               <h3 className="flat">Premium</h3>
-              <p>
+              <p className="flat">
                 <NumberFormat
                   value={props.premiumIncome}
                   displayType={'text'}
@@ -258,22 +289,6 @@ function IdealRetirementDesktop(props) {
           </tr>
         </tbody>
       </table>
-      <h2>Have your own retirement income in mind?</h2>
-      <div className="IdealRetirement__custom">
-        <div className="form__group">
-          <label className="form__label" htmlFor="super">Enter a custom amount</label>
-          <CurrencyInput
-            id="super"
-            prefix="$"
-            className="form__input form__input--suffixed"
-            placeholder="Enter amount"
-            value={props.reqIncome}
-            allowDecimals={false}
-            onChange={(val) => props.onSetCustomIncome(val)}
-          />
-          <span className="form__suffix">yearly income</span>
-        </div>
-      </div>
     </div>
   )
 }
