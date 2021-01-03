@@ -204,10 +204,6 @@ hr {
   margin-left: 1rem;
 }
 
-.btn--block {
-  width: 100%;
-}
-
 .btn:hover {
   background-color: lighten($darkGreen, 2.5);
 }
@@ -1079,15 +1075,23 @@ hr {
 }
 
 @media(max-width: 767px) {
+
+  .btn--block {
+    width: 100%;
+  }
+
   .Results__action {
     display: block;
   }
+
   .Nav__title {
     margin-bottom: 0.5rem;
   }
+
   .Nav__footer {
     padding-top: 0;
   }
+
   .Slides__wrap {
     scroll-behavior: smooth;
     overflow-y: auto;
