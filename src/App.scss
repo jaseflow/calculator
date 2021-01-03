@@ -528,6 +528,10 @@ hr {
   height: 100%;
 }
 
+.Nav__blurb p {
+  max-width: 510px;
+}
+
 .Nav__blurb p + p {
   margin-top: 2rem;
 }
