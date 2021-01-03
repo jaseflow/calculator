@@ -597,6 +597,9 @@ hr {
   opacity: 0.5;
   user-select: none;
   font-weight: normal;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .Nav__link strong,
