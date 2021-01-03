@@ -10,7 +10,9 @@ function AboutYou(props) {
     return (
       <div className="form__row--desktop">
         <div className="form__group">
-          <label className="form__label" htmlFor="">Balance of other fund #{i + 1}</label>
+          <label className="form__label" htmlFor="">
+            Balance of other fund #{i + 1}
+          </label>
           <CurrencyInput
             prefix="$"
             className="form__input"
@@ -24,7 +26,7 @@ function AboutYou(props) {
           <label className="form__label form__label--toggle" htmlFor="">
             <span>Name of other fund #{i + 1} (optional)</span>
             {i > 0 && 
-              <span className="form__toggle" onClick={() => props.onRemoveOtherFund(i)}>Remove fund</span>
+              <span className="link" onClick={() => props.onRemoveOtherFund(i)}>Remove fund</span>
             }
           </label>
           <input type="text" value={fund.name} className="form__input" placeholder="Enter fund name" onChange={(e) => props.onSetOtherFundName(e.target.value, i)}/>

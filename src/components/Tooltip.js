@@ -9,7 +9,7 @@ function Tooltip(props) {
       <div className={`tooltip__content ${open ? 'tooltip__content--open' : ''}`}>
         {props.children}
         <footer className="tooltip__footer">
-          <span className="btn btn--text" onClick={() => setOpen(!open)}>Got it</span>
+          <span className="link" onClick={() => setOpen(!open)}>Got it</span>
         </footer>
       </div>
     </div>

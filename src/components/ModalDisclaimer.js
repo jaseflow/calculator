@@ -15,7 +15,7 @@ function ModalDisclaimer(props) {
         </label>
       </div>
       <footer className="Modal__footer">
-        <button className="btn btn--text Modal__cancel" onClick={props.onDismiss}>Cancel</button>
+        <button className="link Modal__cancel" onClick={props.onDismiss}>Cancel</button>
         <button disabled={!props.acceptedDisc} className="btn btn--secondary" onClick={props.onContinueDisc}>Continue</button>
       </footer>
     </div>

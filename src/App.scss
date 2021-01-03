@@ -66,9 +66,17 @@ ul {
   margin-left: 1em;
 }
 
-a {
+a,
+.link {
   color: $darkGreen;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+.link:hover {
+  text-decoration: underline;
 }
 
 hr {
@@ -154,13 +162,6 @@ hr {
   cursor: default;
 }
 
-.btn--text {
-  background: none;
-  color: $darkGreen;
-  border: 0;
-  padding: 0;
-}
-
 .btn--secondary {
   background: #fff;
   line-height: 36px;
@@ -205,6 +206,7 @@ hr {
 }
 
 .btn:hover {
+  text-decoration: none;
   background-color: lighten($darkGreen, 2.5);
 }
 
@@ -215,10 +217,6 @@ hr {
 .btn--hero:hover {
   background: $brandGreen;
   box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-}
-
-.btn--text:hover {
-  background: none;
 }
 
 .form {
@@ -457,10 +455,12 @@ hr {
   background: #fff;
   line-height: 1.2;
   border-left: 5px solid $darkGreen;
-  display: flex;
-  align-items: center;
   margin-bottom: 1rem;
   box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+}
+
+.Alert__link {
+  text-decoration: none;
 }
 
 .App__header {
@@ -1102,6 +1102,10 @@ hr {
   overflow: hidden;
 }
 
+.Results__link {
+  color: $brandGreen;
+}
+
 .Results__hero {
   background: linear-gradient(35deg, #00945A 57.39%, #7FC241 106.02%);
   padding: 1rem;
@@ -1111,7 +1115,7 @@ hr {
   z-index: 10;
 }
 
-.Results__link {
+.Results__settings {
   text-decoration: underline;
   font-weight: 600;
   cursor: pointer;

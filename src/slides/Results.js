@@ -68,7 +68,7 @@ function Results(props) {
           <div className="Results__copy">
             <span>Retire at</span>
             <strong>66</strong>
-            <small><span className="Results__link" onClick={() => props.onOpenModal('assumptions')}>{props.likelihood}% likelihood</span> of your money lasting</small>
+            <small><span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>{props.likelihood}% likelihood</span> of your money lasting</small>
           </div>
           <div className="Results__age-bg"></div>
           <div className="Results__pie">
@@ -166,7 +166,7 @@ function Results(props) {
             <section className="Results__section">
               <div className="Results__goals-title">
                 <h2>Income sources</h2>
-                <span className="btn btn--text" onClick={() => props.onOpenModal('income')}>Add income</span>
+                <span className="link" onClick={() => props.onOpenModal('income')}>Add income</span>
               </div>
               {sources.length ?
                 sources
@@ -178,7 +178,7 @@ function Results(props) {
           <section className="Results__section">
             <div className="Results__goals-title">
               <h2>Goals you added</h2>
-              <span className="btn btn--text" onClick={() => props.onOpenModal('goals')}>Add goals</span>
+              <span className="link" onClick={() => props.onOpenModal('goals')}>Add a goal</span>
             </div>
             {goals.length ?
               goals
@@ -191,7 +191,7 @@ function Results(props) {
             <div>
               <h1>Next steps</h1>
               <h2>Consolidate your superannuation</h2>
-              <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. This is money that could be growing for your retirement.</p>
+              <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. <br />This is money that could be growing for your retirement.</p>
               <a href="#" class="btn btn--block btn--large Results__cta">Get started</a>
             </div>
           </div>
@@ -241,7 +241,7 @@ function Results(props) {
                   <input type="text" class="form__input" placeholder="Enter an email address" />
                   <button className="btn form__action">Send</button>
                 </div>
-                <p style={{ marginTop: '0.5rem' }}>Want to save a copy instead? <a href="#">Download PDF</a></p>
+                <p style={{ marginTop: '0.5rem' }}>Want to save a copy instead? <a href="#" class="Results__link">Download PDF</a></p>
               </div>
             </div>
           </div>
