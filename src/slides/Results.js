@@ -186,14 +186,16 @@ function Results(props) {
               <p>No retirement goals added</p>
             }
           </section>
-          <div class="Results__consolidate">
-            <img src={consolidateBadge} alt="" class="show-desktop" />
-            <div>
-              <h1>Next steps</h1>
-              <h2>Consolidate your superannuation</h2>
-              <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. <br />This is money that could be growing for your retirement.</p>
-              <a href="#" class="btn btn--block btn--large Results__cta">Get started</a>
-            </div>
+        </div>
+      </div>
+      <div class="Results__consolidate">
+        <div className="container">
+          <img src={consolidateBadge} alt="" class="show-desktop" />
+          <div>
+            <h1>Next steps</h1>
+            <h2>Consolidate your superannuation</h2>
+            <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. <br />This is money that could be growing for your retirement.</p>
+            <a href="#" class="btn btn--block btn--large Results__cta">Get started</a>
           </div>
         </div>
       </div>
