@@ -32,7 +32,7 @@ function IdealRetirementDesktop(props) {
 
   return (
     <div className="IdealRetirement">
-      <p>Your current income is $150000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+      <p>Your current income is $150,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
       <div className="form__slider IdealRetirement__slider">
         <label htmlFor="" class="form__label form__label--range">
           How much income will you need?

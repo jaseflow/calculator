@@ -422,7 +422,7 @@ function App() {
                 <strong>Takes approximately 15 minutes</strong>
               </p>
               <div className="Nav__action">
-                <Link className="btn btn--hero" onClick={handleLinkClick} to="/step/current/about-you">Get started</Link>
+                <Link className="btn btn--large btn--hero" onClick={handleLinkClick} to="/step/current/about-you">Get started</Link>
               </div>
             </div>
           </div>

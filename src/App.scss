@@ -68,6 +68,7 @@ ul {
 
 a {
   color: $darkGreen;
+  font-weight: 700;
 }
 
 hr {
@@ -171,13 +172,27 @@ hr {
   }
 }
 
-.btn--hero {
-  background: $brandGreen;
-  color: #fff;
+.btn--tertiary {
+  background: none;
+  line-height: 36px;
+  border: 2px solid $brandGreen;
+  color: $brandGreen;
+  &:hover {
+    background: $brandGreen !important;
+    color: #fff;
+  }
+}
+
+.btn--large {
   height: 60px;
   line-height: 58px;
   font-size: 18px;
   padding: 0 4rem;
+}
+
+.btn--hero {
+  background: $brandGreen;
+  color: #fff;
   transition: box-shadow 375ms ease;
 }
 
@@ -581,6 +596,7 @@ hr {
   position: relative;
   opacity: 0.5;
   user-select: none;
+  font-weight: normal;
 }
 
 .Nav__link strong,
@@ -1157,8 +1173,18 @@ hr {
 }
 
 .Results__hr {
-  margin: 2rem 0 1.5rem 0;
+  margin: 3rem 0 1.5rem 0;
   opacity: 0.5;
+}
+
+.Results__consolidate {
+  padding-top: 3rem;
+  margin: 3rem 0;
+  border-top: 1px solid #ddd;
+}
+
+.Results__consolidate h1 {
+  margin-bottom: 1rem;
 }
 
 .Results--loaded {
@@ -1226,8 +1252,8 @@ hr {
 }
 
 .Results__block--divided {
-  padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.25);
   text-align: left;
 }
 
@@ -1245,6 +1271,10 @@ hr {
 }
 
 .Results__action {
+  margin-top: 1rem;
+}
+
+.Results__cta {
   margin-top: 1rem;
 }
 
@@ -1574,6 +1604,15 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 3rem;
+  }
+
+  .Results__consolidate {
+    display: flex;
+    align-items: center;
+  }
+
+  .Results__consolidate div {
+    margin-left: 2rem;
   }
 
   .Results__blurb {
