@@ -84,12 +84,15 @@ function AboutYou(props) {
           </div>
         </div>
         { props.hasOtherSuper === 'yes' &&
-          <div className="form__group">
-            {otherFundsList}
-            <button className="form__label form__label--checkbox" htmlFor="includePartner" onClick={() => props.onAddOtherFund()}>
-              <i className="fa fa-plus"></i>
-              Add another fund
-            </button>
+          <div>
+            <p>Did you know you having multiple super accounts costs you thousand of dollars in fees? <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent">Consolidate now</a></p>
+            <div className="form__group">
+              {otherFundsList}
+              <button className="form__label form__label--checkbox" htmlFor="includePartner" onClick={() => props.onAddOtherFund()}>
+                <i className="fa fa-plus"></i>
+                Add another fund
+              </button>
+            </div>
           </div>
         }
         <div className="form__group">

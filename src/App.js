@@ -519,12 +519,14 @@ function App() {
                         <IdealRetirementDesktop
                           income={income}
                           reqIncome={reqIncome}
+                          deathAge={deathAge}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
                           activePlan={activePlan && activePlan.id}
                           onSetPlan={(val) => handleActivePlan(val)}
+                          onSetDeathAge={(val) => setDeathAge(val)}
                           onSetCustomIncome={(val) => handleCustomIncome(val)}
                         />
                       </div>

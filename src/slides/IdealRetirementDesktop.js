@@ -32,8 +32,23 @@ function IdealRetirementDesktop(props) {
 
   return (
     <div className="IdealRetirement">
-      <p>Your current income is $150,000 per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
-      <div className="form__slider IdealRetirement__slider">
+      <p>Your current income is <NumberFormat value={props.income} prefix={'$'} thousandSeparator={true} displayType={'text'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+      <div className="form__slider">
+        <label htmlFor="" class="form__label form__label--range">
+          How long do you need your money to last?
+          <strong>
+            {props.deathAge} years old
+          </strong>
+        </label>
+        <Slider
+          min={60}
+          max={100}
+          tooltip={false}
+          value={props.deathAge}
+          onChange={(val) => props.onSetDeathAge(val)}
+        />
+      </div>
+      <div className="form__slider form__slider--labels">
         <label htmlFor="" class="form__label form__label--range">
           How much income will you need?
           <strong>
@@ -56,6 +71,7 @@ function IdealRetirementDesktop(props) {
           onChange={(val) => props.onSetCustomIncome(val)}
         />
       </div>
+      <h2>Retirement lifestyle information</h2>
       <table className="RetirementPlans">
         <thead>
           <tr>
