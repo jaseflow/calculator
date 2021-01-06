@@ -28,6 +28,11 @@ const plans = [
       single: 80000,
       couple: 100000
     }
+  },
+  {
+    id: 'custom',
+    name: 'Custom',
+    value: null
   }
 ]
 

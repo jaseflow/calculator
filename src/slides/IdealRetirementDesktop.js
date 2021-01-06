@@ -37,7 +37,7 @@ function IdealRetirementDesktop(props) {
         <label htmlFor="" class="form__label form__label--range">
           How long do you need your money to last?
           <strong>
-            {props.deathAge} years old
+            {props.deathAge}
           </strong>
         </label>
         <Slider

@@ -299,9 +299,12 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .form__label--range strong {
+  margin-left: 2rem;
   font-size: 18px;
 }
 
@@ -1085,6 +1088,10 @@ hr {
 
 @media(max-width: 767px) {
 
+  .form__label--range .helper {
+    display: block;
+  }
+
   .btn--block {
     width: 100%;
   }
@@ -1195,7 +1202,7 @@ hr {
 }
 
 .Results__consolidate {
-  padding: 5rem 1rem;
+  padding: 4rem 1rem;
   box-shadow: 0 20px 20px rgba(0,0,0,0.15);
   position: relative;
 }

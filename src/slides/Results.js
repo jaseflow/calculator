@@ -92,7 +92,7 @@ function Results(props) {
                     thousandSeparator={true}
                     prefix={'$'}
                   /> 
-                  &nbsp;pa
+                  <small>&nbsp;pa</small>
                 </strong>
               </label>
               <Slider
@@ -114,7 +114,7 @@ function Results(props) {
                     thousandSeparator={true}
                     prefix={'$'}
                   /> 
-                  &nbsp;month
+                  <small>&nbsp;month</small>
                 </strong>
               </label>
             <Slider
@@ -128,7 +128,7 @@ function Results(props) {
             </div>
             <div className="form__slider form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                Investment Strategy (while working)
+                <span>Investment Strategy <small class="helper">(while working)</small></span>
                 <strong>
                   {strategies[props.workingStrategy]}
                 </strong>
@@ -145,7 +145,7 @@ function Results(props) {
             </div>
             <div className="form__slider form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                Investment Strategy (after you retire)
+                <span>Investment Strategy <small class="helper">(after you retire)</small></span>
                 <strong>
                   {strategies[props.retiredStrategy]}
                 </strong>

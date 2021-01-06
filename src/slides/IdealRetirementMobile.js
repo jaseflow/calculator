@@ -2,6 +2,9 @@ import React from 'react';
 
 import CurrencyInput from 'react-currency-input-field'
 
+import Slider from 'react-rangeslider'
+import 'react-rangeslider/lib/index.css'
+
 import ContentModest from '../components/ContentModest'
 import ContentComfy from '../components/ContentComfy'
 import ContentPremium from '../components/ContentPremium'
@@ -44,7 +47,6 @@ function IdealRetirementMobile(props) {
               <i className="fas fa-user Plan__person"></i>
             }
           </span>
-          <small className="Plan__value">Add your own</small>
         </div>
         <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
           <i className="fal fa-info-circle"></i>
@@ -82,7 +84,6 @@ function IdealRetirementMobile(props) {
               <i className="fas fa-user Plan__person"></i>
             }
           </span>
-          <small className="Plan__value">Add your own</small>
         </div>
         <div className="Plan__info" onClick={() => props.onInfoClick(p.id)}>
           <i className="fal fa-info-circle"></i>
@@ -94,7 +95,22 @@ function IdealRetirementMobile(props) {
   return (
     <div>
       <div>
-        <p>Your current income is <NumberFormat value={props.income} displayType={'text'} thousandSeperator={true} prefix={'$'} /> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+        <p>Your current income is <NumberFormat value={props.income} prefix={'$'} thousandSeparator={true} displayType={'text'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
+        <div className="form__slider">
+          <label htmlFor="" class="form__label form__label--range">
+            What age do you need your money to last to?
+            <strong>
+              {props.deathAge}
+            </strong>
+          </label>
+          <Slider
+            min={60}
+            max={100}
+            tooltip={false}
+            value={props.deathAge}
+            onChange={(val) => props.onSetDeathAge(val)}
+          />
+        </div>
         <h2>Standard retirement incomes</h2>
         <div className="plans">
           <div className="plans__list">
@@ -124,6 +140,32 @@ function IdealRetirementMobile(props) {
                 {lgiaList}
               </div>
             </div>
+            <div>
+              <div className="plans__header">
+                <h3 className="flat">
+                  Set your own income
+                </h3>
+              </div>
+              <div className="plans__options">
+                <label htmlFor='custom' className={`Plan ${props.activePlan === 'custom' ? 'Plan--selected' : ''}`}>
+                  <input type="radio" className="Plan__input" id='custom' value='custom' checked={props.activePlan === 'custom'} onChange={() => props.onSetPlan('custom')} />
+                  <div className={`Plan__circle ${props.activePlan === 'custom' ? 'Plan__circle--selected' : ''}`}></div>
+                  <div className="Plan__content">
+                    <strong className="Plan__name">
+                      Custom
+                    </strong>
+                    <span className="Plan__value">
+                      Set your own income
+                      {props.includePartner ?
+                        <i className="fas fa-user-friends Plan__person"></i>
+                        :
+                        <i className="fas fa-user Plan__person"></i>
+                      }
+                    </span>
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
           <div className="plans__content">
             {
@@ -133,23 +175,6 @@ function IdealRetirementMobile(props) {
                 'premium': <ContentPremium income={props.premiumIncome} />
               }[props.activePlan]
             }
-          </div>
-        </div>
-        <h2>Set our own income</h2>
-        <div className="IdealRetirementMobile__custom">
-          <div className="form">
-            <div className="form__group">
-              <label className="form__label" htmlFor="">Custom retirement income</label>
-              <CurrencyInput
-                prefix="$"
-                className="form__input form__input--suffixed"
-                placeholder="Enter amount"
-                value={props.reqIncome}
-                allowDecimals={false}
-                onChange={(val) => props.onSetCustomIncome(val)}
-              />
-              <span className="form__suffix">per year</span>
-            </div>
           </div>
         </div>
       </div>

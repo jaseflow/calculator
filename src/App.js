@@ -84,7 +84,7 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
-  const [reqIncome, setReqIncome] = useState(activePlan && activePlan.value.single)
+  const [reqIncome, setReqIncome] = useState(activePlan.value && activePlan.value.single)
   const [employerContributions, setEmployerContributions] = useState('12%')
   const [memberContributions, setMemberContributions] = useState('6%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
@@ -329,9 +329,9 @@ function App() {
   },[incomeSources, salary, partnerSalary])
 
   useEffect(() => {
-    if (activePlan && includePartner) {
+    if (activePlan !== 'custom' && includePartner) {
       setReqIncome(activePlan.value.couple)
-    } else if (activePlan && !includePartner) {
+    } else if (activePlan !== 'custom' && !includePartner) {
       setReqIncome(activePlan.value.single)
     }
   },[activePlan, includePartner])
@@ -511,11 +511,13 @@ function App() {
                           income={income}
                           activePlan={activePlan && activePlan.id}
                           reqIncome={reqIncome}
+                          deathAge={deathAge}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
                           onSetPlan={(val) => handleActivePlan(val)}
+                          onSetDeathAge={(val) => setDeathAge(val)}
                           onSetCustomIncome={(val) => handleCustomIncome(val)}
                           plans={plans}
                           onInfoClick={(d) => handleModalOpen(d)}
