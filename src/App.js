@@ -102,10 +102,16 @@ function App() {
     return -1;
   }
 
-  function handleLinkClick(e) {
+  function handleLinkClick(e, i) {
+    // Open disclaimer if they're at the start and haven't accepted
     if(stepIndex === 0 && !acceptedDisc) {
       e.preventDefault()
       handleModalOpen('disclaimer')
+    }
+    // Update step indexes when clicking top nav links
+    if (i >= 0) {
+      setStepIndex(i)
+      setSectionIndex(0)
     }
   }
 
@@ -370,7 +376,7 @@ function App() {
     return (
       <li key={`step-${i}`} className="flat">
         {step.completed || stepIndex === i ?
-          <Link to={steps[i].sections[0]} onClick={(e) => handleLinkClick(e)} className={linkClasses}>
+          <Link to={steps[i].sections[0]} onClick={(e) => handleLinkClick(e, i)} className={linkClasses}>
             {step.completed ? 
               <div className="Nav__counter Nav__counter--checked">
                 <i className="far fa-check"></i>
@@ -422,14 +428,14 @@ function App() {
                 <strong>Takes approximately 15 minutes</strong>
               </p>
               <div className="Nav__action">
-                <Link className="btn btn--large btn--hero" onClick={handleLinkClick} to="/step/current/about-you">Get started</Link>
+                <Link className="btn btn--large btn--hero" onClick={(e) => handleLinkClick(e)} to="/step/current/about-you">Get started</Link>
               </div>
             </div>
           </div>
         </header>
         <footer className="Nav__footer">
           <div className="Nav__content">
-            <Link to="/">
+            <Link to="/" onClick={() => setStepIndex(0)}>
               <img src={LogoDark} alt="" className="Nav__inline-logo" />
             </Link>
             <ul className="Nav__steps">
