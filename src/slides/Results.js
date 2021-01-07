@@ -79,7 +79,7 @@ function Results(props) {
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and earn <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a {props.likelihood}% likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a {props.likelihood}% likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div className="Results__decisions">
