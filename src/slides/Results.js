@@ -193,8 +193,7 @@ function Results(props) {
         <div className="container">
           <img src={consolidateBadge} alt="" class="show-desktop" />
           <div>
-            <h1 className="title">Next steps</h1>
-            <h2>Consolidate your accounts</h2>
+            <h1 className="desktop-title">Consolidate today</h1>
             <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. This is money that could be growing for your retirement.</p>
             <a href="#" class="btn btn--large Results__cta">Get started</a>
           </div>
