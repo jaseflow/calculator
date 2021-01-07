@@ -7,6 +7,7 @@ import consolidateBadge from '../consolidate-badge.png'
 import singleImg from '../single.png'
 import superHealthCheckImg from '../superhealthcheck.png'
 import comprehensiveImg from '../comprehensive.png'
+import referImg from '../refer-green.png'
 import printImg from '../form.svg'
 
 import IncomeSource from '../components/IncomeSource'
@@ -61,7 +62,7 @@ function Results(props) {
   return (
     <div className={`Results ${props.loaded ? 'Results--loaded' : ''}`}>
       <div className="Results__hero">
-        <h1 className="Results__title">
+        <h1 className="Results__title desktop-title">
           When can you retire?
         </h1>
         <div className="Results__age">
@@ -183,7 +184,7 @@ function Results(props) {
             {goals.length ?
               goals
               :
-              <p>No retirement goals added</p>
+              <p className="flat">No retirement goals added</p>
             }
           </section>
         </div>
@@ -192,49 +193,51 @@ function Results(props) {
         <div className="container">
           <img src={consolidateBadge} alt="" class="show-desktop" />
           <div>
-            <h1>Next steps</h1>
-            <h2>Consolidate your superannuation</h2>
+            <h1 className="title">Next steps</h1>
+            <h2>Consolidate your accounts</h2>
             <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. This is money that could be growing for your retirement.</p>
-            <a href="#" class="btn btn--block btn--large Results__cta">Get started</a>
+            <a href="#" class="btn btn--large Results__cta">Get started</a>
           </div>
         </div>
       </div>
       <div className="Results__footer">
         <div className="container">
           <div className="Results__actions">
-            <div className="Results__block">
-              <img src={superHealthCheckImg} alt="" />
-              <div class="Results__wrap">
-                <h2 className="flat">Super Health Checks</h2>
-                <p>Covers broad recommendations that do not take into account your personal circumstances.</p>
-                <a href="https://www.lgiasuper.com.au/superannuation/super-health-check" class="btn btn--tertiary Results__action">
-                  Book now
-                </a>
+            <div>
+              <h1 class="desktop-title">Book financial advice</h1>
+              <div className="Results__block">
+                <img src={superHealthCheckImg} alt="" />
+                <div class="Results__wrap">
+                  <h2 className="flat">Super Health Checks</h2>
+                  <p>Covers broad recommendations that do not take into account your personal circumstances.</p>
+                  <a href="https://www.lgiasuper.com.au/superannuation/super-health-check" class="btn btn--tertiary Results__action">
+                    Book now
+                  </a>
+                </div>
+              </div>
+              <div className="Results__block">
+                <img src={singleImg} />
+                <div class="Results__wrap">
+                  <h2 className="flat">Single issue advice</h2>
+                  <p>Covers personal advice restricted to limited topics, such as salary sacrificing and investment switching.</p>
+                  <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent" class="btn btn--tertiary Results__action">
+                    Book now
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="Results__block">
-              <img src={singleImg} style={{marginRight: '-2rem'}} />
+            <div className="Results__refer">
+              <img src={referImg} alt="" />
               <div class="Results__wrap">
-                <h2 className="flat">Single issue advice</h2>
-                <p>Covers personal advice restricted to limited topics, such as salary sacrificing and investment switching.</p>
-                <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent" class="btn btn--tertiary Results__action">
-                  Book now
-                </a>
-              </div>
-            </div>
-            <div className="Results__block">
-              <img src={comprehensiveImg} alt="" />
-              <div class="Results__wrap">
-                <h2 className="flat">Comprehensive advice</h2>
-                <p>Provides in-depth retirement planning tailored to suit your personal needs.</p>
-                <a href="mailto:advice%40lgiasuper.com.au?subject=Re%3A%20Comprehensive%20advice%20booking%20request" class="btn btn--tertiary Results__action">
-                  Book now
+                <h2 className="flat">Special offer to members</h2>
+                <p>Invite family and friends to join and you could pocket up to $400 in vouchers and they could receive a $150 voucher.</p>
+                <a href="" class="btn btn--block Results__action">
+                  Refer now
                 </a>
               </div>
             </div>
           </div>
           <div className="Results__block Results__block--divided">
-            <img src={printImg} alt="" />
             <div class="Results__wrap">
               <h2 className="flat">Generate your report</h2>
               <p>Email a detailed PDF report of your projection to use as reference or to share with your partner or financial advisor.</p>
@@ -247,8 +250,7 @@ function Results(props) {
               </div>
             </div>
           </div>
-          <hr className="Results__hr" />
-          <footer class="Results__legal">
+          <footer class="Results__legal text-centered">
             <nav>
               <a target="_blank" rel="noreferrer" href="https://www.lgiasuper.com.au/about-us/governance/reports-and-policies/disclaimer">
                 Disclaimer

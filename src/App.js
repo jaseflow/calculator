@@ -418,7 +418,7 @@ function App() {
           <div className="Nav__blurb">
             <img src={LogoWhite} alt="" className="Nav__logo" />
             <div>
-              <h1 className="Nav__title">Got a gap?</h1>
+              <h1 className="Nav__title title">Got a gap?</h1>
               <p>To effectively plan for life after work,
                 you should understand how much you need and if you have a gap.
                 This tool will help you make the required adjustments to live the life you want.
@@ -596,11 +596,11 @@ function App() {
               </Link>
             }
           </div>
-          <div onClick={() => handleModalOpen('assumptions')} className="Settings">
-            <i className="fa fa-cog"></i>
-            <span className="Settings__label">Settings</span>
-          </div>
-          <div>
+          <div class="Slides__next">
+            <div onClick={() => handleModalOpen('assumptions')} className="Settings">
+              <span class="Settings__label">Settings</span>
+              <i className="fa fa-cog"></i>
+            </div>
             {nextButton}
           </div>
         </div>
