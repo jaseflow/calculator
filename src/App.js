@@ -556,6 +556,7 @@ function App() {
             <Route path="/step/results">
               <Results
                 reqIncome={reqIncome}
+                canConsolidate={hasOtherSuper === 'yes'}
                 incomeSources={incomeSources}
                 goals={goals}
                 volContributions={volContributions}

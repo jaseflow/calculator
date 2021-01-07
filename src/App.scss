@@ -1721,6 +1721,10 @@ hr {
     margin-right: 2rem;
   }
 
+  .Results__block--divided {
+    padding-top: 4rem;
+  }
+
   .Results__block--divided .Results__wrap {
     max-width: 85%;
     margin: 0 auto;
@@ -1732,7 +1736,7 @@ hr {
 
   .Results__refer {
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 5rem;
     padding-top: 2rem;
     border-bottom: 0;
   }
