@@ -7,7 +7,7 @@ import consolidateBadge from '../consolidate-badge.png'
 import singleImg from '../single.png'
 import superHealthCheckImg from '../superhealthcheck.png'
 import comprehensiveImg from '../comprehensive.png'
-import referImg from '../refer-green.png'
+import referImg from '../refer-white.png'
 import printImg from '../form.svg'
 
 import IncomeSource from '../components/IncomeSource'
