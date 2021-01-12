@@ -84,7 +84,7 @@ function AboutYou(props) {
           </div>
         </div>
         { props.hasOtherSuper === 'yes' &&
-          <div>
+          <div hidden>
             <p>Did you know you having multiple super accounts costs you thousand of dollars in fees? <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent">Consolidate now</a></p>
             <div className="form__group">
               {otherFundsList}

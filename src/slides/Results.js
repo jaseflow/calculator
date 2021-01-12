@@ -69,7 +69,7 @@ function Results(props) {
           <div className="Results__copy">
             <span>Retire at</span>
             <strong>66</strong>
-            <small><span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>{props.likelihood}% likelihood</span> of your money lasting</small>
+            <small>{props.likelihood}% likelihood of your money lasting</small>
           </div>
           <div className="Results__age-bg"></div>
           <div className="Results__pie">
