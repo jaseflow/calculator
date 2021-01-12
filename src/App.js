@@ -71,7 +71,7 @@ function App() {
   const [includePartner, setIncludePartner] = useState(false)
   const [includePartnerVoluntary, setIncludePartnerVoluntary] = useState('no')
   const [hasOtherSuper, setHasOtherSuper] = useState('no')
-  const [otherFunds, setOtherFunds] = useState([])
+  const [otherFundsBalance, setOtherFundsBalance] = useState(0)
   const [footerVisible, setFooterVisible] = useState(false)
   const [activeModal, setActiveModal] = useState('')
   const [activePlan, setActivePlan] = useState(plans[0])
@@ -115,44 +115,8 @@ function App() {
     }
   }
 
-  function addOtherFund() {
-    let newFund = {
-      balance: '',
-      name: ''
-    }
-    let funds = [...otherFunds]
-    funds.push(newFund)
-    setOtherFunds(funds)
-  }
-
-  function handleSetOtherFundBalance(val, i) {
-    let funds = [...otherFunds]
-    let fund = {...otherFunds[i]}
-    fund.balance = parseInt(val)
-    funds[i] = fund
-    setOtherFunds(funds)
-  }
-
-  function handleSetOtherFundName(val, i) {
-    console.log(val, i)
-    let funds = [...otherFunds]
-    let fund = {...otherFunds[i]}
-    fund.name = val
-    funds[i] = fund
-    setOtherFunds(funds)
-  }
-
-  function handleRemoveOtherFund(i) {
-    const newFunds = otherFunds.filter((fund, index) => index !== i)
-    setOtherFunds(newFunds)
-  }
-
-  function handleIncludeOtherSuper(val) {
-    setHasOtherSuper(val)
-    // add fund if no funds
-    if (val === 'yes' && !otherFunds.length) {
-      addOtherFund()
-    }
+  function handleSetOtherFundsBalance(val, i) {
+    setOtherFundsBalance(val)
   }
 
   function handleViewToggle(val) {
@@ -463,7 +427,6 @@ function App() {
                         includePartner={includePartner}
                         includePartnerVoluntary={includePartnerVoluntary}
                         hasOtherSuper={hasOtherSuper}
-                        otherFunds={otherFunds}
                         volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
@@ -471,13 +434,10 @@ function App() {
                         memberContributions={memberContributions}
                         viewTotals={viewTotals}
                         onSetViewTotals={(val) => handleViewToggle(val)}
-                        onAddOtherFund={() => addOtherFund()}
-                        onRemoveOtherFund={(i) => handleRemoveOtherFund(i)}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
                         onIncludePartnerVoluntary={(val) => setIncludePartnerVoluntary(val)}
-                        onIncludeOtherSuper={(val) => handleIncludeOtherSuper(val)}
-                        onSetOtherFundBalance={(val, i) => handleSetOtherFundBalance(val, i)}
-                        onSetOtherFundName={(val, i) => handleSetOtherFundName(val, i)}
+                        onIncludeOtherSuper={(val) => setHasOtherSuper(val)}
+                        onSetOtherFundsBalance={(val) => setOtherFundsBalance(val)}
                         onSetAge={(val) => setAge(val)}
                         onSetVolContributions={(val) => setVolContributions(val)}
                         onSetSuper={(val) => setSuperBalance(val)}

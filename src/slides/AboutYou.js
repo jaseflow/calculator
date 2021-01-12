@@ -6,35 +6,6 @@ import CurrencyInput from 'react-currency-input-field'
 
 function AboutYou(props) {
 
-  const otherFundsList = props.otherFunds.map((fund, i) => {
-    return (
-      <div className="form__row--desktop">
-        <div className="form__group">
-          <label className="form__label" htmlFor="">
-            Balance of other fund #{i + 1}
-          </label>
-          <CurrencyInput
-            prefix="$"
-            className="form__input"
-            allowDecimals={false}
-            defaultValue={fund.balance}
-            placeholder="Enter balance"
-            onChange={(val) => props.onSetOtherFundBalance(val, i)}
-          />
-        </div>
-        <div className="form__group">
-          <label className="form__label form__label--toggle" htmlFor="">
-            <span>Name of other fund #{i + 1} (optional)</span>
-            {i > 0 && 
-              <span className="link" onClick={() => props.onRemoveOtherFund(i)}>Remove fund</span>
-            }
-          </label>
-          <input type="text" value={fund.name} className="form__input" placeholder="Enter fund name" onChange={(e) => props.onSetOtherFundName(e.target.value, i)}/>
-        </div>
-      </div>
-    )
-  })
-
   return (
     <div className="AboutYou">
       <h2>About you</h2>
@@ -84,15 +55,17 @@ function AboutYou(props) {
           </div>
         </div>
         { props.hasOtherSuper === 'yes' &&
-          <div hidden>
-            <p>Did you know you having multiple super accounts costs you thousand of dollars in fees? <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent">Consolidate now</a></p>
-            <div className="form__group">
-              {otherFundsList}
-              <button className="form__label form__label--checkbox" htmlFor="includePartner" onClick={() => props.onAddOtherFund()}>
-                <i className="fa fa-plus"></i>
-                Add another fund
-              </button>
-            </div>
+          <div className="form__group">
+            <label className="form__label" htmlFor="">
+              Balance of all other funds
+            </label>
+            <CurrencyInput
+              prefix="$"
+              className="form__input"
+              allowDecimals={false}
+              placeholder="Enter balance"
+              onChange={(val) => props.onSetOtherFundsBalance(val)}
+            />
           </div>
         }
         <div className="form__group">
