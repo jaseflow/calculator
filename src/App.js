@@ -155,7 +155,6 @@ function App() {
   }
 
   function handleCustomIncome(val) {
-    setActivePlan(null)
     setReqIncome(val)
   }
 
