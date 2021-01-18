@@ -32,7 +32,7 @@ const plans = [
   {
     id: 'custom',
     name: 'Custom',
-    value: null
+    value: 0
   }
 ]
 

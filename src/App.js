@@ -84,7 +84,7 @@ function App() {
   const [incomeSources, setIncomeSources] = useState([])
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
-  const [reqIncome, setReqIncome] = useState(activePlan.value && activePlan.value.single)
+  const [reqIncome, setReqIncome] = useState(activePlan && activePlan.value && activePlan.value.single)
   const [employerContributions, setEmployerContributions] = useState('12%')
   const [memberContributions, setMemberContributions] = useState('6%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
@@ -477,7 +477,7 @@ function App() {
                           includePartner={includePartner}
                           onSetPlan={(val) => handleActivePlan(val)}
                           onSetDeathAge={(val) => setDeathAge(val)}
-                          onSetCustomIncome={(val) => handleCustomIncome(val)}
+                          onSetCustomIncome={(val) => setReqIncome(val)}
                           plans={plans}
                           onInfoClick={(d) => handleModalOpen(d)}
                         />
@@ -494,7 +494,7 @@ function App() {
                           activePlan={activePlan && activePlan.id}
                           onSetPlan={(val) => handleActivePlan(val)}
                           onSetDeathAge={(val) => setDeathAge(val)}
-                          onSetCustomIncome={(val) => handleCustomIncome(val)}
+                          onSetCustomIncome={(val) => setReqIncome(val)}
                         />
                       </div>
                     </Route>

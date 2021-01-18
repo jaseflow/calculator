@@ -98,7 +98,7 @@ function IdealRetirementMobile(props) {
         <p>Your current income is <NumberFormat value={props.income} prefix={'$'} thousandSeparator={true} displayType={'text'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
         <div className="form__slider">
           <label htmlFor="" class="form__label form__label--range">
-            What age do you need your money to last to?
+            How long do you need your money to last?
             <strong>
               {props.deathAge}
             </strong>
@@ -166,6 +166,20 @@ function IdealRetirementMobile(props) {
                 </label>
               </div>
             </div>
+            {props.activePlan === 'custom' && 
+              <div className="form__group">
+                <label className="form__label" htmlFor="super">How much will you need?</label>
+                <CurrencyInput
+                  id="custom-income"
+                  prefix="$"
+                  className="form__input form__input--prefilled form__input--suffixed"
+                  allowDecimals={false}
+                  placeholder="Enter amount"
+                  onChange={(val) => props.onSetCustomIncome(val)}
+                />
+                <span className="form__suffix">per annum</span>
+              </div>
+            }
           </div>
           <div className="plans__content">
             {
