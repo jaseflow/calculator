@@ -69,7 +69,7 @@ function Results(props) {
           <div className="Results__copy">
             <span>Retire at</span>
             <strong>66</strong>
-            <small>{props.likelihood}% likelihood of your money lasting</small>
+            <small>High likelihood of your money lasting</small>
           </div>
           <div className="Results__age-bg"></div>
           <div className="Results__pie">
@@ -79,7 +79,7 @@ function Results(props) {
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a {props.likelihood}% likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a high likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div className="Results__decisions">
