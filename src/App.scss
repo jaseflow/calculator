@@ -369,6 +369,10 @@ hr {
   margin: 0 0.5rem;
 }
 
+.form__switch .react-switch-bg {
+  background: linear-gradient(-90deg, $brandGreen, $darkGreen) !important;
+}
+
 .form__checkbox {
   margin-right: 1rem;
 }
