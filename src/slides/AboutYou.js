@@ -25,7 +25,7 @@ function AboutYou(props) {
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value={props.age} className="form__input " />
+            <input type="text" defaultValue={props.age} className="form__input " />
           </div>
         </div>
         <div className="form__group">
@@ -156,13 +156,19 @@ function AboutYou(props) {
             </div>
           </div>
           <div className="form__group">
-            <label className="form__label" htmlFor="">Current super balance (All funds)</label>
-            <input type="text" value={props.partnerSuper} className="form__input" />
+            <label className="form__label" htmlFor="partnerSuper">Current super balance (All funds)</label>
+            <CurrencyInput
+              id="partnerSuper"
+              prefix="$"
+              className="form__input"
+              allowDecimals={false}
+              onChange={(val) => props.onSetPartnerSalary(val)}
+            />
           </div>
           <div className="form__group">
-            <label className="form__label" htmlFor="">Annual salary (before tax)</label>
+            <label className="form__label" htmlFor="partnerSalary">Annual salary (before tax)</label>
             <CurrencyInput
-              id="partner-salary"
+              id="partnerSalary"
               prefix="$"
               className="form__input"
               allowDecimals={false}
@@ -173,13 +179,24 @@ function AboutYou(props) {
           </div>
           <h2 className="AboutYou__contributions">
             Your partner's contributions
+            <div className="form__switch">
+              Percentage
+              <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetViewTotals(val)} checked={props.viewTotals} />
+              Totals
+            </div>
           </h2>
           <div className="form__row--desktop">
             <div className="form__group">
-              <label className="form__label form__label--suffixed" htmlFor="">
+              <label className="form__label form__label--suffixed" htmlFor="partnerEmpContr">
                 Employer contributions
               </label>
-              <input type="text" value={props.partnerEmployerContributions} className="form__input" />
+              <CurrencyInput
+                id="partnerEmpContr"
+                prefix="$"
+                className="form__input"
+                placeholder={props.viewTotals ? 'Enter total' : 'Enter percentage'}
+                allowDecimals={false}
+              />
               { props.viewTotals ?
                 <span className="form__suffix">per month</span>
                 :
@@ -190,7 +207,13 @@ function AboutYou(props) {
               <label className="form__label form__label--toggle" htmlFor="">
                 Standard Member contributions
               </label>
-              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" />
+              <CurrencyInput
+                id="partnerEmp"
+                prefix="$"
+                className="form__input"
+                placeholder={props.viewTotals ? 'Enter total' : 'Enter percentage'}
+                allowDecimals={false}
+              />
               { props.viewTotals ?
                 <span className="form__suffix">per month</span>
                 :
@@ -215,12 +238,22 @@ function AboutYou(props) {
             <div className="form__row--desktop">
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (before tax)</label>
-                <input type="text" value="" className="form__input form__input--suffixed" placeholder="Enter amount" />
+                <CurrencyInput
+                  prefix="$"
+                  className="form__input form__input--suffixed"
+                  placeholder="Enter amount"
+                  allowDecimals={false}
+                />
                 <span className="form__suffix">per month</span>
               </div>
               <div className="form__group">
                 <label className="form__label" htmlFor="">Voluntary (after tax)</label>
-                <input type="text" value="" className="form__input form__input--suffixed" placeholder="Enter amount" />
+                <CurrencyInput
+                  prefix="$"
+                  className="form__input form__input--suffixed"
+                  placeholder="Enter amount"
+                  allowDecimals={false}
+                />
                 <span className="form__suffix">per month</span>
               </div>
             </div>

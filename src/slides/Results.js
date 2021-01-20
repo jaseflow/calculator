@@ -91,7 +91,7 @@ function Results(props) {
               onSliderRelease={() => props.onSliderRelease()}
               onSetReqIncome={(val) => props.onSetReqIncome(val)}
               onSetRetiredStrategy={(val) => props.onSetRetiredStrategy(val)}
-              onSetValContributions={(val) => props.onSetVolContributions(val)}
+              onSetVolContributions={(val) => props.onSetVolContributions(val)}
               onSetWorkingStrategy={(val) => props.onSetWorkingStrategy(val)}
               retiredStrategy={props.retiredStrategy}
             />
@@ -155,10 +155,10 @@ function Results(props) {
               <div className="Results__block">
                 <img src={singleImg} />
                 <div class="Results__wrap">
-                  <h2 className="flat">Single issue advice</h2>
-                  <p>Covers personal advice restricted to limited topics, such as salary sacrificing and investment switching.</p>
+                  <h2 className="flat">Generate your report</h2>
+                  <p>Save and print a detailed report of this calculator to share with your partner or financial advisor.</p>
                   <a href="https://memberonline.lgiasuper.com.au/find-my-super/declaration-and-consent" class="btn btn--tertiary Results__action">
-                    Book now
+                    Download PDF
                   </a>
                 </div>
               </div>
@@ -171,19 +171,6 @@ function Results(props) {
                 <a href="" class="btn btn--block Results__action">
                   Refer now
                 </a>
-              </div>
-            </div>
-          </div>
-          <div className="Results__block Results__block--divided">
-            <div class="Results__wrap">
-              <h2 className="flat">Generate your report</h2>
-              <p>Email a detailed PDF report of your projection to use as reference or to share with your partner or financial advisor.</p>
-              <div className="form">
-                <div className="form__submit">
-                  <input type="text" class="form__input" placeholder="Enter an email address" />
-                  <button className="btn form__action">Send</button>
-                </div>
-                <p style={{ marginTop: '0.5rem' }}>Want to save a copy instead? <a href="#" class="Results__link">Download PDF</a></p>
               </div>
             </div>
           </div>

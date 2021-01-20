@@ -89,7 +89,7 @@ hr {
   height: 0;
   border: 0;
   border-bottom: 1px solid $gray;
-  margin: 1rem 0;
+  margin: 3rem 0 2rem 0;
 }
 
 .hr-double {
@@ -241,7 +241,7 @@ hr {
 }
 
 .form__row--double {
-  grid-column-gap: 3rem;
+  grid-column-gap: 4rem;
 }
 
 .form__group {
@@ -502,7 +502,7 @@ hr {
 }
 
 .card {
-  padding: 1rem;
+  padding: 2rem;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 4px 4px rgba(0,0,0,0.15);
@@ -1368,7 +1368,7 @@ hr {
 
 .Results__body {
   position: relative;
-  padding: 4rem 1rem 3rem 1rem;
+  padding: 4rem 1rem;
   background: $offWhite;
 }
 
@@ -1384,7 +1384,6 @@ hr {
 
 .Results__block--divided {
   padding-top: 3rem;
-  border-top: 1px solid rgba(255,255,255,0.25);
   text-align: left;
 }
 
@@ -1416,7 +1415,8 @@ hr {
 
 .Results__legal {
   text-align: center;
-  margin-top: 4rem;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding-top: 4rem;
 }
 
 .Results__legal a {
@@ -1747,6 +1747,7 @@ hr {
     grid-column-gap: 1rem;
   }
 
+  .IncomeCard .form__group,
   .GoalCard .form__group {
     margin-bottom: 0;
   }
@@ -1802,7 +1803,7 @@ hr {
   }
 
   .Results__block--divided .Results__wrap {
-    max-width: 85%;
+    max-width: 80%;
     margin: 0 auto;
   }
 
