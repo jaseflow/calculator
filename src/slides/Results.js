@@ -141,7 +141,7 @@ function Results(props) {
         <div className="container">
           <div className="Results__actions">
             <div>
-              <h1 class="desktop-title">Book financial advice</h1>
+              <h1 class="desktop-title">Next steps</h1>
               <div className="Results__block">
                 <img src={superHealthCheckImg} alt="" />
                 <div class="Results__wrap">
