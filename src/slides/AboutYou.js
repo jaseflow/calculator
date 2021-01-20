@@ -17,7 +17,7 @@ function AboutYou(props) {
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
             <div className="form__select">
-              <select id="" name="" className="form__input form__input--prefilled" defaultValue="male">
+              <select id="" name="" className="form__input " defaultValue="male">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
@@ -25,7 +25,7 @@ function AboutYou(props) {
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Age</label>
-            <input type="text" value={props.age} className="form__input form__input--prefilled" />
+            <input type="text" value={props.age} className="form__input " />
           </div>
         </div>
         <div className="form__group">
@@ -33,7 +33,7 @@ function AboutYou(props) {
           <CurrencyInput
             id="super"
             prefix="$"
-            className="form__input form__input--prefilled form__input--suffixed"
+            className="form__input  form__input--suffixed"
             allowDecimals={false}
             disabled={true}
             defaultValue={props.superBalance}
@@ -73,7 +73,7 @@ function AboutYou(props) {
           <CurrencyInput
             id="salary"
             prefix="$"
-            className="form__input form__input--prefilled"
+            className="form__input "
             disabled={true}
             allowDecimals={false}
             defaultValue={props.salary}
@@ -93,7 +93,7 @@ function AboutYou(props) {
             <label className="form__label form__label--toggle" htmlFor="">
               Employer contributions
             </label>
-            <input type="text" value={props.employerContributions} className="form__input form__input--prefilled" />
+            <input type="text" value={props.employerContributions} className="form__input " />
             { props.viewTotals ?
               <span className="form__suffix">per month</span>
               :
@@ -104,7 +104,7 @@ function AboutYou(props) {
             <label className="form__label form__label--toggle" htmlFor="">
               Standard Member contributions
             </label>
-            <input type="text" value={props.memberContributions} className="form__input form__input--prefilled form__input--suffixed" />
+            <input type="text" value={props.memberContributions} className="form__input  form__input--suffixed" />
             { props.viewTotals ?
               <span className="form__suffix">per month</span>
               :
@@ -118,7 +118,7 @@ function AboutYou(props) {
             <CurrencyInput
               id="contributions"
               prefix="$"
-              className="form__input form__input--prefilled"
+              className="form__input "
               allowDecimals={false}
               defaultValue={props.volContributions}
               onChange={(val) => props.onSetVolContributions(val)}
@@ -127,7 +127,7 @@ function AboutYou(props) {
           </div>
           <div className="form__group">
             <label className="form__label" htmlFor="">Voluntary (after tax)</label>
-            <input type="text" value="$0" className="form__input form__input--prefilled form__input--suffixed" />
+            <input type="text" value="$0" className="form__input  form__input--suffixed" />
             <span className="form__suffix">per month</span>
           </div>
         </div>

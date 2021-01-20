@@ -12,19 +12,12 @@ import printImg from '../form.svg'
 
 import IncomeSource from '../components/IncomeSource'
 import RetirementGoal from '../components/RetirementGoal'
-
-import Slider from 'react-rangeslider'
-import 'react-rangeslider/lib/index.css'
+import DecisionsStacked from '../components/DecisionsStacked'
+import DecisionsTabbed from '../components/DecisionsTabbed'
 
 import NumberFormat from 'react-number-format'
-
-const strategies = {
-  1: 'Defensive',
-  2: 'Stable',
-  3: 'Balanced',
-  4: 'Div Growth',
-  5: 'Aggressive'
-}
+import Slider from 'react-rangeslider'
+import 'react-rangeslider/lib/index.css'
 
 function Results(props) {
 
@@ -82,85 +75,26 @@ function Results(props) {
           <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a high likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
-          <div className="Results__decisions">
-            <div className="form__slider">
-              <label htmlFor="" class="form__label form__label--range">
-                How much you need per year?
-                <strong>
-                  <NumberFormat
-                    value={props.reqIncome}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={'$'}
-                  /> 
-                  <small>&nbsp;pa</small>
-                </strong>
-              </label>
-              <Slider
-                min={10000}
-                max={200000}
-                tooltip={false}
-                value={props.reqIncome}
-                onChange={(val) => props.onSetReqIncome(val)}
-                onChangeComplete={() => props.onSliderRelease()}
-              />
-            </div>
-            <div className="form__slider">
-              <label htmlFor="" class="form__label form__label--range">
-                Extra contributions
-                <strong>
-                  <NumberFormat
-                    value={props.volContributions}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={'$'}
-                  /> 
-                  <small>&nbsp;month</small>
-                </strong>
-              </label>
-            <Slider
-                min={0}
-                max={500}
-                tooltip={false}
-                value={props.volContributions}
-                onChange={(val) => props.onSetVolContributions(val)}
-                onChangeComplete={() => props.onSliderRelease()}
-              />
-            </div>
-            <div className="form__slider form__slider--nolabels">
-              <label htmlFor="" class="form__label form__label--range">
-                <span>Investment Strategy <small class="helper">(while working)</small></span>
-                <strong>
-                  {strategies[props.workingStrategy]}
-                </strong>
-              </label>
-              <Slider
-                min={1}
-                max={5}
-                labels={strategies}
-                tooltip={false}
-                value={props.workingStrategy}
-                onChange={(val) => props.onSetWorkingStrategy(val)}
-                onChangeComplete={() => props.onSliderRelease()}
-              />
-            </div>
-            <div className="form__slider form__slider--nolabels">
-              <label htmlFor="" class="form__label form__label--range">
-                <span>Investment Strategy <small class="helper">(after you retire)</small></span>
-                <strong>
-                  {strategies[props.retiredStrategy]}
-                </strong>
-              </label>
-              <Slider
-                min={1}
-                max={5}
-                labels={strategies}
-                tooltip={false}
-                value={props.retiredStrategy}
-                onChange={(val) => props.onSetRetiredStrategy(val)}
-                onChangeComplete={() => props.onSliderRelease()}
-              />
-            </div>
+          <div class="show-mobile">
+            <DecisionsStacked 
+              reqIncome={props.reqIncome}
+              volContributions={props.volContributions}
+              workingStrategy={props.workingStrategy}
+              retiredStrategy={props.retiredStrategy}
+            />
+          </div>
+          <div className="show-desktop">
+            <DecisionsTabbed
+              reqIncome={props.reqIncome}
+              volContributions={props.volContributions}
+              workingStrategy={props.workingStrategy}
+              onSliderRelease={() => props.onSliderRelease()}
+              onSetReqIncome={(val) => props.onSetReqIncome(val)}
+              onSetRetiredStrategy={(val) => props.onSetRetiredStrategy(val)}
+              onSetValContributions={(val) => props.onSetVolContributions(val)}
+              onSetWorkingStrategy={(val) => props.onSetWorkingStrategy(val)}
+              retiredStrategy={props.retiredStrategy}
+            />
           </div>
           <div hidden>
             <hr className="Results__hr" />
@@ -178,7 +112,7 @@ function Results(props) {
           </div>
           <section className="Results__section">
             <div className="Results__goals-title">
-              <h2>Goals you added</h2>
+              <h2>Review your goals</h2>
               <span className="link" onClick={() => props.onOpenModal('goals')}>Add a goal</span>
             </div>
             {goals.length ?

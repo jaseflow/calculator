@@ -240,6 +240,10 @@ hr {
   position: relative;
 }
 
+.form__row--double {
+  grid-column-gap: 3rem;
+}
+
 .form__group {
   position: relative;
   margin-bottom: 1rem;
@@ -376,6 +380,13 @@ hr {
 
 .form__slider {
   margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.form__slider--flat {
+  margin: 0;
 }
 
 .form__slider--labels {
@@ -428,11 +439,73 @@ hr {
   font-size: 13px;
 }
 
+.Tabs {
+  margin-bottom: 2rem;
+}
+
+.Tabs__group {
+  display: none;
+}
+
+.Tabs__group--active {
+  display: block;
+}
+
+.Tabs__list {
+  display: flex;
+  list-style: none;
+  margin-left: 0;
+  gap: 0.5rem;
+}
+
+.Tabs__list li {
+  flex: 1;
+  margin: 0;
+}
+
+.Tabs__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+.Tabs__option--active {
+  background: #fff;
+}
+
+.Tabs__option i {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 22px;
+  font-size: 1rem;
+  border-radius: 50%;
+  background: $darkGreen;
+  color: #fff;
+  font-style: normal;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.Tabs__body {
+  padding: 2rem;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+  border-radius: 0 0 10px 10px;
+  background: #fff;
+  position: relative;
+}
+
 .card {
   padding: 1rem;
   background: #fff;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.15);
   margin-bottom: 1rem;
   position: relative;
 }
@@ -689,7 +762,6 @@ hr {
   width: 100%;
   height: 50px;
   border-radius: 50%;
-  background: #fff;
   content: "";
   position: absolute;
   top: 0;
@@ -698,6 +770,10 @@ hr {
   width: 110%;
   margin-left: -5%;
 }
+
+.Nav__footer:before { background: #fff }
+
+.Results__footer:before { background: $offWhite }
 
 .Nav__action {
   display: none;
@@ -1293,7 +1369,7 @@ hr {
 .Results__body {
   position: relative;
   padding: 4rem 1rem 3rem 1rem;
-  background: #fff;
+  background: $offWhite;
 }
 
 .Results__footer {
