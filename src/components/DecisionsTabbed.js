@@ -33,7 +33,7 @@ function DecisionsTabbed(props) {
           <li>
             <span className={`Tabs__option ${selected === 'investments' ? 'Tabs__option--active' : ''}`} onClick={() => setSelected('investments')}>
               <i>3</i>
-              Your investent strategy
+              Your investment strategy
             </span>
           </li>
         </ul>

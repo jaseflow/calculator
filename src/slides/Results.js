@@ -45,9 +45,9 @@ function Results(props) {
         onSetGoalFrequency={(val) => props.onSetGoalCost(val, i)}
         onSetGoalId={(val) => props.onSetGoalId(val, i)}
         onSetGoalCost={(val) => props.onSetGoalCost(val, i)}
-        id={s.id}
-        cost={s.cost}
-        frequency={s.frequency}
+        onSetGoalStartAge={(val) => props.onSetGoalStartAge(val, i)}
+        deathAge={props.deathAge}
+        goal={s}
       />
     )
   })

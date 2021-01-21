@@ -10,10 +10,11 @@ function RetirementGoals(props) {
         key={`goal-${s.id}`}
         onRemove={() => props.onRemoveGoal(i)}
         onSetGoalFrequency={(val) => props.onSetGoalFrequency(val, i)}
-        onSetGoalId={(val) => props.onSetGoalId(val, i)}
         onSetGoalCost={(val) => props.onSetGoalCost(val, i)}
-        id={s.id}
-        cost={s.cost}
+        onSetGoalStartAge={(val) => props.onSetGoalStartAge(val, i)}
+        onSetGoalEndAge={(val) => props.onSetGoalEndAge(val, i)}
+        goal={s}
+        deathAge={props.deathAge}
         frequency={s.frequency}
       />
     )

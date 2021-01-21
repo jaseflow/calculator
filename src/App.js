@@ -253,6 +253,22 @@ function App() {
     setGoals(newGoals)
   }
 
+  function handleSetGoalStartAge(val, i) {
+    let newGoals = [...goals]
+    let currentGoal = {...goals[i]}
+    currentGoal.startAge = val
+    newGoals[i] = currentGoal
+    setGoals(newGoals)
+  }
+
+  function handleSetGoalEndAge(val, i) {
+    let newGoals = [...goals]
+    let currentGoal = {...goals[i]}
+    currentGoal.endAge = val
+    newGoals[i] = currentGoal
+    setGoals(newGoals)
+  }
+
   function handleSetGoalCost(val, i) {
     let newGoals = [...goals]
     let currentGoal = {...goals[i]}
@@ -501,11 +517,14 @@ function App() {
                     <Route path="/step/future/retirement-goals">
                       <RetirementGoals
                         goals={goals}
+                        deathAge={deathAge}
                         onRemoveGoal={(i) => handleRemoveGoal(i)}
                         onAddingGoal={() => handleModalOpen('goals')}
                         onSetGoalCost={(val, i) => handleSetGoalCost(val, i)}
                         onSetGoalFrequency={(val, i) => handleSetGoalFrequency(val, i)}
                         onSetGoalId={(val, i) => handleSetGoalId(val, i)}
+                        onSetGoalStartAge={(val, i) => handleSetGoalStartAge(val, i)}
+                        onSetGoalEndAge={(val, i) => handleSetGoalEndAge(val, i)}
                       />
                     </Route>
                   </Switch>
@@ -537,6 +556,8 @@ function App() {
                 onSetIncomeSourcePeriod={(val, i) => handleSetIncomeSourcePeriod(val, i)}
                 onSetGoalCost={(val, i) => handleSetGoalCost(val, i)}
                 onSetGoalFrequency={(val, i) => handleSetGoalFrequency(val, i)}
+                onSetGoalStartAge={(val, i) => handleSetGoalStartAge(val, i)}
+                onSetGoalEndAge={(val, i) => handleSetGoalEndAge(val, i)}
                 onSetGoalId={(val, i) => handleSetGoalId(val, i)}
               />
             </Route>

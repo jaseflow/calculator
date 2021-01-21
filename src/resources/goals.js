@@ -2,32 +2,38 @@ const goals = [
   {
     id: 'holiday',
     text: 'Holiday',
-    icon: 'plane-departure'
+    icon: 'plane-departure',
+    frequency: 'once'
   },
   {
     id: 'inheritance',
     text: 'Inheritance',
-    icon: 'sack-dollar'
+    icon: 'sack-dollar',
+    frequency: 'once'
   },
   {
     id: 'medical',
     text: 'Medical expense',
-    icon: 'users-medical'
+    icon: 'users-medical',
+    frequency: 'once'
   },
   {
     id: 'car',
     text: 'New car',
-    icon: 'car'
+    icon: 'car',
+    frequency: 'once'
   },
   {
     id: 'house',
     text: "Kid's house deposit",
-    icon: 'house'
+    icon: 'house',
+    frequency: 'once'
   },
   {
     id: 'gift',
     text: 'Gift',
-    icon: 'gift'
+    icon: 'gift',
+    frequency: 'once'
   }
 ]
 
