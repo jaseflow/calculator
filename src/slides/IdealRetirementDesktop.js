@@ -24,10 +24,20 @@ import lgia from '../inline.png'
 
 function IdealRetirementDesktop(props) {
 
-  const labels = {
+  const singleLabels = {
     27978: 'Modest',
     43901: 'Comfortable',
     80000: 'Premium'
+  }
+
+  const coupleLabels = {
+    40440: 'Modest',
+    62083: 'Comfortable',
+    100000: 'Premium'
+  }
+
+  const deathAgeLabels = {
+    89: 'Average life expectancy'
   }
 
   return (
@@ -37,13 +47,14 @@ function IdealRetirementDesktop(props) {
         <label htmlFor="" class="form__label form__label--range">
           How long do you need your money to last?
           <strong>
-            {props.deathAge}
+            {props.deathAge} years old
           </strong>
         </label>
         <Slider
           min={60}
           max={100}
           tooltip={false}
+          labels={deathAgeLabels}
           value={props.deathAge}
           onChange={(val) => props.onSetDeathAge(val)}
         />
@@ -66,7 +77,7 @@ function IdealRetirementDesktop(props) {
           max={100000}
           tooltip={false}
           step={500}
-          labels={labels}
+          labels={props.includePartner ? coupleLabels : singleLabels}
           value={props.reqIncome}
           onChange={(val) => props.onSetCustomIncome(val)}
         />

@@ -389,6 +389,10 @@ hr {
   justify-content: flex-end;
 }
 
+.form__slider .rangeslider__labels {
+  margin-left: 0;
+}
+
 .form__slider--flat {
   margin: 0;
 }
@@ -399,6 +403,23 @@ hr {
 
 .form__slider--nolabels .rangeslider__labels {
   display: none;
+}
+
+.form__slider .rangeslider__labels .rangeslider__label-item {
+  padding-top: 0.5rem;
+}
+
+.form__slider .rangeslider__labels .rangeslider__label-item:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #4d4d4d transparent;
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  margin-left: -5px;
 }
 
 .form__options {
@@ -463,15 +484,18 @@ hr {
 }
 
 .Tabs__list li {
-  flex: 1;
   margin: 0;
+}
+
+.Tabs__list li:nth-child(2) {
+  flex: 1;
 }
 
 .Tabs__option {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background: #f9f9f9;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.25);
@@ -494,7 +518,7 @@ hr {
   color: #fff;
   font-style: normal;
   font-weight: bold;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .Tabs__body {
@@ -1348,6 +1372,7 @@ hr {
   padding: 3rem 1rem;
   box-shadow: 0 20px 20px rgba(0,0,0,0.15);
   position: relative;
+  background: #fff;
 }
 
 .Results__consolidate h1 {

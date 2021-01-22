@@ -33,7 +33,7 @@ function DecisionsTabbed(props) {
           <li>
             <span className={`Tabs__option ${selected === 'investments' ? 'Tabs__option--active' : ''}`} onClick={() => setSelected('investments')}>
               <i>3</i>
-              Your investment strategy
+              Your LGIAsuper investment strategy
             </span>
           </li>
         </ul>
@@ -91,7 +91,7 @@ function DecisionsTabbed(props) {
           <div className="form__row form__row--double">
             <div className="form__slider form__slider--flat form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                <span>Investment Strategy <small class="helper">(while working)</small></span>
+                <span>While you're working</span>
                 <strong>
                   {strategies[props.workingStrategy]}
                 </strong>
@@ -108,7 +108,7 @@ function DecisionsTabbed(props) {
             </div>
             <div className="form__slider form__slider--flat form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">
-                <span>Investment Strategy <small class="helper">(after you retire)</small></span>
+                <span>After you've retired</span>
                 <strong>
                   {strategies[props.retiredStrategy]}
                 </strong>
