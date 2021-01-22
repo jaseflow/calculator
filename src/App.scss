@@ -284,6 +284,7 @@ hr {
 
 .form__select--inline select {
   appearance: none;
+  -webkit-appearance: none;
   background: none;
   border: 0;
   font-size: 100%;
@@ -437,6 +438,7 @@ hr {
   width: 100%;
   font-size: 100%;
   appearance: none;
+  -webkit-appearance: none;
 }
 
 .form__input--prefilled {
