@@ -1416,12 +1416,13 @@ hr {
   opacity: 0;
   transform: translateY(1rem);
   animation: showCopy 375ms 750ms ease forwards;
+  margin-top: -1rem;
 }
 
 .Results__copy strong {
   font-size: 66px;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .Results__body {
