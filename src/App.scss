@@ -1283,15 +1283,10 @@ hr {
   overflow: hidden;
 }
 
-.Results__actions {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 .Results__refer {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.25);
 }
 
 .Results__refer img {
@@ -1894,10 +1889,10 @@ hr {
   }
 
   .Results__refer {
-    margin-bottom: 0;
+    margin-top: 0;
     padding-bottom: 5rem;
     padding-top: 2rem;
-    border-bottom: 0;
+    border-top: 0;
   }
 
   .Results__footer {
