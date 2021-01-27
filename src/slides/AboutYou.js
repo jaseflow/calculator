@@ -47,11 +47,11 @@ function AboutYou(props) {
           <div className="form__options">
             <label className="form__label form__label--radio flat" htmlFor="hasOtherSuper" onChange={() => props.onIncludeOtherSuper('yes')}>
               <input type="radio" value="yes" checked={props.hasOtherSuper === 'yes'} id="hasOtherSuper" className="form__checkbox" />
-              Yes
+              <span>Yes</span>
             </label>
             <label className="form__label form__label--radio flat" htmlFor="noOtherSuper" onChange={() => props.onIncludeOtherSuper('no')}>
               <input type="radio" value="no" checked={props.hasOtherSuper === 'no'} id="noOtherSuper" className="form__checkbox" />
-              No
+              <span>No</span>
             </label>
           </div>
         </div>
@@ -204,11 +204,11 @@ function AboutYou(props) {
             <div className="form__options">
               <label className="form__label form__label--radio" htmlFor="includePartnerVol" onChange={() => props.onIncludePartnerVoluntary('yes')}>
                 <input type="radio" value="yes" checked={props.includePartnerVoluntary === 'yes'} id="includePartnerVol" className="form__checkbox" />
-                Yes
+                <span>Yes</span>
               </label>
               <label className="form__label form__label--radio" htmlFor="excludePartnerVol" onChange={() => props.onIncludePartnerVoluntary('no')}>
                 <input type="radio" value="no" checked={props.includePartnerVoluntary === 'no'} id="excludePartnerVol" className="form__checkbox" />
-                No
+                <span>No</span>
               </label>
             </div>
           </div>

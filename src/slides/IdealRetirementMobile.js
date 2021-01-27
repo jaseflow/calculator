@@ -100,7 +100,7 @@ function IdealRetirementMobile(props) {
           <label htmlFor="" class="form__label form__label--range">
             How long do you need your money to last?
             <strong>
-              {props.deathAge}
+              {props.deathAge} years old
             </strong>
           </label>
           <Slider

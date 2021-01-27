@@ -42,15 +42,15 @@ function RetirementGoal(props) {
   })
 
   return (
-    <div className="GoalCard">
-      <header className="GoalCard__head">
-        <h3 className="GoalCard__title flat">
+    <div className="card">
+      <header className="card__head">
+        <h3 className="card__title flat">
           <i className={`fa fa-${props.goal.icon}`}></i>
           {props.goal.text}
         </h3>
         <span className="link" onClick={props.onRemove}>Remove</span>
       </header>
-      <div className="GoalCard__body">
+      <div className="card__body">
         <div className="form__group">
           <label className="form__label" htmlFor="">Cost</label>
           <CurrencyInput

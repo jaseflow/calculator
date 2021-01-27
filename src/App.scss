@@ -43,6 +43,14 @@ p {
   margin-bottom: 1rem;
 }
 
+.half {
+  margin-bottom: 0.5rem !important;
+}
+
+.double {
+  margin-bottom: 1.5rem !important;
+}
+
 .title {
   font-size: 44px;
 }
@@ -287,7 +295,7 @@ hr {
   -webkit-appearance: none;
   background: none;
   border: 0;
-  font-size: 100%;
+  font-size: 14px;
   padding-right: 36px;
 }
 
@@ -339,6 +347,48 @@ hr {
     font-size: 14px;
     margin-right: 1rem;
   }
+}
+
+.form__label--radio {
+  position: relative;
+  overflow: hidden;
+}
+
+.form__label--radio .form__checkbox {
+  position: absolute;
+  left: -100%;
+}
+
+.form__label--radio span {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.form__label--radio span:before,
+.form__label--radio span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.form__label--radio span:after {
+  background: $darkGreen;
+  width: 12px;
+  height: 12px;
+  top: 7px;
+  left: 3px;
+  border: 0;
+  opacity: 0;
+}
+
+.form__label--radio input:checked + span:after {
+  opacity: 1;
 }
 
 .form__label--clear {
@@ -445,9 +495,6 @@ hr {
   border-color: $darkGreen;
 }
 
-.form__input:focus {
-}
-
 .form__submit {
   display: flex;
 }
@@ -529,35 +576,6 @@ hr {
   border-radius: 0 0 10px 10px;
   background: #fff;
   position: relative;
-}
-
-.card {
-  padding: 1.5rem 2rem;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.15);
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.card__close {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 36px;
-  height: 36px;
-  text-align: center;
-  line-height: 36px;
-  z-index: 10;
-  cursor: pointer;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-  border: 1px solid #eee;
-}
-
-.card :last-child {
-  margin-bottom: 0;
 }
 
 .AboutYou__contributions {
@@ -817,7 +835,7 @@ hr {
   z-index: 10;
 }
 
-.GoalCard {
+.card {
   position: relative;
   background-color: #fff;
   box-shadow: 0 4px 4px rgba(0,0,0,0.15);
@@ -826,23 +844,23 @@ hr {
   margin-bottom: 1rem;
 }
 
-.GoalCard__head {
+.card__head {
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.GoalCard__body {
+.card__body {
   padding: 1rem;
   background: $offWhite;
 }
 
-.GoalCard__body :last-child {
+.card__body :last-child {
   margin-bottom: 0;
 }
 
-.GoalCard__title i {
+.card__title i {
   margin-right: 0.5rem;
 }
 
@@ -1796,26 +1814,23 @@ hr {
     max-height: 600px;
   }
 
-  .IncomeCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 1rem;
-  }
-
-  .GoalCard__head,
-  .GoalCard__body {
+  .card__head,
+  .card__body {
     padding: 1rem 2rem;
   }
 
-  .GoalCard__body {
+  .card__body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 1rem;
     padding-bottom: 1.5rem;
   }
 
-  .IncomeCard .form__group,
-  .GoalCard .form__group {
+  .card__body--triple {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card .form__group {
     margin-bottom: 0;
   }
 

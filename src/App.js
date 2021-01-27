@@ -71,6 +71,9 @@ function App() {
   const [includePartner, setIncludePartner] = useState(false)
   const [includePartnerVoluntary, setIncludePartnerVoluntary] = useState('no')
   const [hasOtherSuper, setHasOtherSuper] = useState('no')
+  const [hasShares, setHasShares] = useState('no')
+  const [hasCash, setHasCash] = useState('no')
+  const [hasProperty, setHasProperty] = useState('no')
   const [otherFundsBalance, setOtherFundsBalance] = useState(0)
   const [footerVisible, setFooterVisible] = useState(false)
   const [activeModal, setActiveModal] = useState('')
@@ -463,11 +466,12 @@ function App() {
                     <Route path="/step/current/other-income">
                       <OtherIncome
                         incomeSources={incomeSources}
-                        onRemoveIncome={(s) => handleRemoveIncome(s)}
-                        onSetIncomeSourceValue={(val, i) => handleSetIncomeSourceValue(val, i)}
-                        onSetIncomeSourceIncome={(val, i) => handleSetIncomeSourceIncome(val, i)}
-                        onSetIncomeSourcePeriod={(val, i) => handleSetIncomeSourcePeriod(val, i)}
-                        onAddIncome={() => handleModalOpen('income')} />
+                        hasShares={hasShares}
+                        hasCash={hasCash}
+                        hasProperty={hasProperty}
+                        onHasCash={(val) => setHasCash(val)}
+                        onHasProperty={(val) => setHasProperty(val)}
+                        onHasShares={(val) => setHasShares(val)} />
                     </Route>
                   </Switch>
                 </div>
