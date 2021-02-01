@@ -322,6 +322,7 @@ hr {
   justify-content: space-between;
   font-size: 1rem;
   line-height: 1.2;
+  margin-bottom: 0;
 }
 
 .form__label--range strong {
@@ -440,6 +441,10 @@ hr {
   justify-content: flex-end;
 }
 
+.form__slider--pressed {
+  margin-bottom: 1rem;
+}
+
 .form__slider .rangeslider__labels {
   margin-left: 0;
 }
@@ -511,6 +516,16 @@ hr {
   user-select: none;
   pointer-events: none;
   font-size: 13px;
+}
+
+.age-counter {
+  text-align: right;
+}
+
+.age-counter small {
+  display: block;
+  font-size: 12px;
+  width: 110px;
 }
 
 .Tabs {
@@ -1465,7 +1480,7 @@ hr {
   display: none;
 }
 
-.Results__block img {
+.Results__img img {
   display: none;
 }
 
@@ -1868,11 +1883,14 @@ hr {
     text-align: left;
   }
 
-  .Results__block img {
-    display: block;
+  .Results__img {
     width: 120px;
-    height: auto;
+    min-width: 120px;
     margin-right: 2rem;
+  }
+
+  .Results__img img {
+    display: block;
   }
 
   .Results__block--divided {

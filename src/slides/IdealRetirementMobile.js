@@ -96,11 +96,11 @@ function IdealRetirementMobile(props) {
     <div>
       <div>
         <p>Your current income is <NumberFormat value={props.income} prefix={'$'} thousandSeparator={true} displayType={'text'}/> per year. When choosing a retirement income take into account whether you will own your own home or still have kids to support.</p>
-        <div className="form__slider">
+        <div className="form__slider form__slider--pressed">
           <label htmlFor="" class="form__label form__label--range">
             How long do you need your money to last?
-            <strong>
-              {props.deathAge} years old
+            <strong className="age-counter">
+              {props.deathAge} <small>years old</small>
             </strong>
           </label>
           <Slider
@@ -111,7 +111,7 @@ function IdealRetirementMobile(props) {
             onChange={(val) => props.onSetDeathAge(val)}
           />
         </div>
-        <h2>Standard retirement incomes</h2>
+        <h2>Choose your income</h2>
         <div className="plans">
           <div className="plans__list">
             <div>

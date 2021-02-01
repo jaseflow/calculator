@@ -9,6 +9,7 @@ import superHealthCheckImg from '../superhealthcheck.png'
 import comprehensiveImg from '../comprehensive.png'
 import referImg from '../refer-white.png'
 import printImg from '../form.svg'
+import reportImg from '../report.png'
 
 import IncomeSource from '../components/IncomeSource'
 import RetirementGoal from '../components/RetirementGoal'
@@ -143,7 +144,9 @@ function Results(props) {
             <div>
               <h1 class="desktop-title">Next steps</h1>
               <div className="Results__block">
-                <img src={superHealthCheckImg} alt="" />
+                <div className="Results__img">
+                  <img src={superHealthCheckImg} alt="" />
+                </div>
                 <div class="Results__wrap">
                   <h2 className="flat">Super Health Checks</h2>
                   <p>Covers broad recommendations that do not take into account your personal circumstances.</p>
@@ -153,7 +156,9 @@ function Results(props) {
                 </div>
               </div>
               <div className="Results__block">
-                <img src={singleImg} />
+                <div className="Results__img">
+                  <img src={reportImg} style={{width: '80px', marginLeft: '14px'}}/>
+                </div>
                 <div class="Results__wrap">
                   <h2 className="flat">Generate your report</h2>
                   <p>Save and print a detailed report of this calculator to share with your partner or financial advisor.</p>
