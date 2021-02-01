@@ -16,19 +16,23 @@ function RetirementGoal(props) {
     )
   })
 
-  for (let i = 66; i <= props.deathAge; i++) {
+  for (let i = 1; i <= 40; i++) {
     startRange.push(i)
   }
 
   // add a year to start age or default start age
-  for (let i = props.goal.startAge + 1 || 66 + 1; i <= props.deathAge; i++) {
+  for (let i = 1; i <= 40; i++) {
     endRange.push(i)
   }
 
   const startOptions = startRange.map((o) => {
     return (
       <option value={o} key={`startoption-${o}`}>
-        Age {o}
+        {o > 1 ?
+          o + ' years after retirement'
+          :
+          o + ' year after retirement'
+        }
       </option>
     )
   })
@@ -36,7 +40,11 @@ function RetirementGoal(props) {
   const endOptions = endRange.map((o) => {
     return (
       <option value={o} key={`endoption-${o}`}>
-        Age {o}
+        {o > 1 ?
+          o + ' years'
+          :
+          o + ' year'
+        }
       </option>
     )
   })
@@ -78,6 +86,9 @@ function RetirementGoal(props) {
             <label className="form__label" htmlFor="">Start</label>
             <div className="form__select">
               <select id="" name="" className="form__input form__input--select" onChange={(e) => props.onSetGoalStartAge(e.target.value)}>
+                <option value={1} key={`startoption-1`}>
+                  At retirement
+                </option>
                 {startOptions}
               </select>
             </div>
@@ -85,7 +96,7 @@ function RetirementGoal(props) {
         }
         {props.goal.frequency !== 'once' &&
           <div className="form__group">
-            <label className="form__label" htmlFor="">Until Age</label>
+            <label className="form__label" htmlFor="">Last for</label>
             <div className="form__select">
               <select id="" name="" className="form__input form__input--select" onChange={(e) => props.onSetGoalEndAge(e.target.value)}>
                 {endOptions}
