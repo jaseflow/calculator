@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 
 import Switch from 'react-switch'
 
@@ -64,6 +64,7 @@ function AboutYou(props) {
               prefix="$"
               className="form__input"
               allowDecimals={false}
+              autoFocus={true}
               placeholder="Enter balance"
               onChange={(val) => props.onSetOtherFundsBalance(val)}
             />

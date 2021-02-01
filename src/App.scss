@@ -496,7 +496,7 @@ hr {
   -webkit-appearance: none;
 }
 
-.form__input--prefilled {
+.form__input:focus {
   border-color: $darkGreen;
 }
 
