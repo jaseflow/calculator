@@ -88,6 +88,10 @@ function DecisionsTabbed(props) {
           </div>
         </div>
         <div className={`Tabs__group ${selected === 'investments' ? 'Tabs__group--active' : ''}`}>
+          <p class="Tabs__warning">
+            <i className="fa fa-exclamation-circle"></i>
+            Please note that the investment strategies you choose below will be applied to your LGIAsuper as well as your partner's super.
+          </p>
           <div className="form__row form__row--double">
             <div className="form__slider form__slider--flat form__slider--nolabels">
               <label htmlFor="" class="form__label form__label--range">

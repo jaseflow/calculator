@@ -87,7 +87,7 @@ function AboutYou(props) {
           <div className="form__switch">
             Percentage
             <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetViewTotals(val)} checked={props.viewTotals} />
-            Totals
+            Amounts
           </div>
         </h2>
         <div className="form__row--desktop">
@@ -181,7 +181,7 @@ function AboutYou(props) {
               <label className="form__label form__label--suffixed" htmlFor="">
                 Employer contributions
               </label>
-              <input type="text" value={props.partnerEmployerContributions} className="form__input" defaultValue="12%" />
+              <input type="text" value={props.partnerEmployerContributions} className="form__input" defaultValue="9.5%" />
               { props.viewTotals ?
                 <span className="form__suffix">per month</span>
                 :
@@ -192,7 +192,7 @@ function AboutYou(props) {
               <label className="form__label form__label--toggle" htmlFor="">
                 Standard Member contributions
               </label>
-              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" defaultValue="6%" />
+              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" defaultValue="0%" />
               { props.viewTotals ?
                 <span className="form__suffix">per month</span>
                 :

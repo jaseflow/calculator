@@ -73,7 +73,7 @@ function Results(props) {
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year with a high likelihood <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year <span hidden={props.goals.length ? false : true}>while achieving your <strong>{props.goals.length} goal<i hidden={props.goals.length > 1 ? false : true}>s</i></strong></span> with a <span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>high likelihood</span> <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div class="show-mobile">
@@ -131,7 +131,7 @@ function Results(props) {
             <div>
               <h1 className="desktop-title">Consolidate today</h1>
               <p>By consolidating all your superannuation into your one account, you could save thousands of dollars in administration fees over your working life. This is money that could be growing for your retirement.</p>
-              <a href="#" class="btn btn--large Results__cta">Get started</a>
+              <a href="#" class="btn btn--large Results__cta">More information</a>
             </div>
           </div>
         </div>

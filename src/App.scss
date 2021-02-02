@@ -536,6 +536,19 @@ hr {
   display: none;
 }
 
+.Tabs__warning {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 14px;
+}
+
+.Tabs__warning i {
+  margin-right: 0.75rem;
+  color: #ff7800;
+  font-size: 24px;
+}
+
 .Tabs__group--active {
   display: block;
 }
@@ -591,6 +604,10 @@ hr {
   border-radius: 0 0 10px 10px;
   background: #fff;
   position: relative;
+}
+
+.assumptions .form__group + h3 {
+  margin-top: 1.5rem;
 }
 
 .AboutYou__contributions {
