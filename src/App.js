@@ -80,7 +80,7 @@ function App() {
   const [activePlan, setActivePlan] = useState(plans[0])
   const [age, setAge] = useState(58)
   const [deathAge, setDeathAge] = useState(89)
-  const [likelihood, setLikelihood] = useState(75)
+  const [likelihood, setLikelihood] = useState('very-high')
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
   const [partnerSalary, setPartnerSalary] = useState(0)

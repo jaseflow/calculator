@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
 import Pie from '../components/Pie'
 
@@ -21,6 +21,26 @@ import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
 function Results(props) {
+
+  const [likelihoodLabel, setLikelihoodLabel] = useState('')
+  const [fillPercentage, setFillPercentage] = useState(60)
+
+  useEffect(() => {
+    switch(props.likelihood) {
+      case 'moderate':
+          setLikelihoodLabel("moderate")
+          setFillPercentage(60)
+          break
+      case 'high':
+          setLikelihoodLabel("high")
+          setFillPercentage(80)
+          break
+      case 'very-high':
+          setLikelihoodLabel("very high")
+          setFillPercentage(90)
+          break
+    }
+  },[props.likelihood])
 
   const sources = props.incomeSources.map((s, i) => {
     return (
@@ -67,13 +87,13 @@ function Results(props) {
           </div>
           <div className="Results__age-bg"></div>
           <div className="Results__pie">
-            <Pie stroke={20} radius={120} progress={props.likelihood} />
+            <Pie stroke={20} radius={120} progress={fillPercentage} />
           </div>
         </div>
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year <span hidden={props.goals.length ? false : true}>while achieving your <strong>{props.goals.length} goal<i hidden={props.goals.length > 1 ? false : true}>s</i></strong></span> with a <span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>high likelihood</span> <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
+          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year <span hidden={props.goals.length ? false : true}>while achieving your <strong>{props.goals.length} goal<i hidden={props.goals.length > 1 ? false : true}>s</i></strong></span> with a <span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>{likelihoodLabel} likelihood</span> <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div class="show-mobile">
