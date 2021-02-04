@@ -11,7 +11,7 @@ function OtherIncome(props) {
       <h2 className="half">Other income</h2>
       <p className="double">Please let us know if you have any other assets that could potentially provide you with income once you retire.</p>
       <div className="form__group">
-        <label className="form__label" htmlFor="">Do you own shares or contribute to a managed fund?</label>
+        <label className="form__label" htmlFor="">Do you own shares or managed funds?</label>
         <div className="form__options">
           <label className="form__label form__label--radio flat" htmlFor="hasShares" onChange={() => props.onHasShares('yes')}>
             <input type="radio" value="yes" checked={props.hasShares === 'yes'} id="hasShares" className="form__checkbox" />
@@ -26,7 +26,7 @@ function OtherIncome(props) {
       { props.hasShares === 'yes' &&
         <div className="form__group double">
           <label className="form__label" htmlFor="">
-            Value of your shares or managed funds
+            Enter total amount
           </label>
           <CurrencyInput
             prefix="$"
@@ -52,7 +52,7 @@ function OtherIncome(props) {
       { props.hasCash === 'yes' &&
         <div className="form__group double">
           <label className="form__label" htmlFor="">
-            Total amount of cash
+            Enter total amount
           </label>
           <CurrencyInput
             prefix="$"
