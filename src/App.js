@@ -83,18 +83,21 @@ function App() {
   const [likelihood, setLikelihood] = useState('very-high')
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
-  const [partnerSalary, setPartnerSalary] = useState(0)
+  const [partnerSalary, setPartnerSalary] = useState(null)
   const [incomeSources, setIncomeSources] = useState([])
   const [income, setIncome ] = useState(0)
   const [goals, setGoals] = useState([])
   const [reqIncome, setReqIncome] = useState(activePlan && activePlan.value && activePlan.value.single)
   const [employerContributions, setEmployerContributions] = useState('12%')
   const [memberContributions, setMemberContributions] = useState('6%')
+  const [partnerEmployerContributions, setPartnerEmployerContributions] = useState('9%')
+  const [partnerMemberContributions, setPartnerMemberContributions] = useState('0%')
   const [workingStrategy, setWorkingStrategy] = useState(5)
   const [retiredStrategy, setRetiredStrategy] = useState(3)
   const [volContributions, setVolContributions] = useState(150)
   const [resultLoaded, setResultLoaded] = useState(false)
-  const [viewTotals, setViewTotals] = useState(false)
+  const [viewToggle, setViewToggle] = useState(false)
+  const [partnerViewToggle, setPartnerViewToggle] = useState(false)
 
   function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
@@ -142,7 +145,29 @@ function App() {
       setEmployerContributions(`${employerPercentage}%`)
       setMemberContributions(`${memberPercentage}%`)
     }
-    setViewTotals(val)
+    setViewToggle(val)
+  }
+
+  function handlePartnerViewToggle(val) {
+    if(val) {
+      const partnerEmployerPercentage= parseInt(partnerEmployerContributions.replace('#', ''))
+      const partnerEmployerTotal = ((partnerEmployerPercentage / 100) * partnerSalary) / 12
+
+      const partnerMemberPercentage = parseInt(partnerMemberContributions.replace('#', ''))
+      const partnerMemberTotal = ((partnerMemberPercentage / 100) * partnerSalary) / 12
+
+      setPartnerEmployerContributions(`$${partnerEmployerTotal}`)
+      setPartnerMemberContributions(`$${partnerMemberTotal}`)
+    } else {
+      const partnerEmployerTotal = parseInt(partnerEmployerContributions.replace('$', ''))
+      const partnerEmployerPercentage = Math.round(((partnerEmployerTotal / partnerSalary) * 100) * 12)
+
+      const partnerMemberTotal = parseInt(partnerMemberContributions.replace('$', ''))
+      const partnerMemberPercentage = ((partnerMemberTotal / partnerSalary) * 100) * 12
+      setPartnerEmployerContributions(`${partnerEmployerPercentage}%`)
+      setPartnerMemberContributions(`${partnerMemberPercentage}%`)
+    }
+    setPartnerViewToggle(val)
   }
 
   function handleContinueDisc() {
@@ -448,10 +473,15 @@ function App() {
                         volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
+                        partnerSalary={partnerSalary}
                         employerContributions={employerContributions}
                         memberContributions={memberContributions}
-                        viewTotals={viewTotals}
-                        onSetViewTotals={(val) => handleViewToggle(val)}
+                        partnerEmployerContributions={partnerEmployerContributions}
+                        partnerMemberContributions={partnerMemberContributions}
+                        viewToggle={viewToggle}
+                        partnerViewToggle={partnerViewToggle}
+                        onSetViewToggle={(val) => handleViewToggle(val)}
+                        onSetPartnerViewToggle={(val) => handlePartnerViewToggle(val)}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}
                         onIncludePartnerVoluntary={(val) => setIncludePartnerVoluntary(val)}
                         onIncludeOtherSuper={(val) => setHasOtherSuper(val)}

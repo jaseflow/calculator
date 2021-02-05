@@ -86,7 +86,7 @@ function AboutYou(props) {
           Contributions
           <div className="form__switch">
             Percentage
-            <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetViewTotals(val)} checked={props.viewTotals} />
+            <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetViewToggle(val)} checked={props.viewToggle} />
             Amounts
           </div>
         </h2>
@@ -96,7 +96,7 @@ function AboutYou(props) {
               Employer contributions
             </label>
             <input type="text" value={props.employerContributions} className="form__input " />
-            { props.viewTotals ?
+            { props.viewToggle ?
               <span className="form__suffix">per month</span>
               :
               <span className="form__suffix">of salary per month</span>
@@ -107,7 +107,7 @@ function AboutYou(props) {
               Standard Member contributions
             </label>
             <input type="text" value={props.memberContributions} className="form__input  form__input--suffixed" />
-            { props.viewTotals ?
+            { props.viewToggle ?
               <span className="form__suffix">per month</span>
               :
               <span className="form__suffix">of salary per month</span>
@@ -168,21 +168,29 @@ function AboutYou(props) {
               prefix="$"
               className="form__input"
               allowDecimals={false}
-              defaultValue={props.partnerSalary}
+              placeholder="Enter amount"
+              value={props.partnerSalary || ''}
               onChange={(val) => props.onSetPartnerSalary(val)}
             />
             <span className="form__suffix">per year</span>
           </div>
           <h2 className="AboutYou__contributions">
             Your partner's contributions
+            {props.partnerSalary &&
+              <div className="form__switch">
+                Percentage
+                <Switch className="Switch" uncheckedIcon={false} checkedIcon={false} onChange={(val) => props.onSetPartnerViewToggle(val)} checked={props.partnerViewToggle} />
+                Amounts
+              </div>
+            }
           </h2>
           <div className="form__row--desktop">
             <div className="form__group">
               <label className="form__label form__label--suffixed" htmlFor="">
                 Employer contributions
               </label>
-              <input type="text" value={props.partnerEmployerContributions} className="form__input" defaultValue="9.5%" />
-              { props.viewTotals ?
+              <input type="text" value={props.partnerEmployerContributions} className="form__input" />
+              { props.viewToggle ?
                 <span className="form__suffix">per month</span>
                 :
                 <span className="form__suffix">of salary per month</span>
@@ -192,8 +200,8 @@ function AboutYou(props) {
               <label className="form__label form__label--toggle" htmlFor="">
                 Standard Member contributions
               </label>
-              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" defaultValue="0%" />
-              { props.viewTotals ?
+              <input type="text" value={props.partnerMemberContributions} className="form__input form__input--suffixed" />
+              { props.viewToggle ?
                 <span className="form__suffix">per month</span>
                 :
                 <span className="form__suffix">of salary per month</span>
