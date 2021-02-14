@@ -108,6 +108,10 @@ hr {
   text-align: center;
 }
 
+.rangeslider {
+  margin-bottom: 5px !important;
+}
+
 .rangeslider-horizontal {
   border-radius: 0 !important;
   background: $gray !important;
@@ -254,7 +258,7 @@ hr {
 
 .form__group {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .form__field {
@@ -324,7 +328,6 @@ label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
   line-height: 1.2;
   margin-bottom: 0;
 }
@@ -480,6 +483,18 @@ label {
   left: 50%;
   top: 2px;
   margin-left: -5px;
+}
+
+.form__slider--investment {
+  margin-bottom: 3.5rem;
+}
+
+.form__slider--investment .rangeslider__label-item:first-child {
+  padding-right: 24px !important;
+}
+
+.form__slider--investment .rangeslider__label-item:last-child {
+  padding-left: 24px !important;
 }
 
 .form__options {
@@ -675,19 +690,6 @@ label {
   align-items: center;
   justify-content: space-between;
   margin-top: 2rem;
-}
-
-.Alert {
-  padding: 1rem;
-  background: #fff;
-  line-height: 1.2;
-  border-left: 5px solid $darkGreen;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.25);
-}
-
-.Alert__link {
-  text-decoration: none;
 }
 
 .App__header {
@@ -1069,6 +1071,7 @@ label {
 .tooltip {
   position: relative;
   text-align: left;
+  z-index: 50;
 }
 
 .tooltip__icon {
@@ -1104,6 +1107,15 @@ label {
     border-color: transparent transparent #ffffff transparent;
   }
   p { margin-bottom: 0 }
+}
+
+.tooltip__content--left {
+  right: auto;
+  left: 1rem;
+  &:before {
+    right: auto;
+    left: 1rem;
+  }
 }
 
 .tooltip__content--open {
@@ -1466,6 +1478,7 @@ label {
 .Results__blurb {
   text-align: center;
   opacity: 0;
+  font-size: 18px;
   transform: translateY(100%);
   transition: all 357ms ease;
 }

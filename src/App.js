@@ -473,6 +473,7 @@ function App() {
                         volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
+                        workingStrategy={workingStrategy}
                         partnerSalary={partnerSalary}
                         employerContributions={employerContributions}
                         memberContributions={memberContributions}
@@ -480,6 +481,8 @@ function App() {
                         partnerMemberContributions={partnerMemberContributions}
                         viewToggle={viewToggle}
                         partnerViewToggle={partnerViewToggle}
+                        onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
+                        onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                         onSetViewToggle={(val) => handleViewToggle(val)}
                         onSetPartnerViewToggle={(val) => handlePartnerViewToggle(val)}
                         onPartnerInclude={() => setIncludePartner(!includePartner)}

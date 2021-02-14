@@ -2,17 +2,25 @@ import React, { useEffect } from "react";
 
 import Switch from 'react-switch'
 
+import Tooltip from '../components/Tooltip'
+
 import CurrencyInput from 'react-currency-input-field'
 import NumberFormat from 'react-number-format'
+import Slider from 'react-rangeslider'
+
+const strategies = {
+  1: 'Defensive',
+  2: 'Stable',
+  3: 'Balanced',
+  4: 'Div Growth',
+  5: 'Aggressive'
+}
 
 function AboutYou(props) {
 
   return (
     <div className="AboutYou">
       <h2>About you</h2>
-      <div className="Alert">
-        <p className="flat">You will notice we have prefilled information we already know about you.</p>
-      </div>
       <div className="form">
         <div className="form__row">
           <div className="form__group">
@@ -31,6 +39,9 @@ function AboutYou(props) {
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="super">Current LGIAsuper super balance</label>
+          <Tooltip noIcon topPos={52} arrowPos="left" defaultOpen>
+            <p>We have pre-populated some fields in this calculator with information we already know about you. If this information is incorrect you can update it in this calculator, although please be aware that your changes will not be saved to your account.</p>
+          </Tooltip>
           <CurrencyInput
             id="super"
             prefix="$"
@@ -41,6 +52,24 @@ function AboutYou(props) {
             onChange={(val) => props.onSetSuper(val)}
           />
           <span className="form__suffix">as of 21 Nov 2020</span>
+        </div>
+        <div className="form__group">
+          <div className="form__slider form__slider--investment">
+            <label htmlFor="" class="form__label form__label--range">
+              <span>Current LGIAsuper investment strategy</span>
+              <strong>
+                {strategies[props.workingStrategy]}
+              </strong>
+            </label>
+            <Slider
+              min={1}
+              max={5}
+              labels={strategies}
+              tooltip={false}
+              value={props.workingStrategy}
+              onChange={(val) => props.onSetWorkingStrategy(val)}
+            />
+          </div>
         </div>
         <div className="form__group">
           <label className="form__label" htmlFor="">Do you have a super balance in any other funds?</label>
