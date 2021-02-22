@@ -26,7 +26,7 @@ function AboutYou(props) {
           <div className="form__group">
             <label className="form__label" htmlFor="">Gender</label>
             <div className="form__select">
-              <select id="" name="" className="form__input " defaultValue="male">
+              <select className="form__input" value={props.gender} onChange={(e) => props.onGenderChange(e.target.value)}>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
@@ -55,7 +55,7 @@ function AboutYou(props) {
         </div>
         <div className="form__group">
           <div className="form__slider form__slider--investment">
-            <label htmlFor="" class="form__label form__label--range">
+            <label htmlFor="" className="form__label form__label--range">
               <span>Current LGIAsuper investment strategy</span>
               <strong>
                 {strategies[props.workingStrategy]}
@@ -86,9 +86,10 @@ function AboutYou(props) {
         </div>
         { props.hasOtherSuper === 'yes' &&
           <div className="form__group">
-            <label className="form__label" htmlFor="">
+            <label className="form__label flat" htmlFor="">
               Balance of all other funds
             </label>
+            <p className="pressed">Please note that the investment strategy applied to this amount will be determined by the strategy chosen above.</p>
             <CurrencyInput
               prefix="$"
               className="form__input"
@@ -145,7 +146,7 @@ function AboutYou(props) {
         </div>
         <div className="form__row">
           <div className="form__group">
-            <label className="form__label" htmlFor="contributions">Voluntary (before tax)</label>
+            <label className="form__label" htmlFor="contributions">Salary sacrifice (before tax)</label>
             <CurrencyInput
               id="contributions"
               prefix="$"
@@ -175,9 +176,13 @@ function AboutYou(props) {
             <div className="form__group">
               <label className="form__label" htmlFor="">Gender</label>
               <div className="form__select">
-                <select id="" name="" className="form__input form__input--select">
-                  <option value="">Male</option>
-                  <option value="">Female</option>
+                <select
+                  className="form__input form__input--select"
+                  value={props.partnerGender}
+                  onChange={(e) => props.onPartnerGenderChange(e.target.value)}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
                 </select>
               </div>
             </div>
@@ -253,7 +258,7 @@ function AboutYou(props) {
           { props.includePartnerVoluntary === 'yes' ?
             <div className="form__row--desktop">
               <div className="form__group">
-                <label className="form__label" htmlFor="">Voluntary (before tax)</label>
+                <label className="form__label" htmlFor="">Salary sacrifice (before tax)</label>
                 <input type="text" value="" className="form__input form__input--suffixed" placeholder="Enter amount" />
                 <span className="form__suffix">per month</span>
               </div>

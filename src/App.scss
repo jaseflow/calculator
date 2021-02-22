@@ -461,7 +461,7 @@ label {
 }
 
 .form__slider--labels {
-  margin-bottom: 4.5rem;
+  margin-bottom: 3rem;
 }
 
 .form__slider--nolabels .rangeslider__labels {
@@ -1616,6 +1616,10 @@ label {
 }
 
 .RetirementPlans {
+  margin-top: 4rem;
+}
+
+.RetirementPlans__table {
   border-collapse: collapse;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
   border-radius: 5px;

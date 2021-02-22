@@ -93,7 +93,7 @@ function Results(props) {
       </div>
       <div className="Results__body">
         <div className="container">
-          <p className="Results__blurb">You can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year <span hidden={props.goals.length ? false : true}>while achieving your <strong>{props.goals.length} goal<i hidden={props.goals.length > 1 ? false : true}>s</i></strong></span> with a <span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>{likelihoodLabel} likelihood</span> <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
+          <p className="Results__blurb">You {props.includePartner && 'and your partner'} can retire at age <strong>66</strong> and spend <br /><strong><NumberFormat value={props.reqIncome} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong> per year <span hidden={props.goals.length ? false : true}>while achieving your <strong>{props.goals.length} goal<i hidden={props.goals.length > 1 ? false : true}>s</i></strong></span> with a <span className="Results__settings" onClick={() => props.onOpenModal('assumptions')}>{likelihoodLabel} likelihood</span> <br/>of your money lasting till age <strong>{props.deathAge}</strong>.</p>
           <hr className="Results__hr" />
           <h2>Review your decisions</h2>
           <div class="show-mobile">

@@ -64,7 +64,7 @@ function DecisionsTabbed(props) {
           </div>
         </div>
         <div className={`Tabs__group ${selected === 'contributions' ? 'Tabs__group--active' : ''}`}>
-          <div className="form__slider form__slider--flat">
+          <div className="form__slider" style={{marginTop: 0}}>
             <label htmlFor="" class="form__label form__label--range">
               How much of your take-home pay can you afford to contribute?
               <strong>
@@ -77,15 +77,19 @@ function DecisionsTabbed(props) {
                 <small>&nbsp;month</small>
               </strong>
             </label>
-          <Slider
-              min={0}
-              max={500}
-              tooltip={false}
-              value={props.volContributions}
-              onChange={(val) => props.onSetVolContributions(val)}
-              onChangeComplete={() => props.onSliderRelease()}
-            />
+            <Slider
+                min={0}
+                max={500}
+                tooltip={false}
+                value={props.volContributions}
+                onChange={(val) => props.onSetVolContributions(val)}
+                onChangeComplete={() => props.onSliderRelease()}
+              />
           </div>
+          <p className="flat">
+            Want to know more about how salary sacrifice can impact your superannuation?
+            <a target="_blank" href="https://super.towerswatson.com/lgiasuper/contrib.html?&_ga=2.210438869.196307440.1614055821-693481208.1606187050#/calculator/contrib/start" style={{marginLeft: '0.5rem'}}>Try our salary sacrifice calculator</a>
+          </p>
         </div>
         <div className={`Tabs__group ${selected === 'investments' ? 'Tabs__group--active' : ''}`}>
           <p class="Tabs__warning">

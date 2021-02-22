@@ -79,7 +79,10 @@ function App() {
   const [activeModal, setActiveModal] = useState('')
   const [activePlan, setActivePlan] = useState(plans[0])
   const [age, setAge] = useState(58)
-  const [deathAge, setDeathAge] = useState(89)
+  const [gender, setGender] = useState('male')
+  const [partnerGender, setPartnerGender] = useState('female')
+  const [deathAge, setDeathAge] = useState(85)
+  const [partnerDeathAge, setPartnerDeathAge] = useState(88)
   const [likelihood, setLikelihood] = useState('very-high')
   const [superBalance, setSuperBalance] = useState(500000)
   const [salary, setSalary] = useState(150000)
@@ -305,6 +308,15 @@ function App() {
     setGoals(newGoals)
   }
 
+  function handleGenderChange(val) {
+    setGender(val)
+    if (val === 'male') {
+      setPartnerGender('female')
+    } else {
+      setPartnerGender('male')
+    }
+  }
+
   useEffect(() => {
     setWindowHeight(window.innerHeight)
   },[])
@@ -473,6 +485,8 @@ function App() {
                         volContributions={volContributions}
                         superBalance={superBalance}
                         salary={salary}
+                        gender={gender}
+                        partnerGender={partnerGender}
                         workingStrategy={workingStrategy}
                         partnerSalary={partnerSalary}
                         employerContributions={employerContributions}
@@ -481,6 +495,8 @@ function App() {
                         partnerMemberContributions={partnerMemberContributions}
                         viewToggle={viewToggle}
                         partnerViewToggle={partnerViewToggle}
+                        onGenderChange={(val) => handleGenderChange(val)}
+                        onPartnerGenderChange={(val) => setPartnerGender(val)}
                         onSetWorkingStrategy={(val) => setWorkingStrategy(val)}
                         onSetRetiredStrategy={(val) => setRetiredStrategy(val)}
                         onSetViewToggle={(val) => handleViewToggle(val)}
@@ -524,12 +540,16 @@ function App() {
                           activePlan={activePlan && activePlan.id}
                           reqIncome={reqIncome}
                           deathAge={deathAge}
+                          gender={gender}
+                          partnerGender={partnerGender}
+                          partnerDeathAge={partnerDeathAge}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
                           includePartner={includePartner}
                           onSetPlan={(val) => handleActivePlan(val)}
                           onSetDeathAge={(val) => setDeathAge(val)}
+                          onSetPartnerDeathAge={(val) => setPartnerDeathAge(val)}
                           onSetCustomIncome={(val) => setReqIncome(val)}
                           plans={plans}
                           onInfoClick={(d) => handleModalOpen(d)}
@@ -540,6 +560,9 @@ function App() {
                           income={income}
                           reqIncome={reqIncome}
                           deathAge={deathAge}
+                          gender={gender}
+                          partnerGender={partnerGender}
+                          partnerDeathAge={partnerDeathAge}
                           modestIncome={includePartner ? plans[0].value.couple : plans[0].value.single}
                           comfyIncome={includePartner ? plans[1].value.couple : plans[1].value.single}
                           premiumIncome={includePartner ? plans[2].value.couple : plans[2].value.single}
@@ -547,6 +570,7 @@ function App() {
                           activePlan={activePlan && activePlan.id}
                           onSetPlan={(val) => handleActivePlan(val)}
                           onSetDeathAge={(val) => setDeathAge(val)}
+                          onSetPartnerDeathAge={(val) => setPartnerDeathAge(val)}
                           onSetCustomIncome={(val) => setReqIncome(val)}
                         />
                       </div>
@@ -580,6 +604,7 @@ function App() {
                 deathAge={deathAge}
                 likelihood={likelihood}
                 loaded={resultLoaded}
+                includePartner={includePartner}
                 onOpenModal={(modal) => handleModalOpen(modal)}
                 onRemoveIncome={(s) => handleRemoveIncome(s)}
                 onRemoveGoal={(i) => handleRemoveGoal(i)}
